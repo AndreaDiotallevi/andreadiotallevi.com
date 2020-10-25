@@ -17,10 +17,10 @@ const Navbar = ({ open, onClick }) => {
                 )}
             </div>
             <ul>
-                {routes.map((route) => (
-                    <li key={route.menuName}>
-                        <Link to={route.baseUrl}>
-                            {route.menuName}
+                {routes.map(({ menuName, baseUrl }) => (
+                    <li key={menuName}>
+                        <Link to={baseUrl}>
+                            {menuName}
                         </Link>
                     </li>
                 ))}
