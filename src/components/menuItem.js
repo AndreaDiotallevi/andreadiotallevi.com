@@ -1,16 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const MenuItem = ({ item, onClick }) => {
-    const getLinkClassName = () => {
-        return null
-    }
+import menuItemStyles from "./menuItem.module.scss"
 
+const MenuItem = ({ item, onClick }) => {
     return (
         <Link
             to={`${item.baseUrl}`}
-            className={`menu-item ${getLinkClassName()}`}
             onClick={onClick}
+            className={menuItemStyles.link}
         >
             {item.menuName}
         </Link>

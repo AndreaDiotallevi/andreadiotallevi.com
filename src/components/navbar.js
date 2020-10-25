@@ -10,9 +10,11 @@ const Navbar = ({ open, onClick }) => {
     return (
         <nav className={navbarStyles.navbar}>
             <div>
-                <Link to="/">
-                    <h2>Andrea Diotallevi</h2>
-                </Link>
+                {!open && (
+                    <Link to="/">
+                        <h2>Andrea Diotallevi</h2>
+                    </Link>
+                )}
             </div>
             <ul>
                 {routes.map((route) => (
@@ -22,8 +24,8 @@ const Navbar = ({ open, onClick }) => {
                         </Link>
                     </li>
                 ))}
-                <MenuToggleButton open={open} onClick={onClick} />
             </ul>
+            <MenuToggleButton open={open} onClick={onClick} />
         </nav>
     )
 }

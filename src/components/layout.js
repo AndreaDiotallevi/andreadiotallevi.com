@@ -21,9 +21,9 @@ const Layout = (props) => {
                     open={isMenuOpen}
                     onClick={() => setIsMenuOpen(false)}
                 />
-                {props.children}
+                {!isMenuOpen && props.children}
             </div>
-            <Footer />
+            {!isMenuOpen && <Footer />}
         </div>
     )
 }
