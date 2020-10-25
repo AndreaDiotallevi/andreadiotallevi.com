@@ -1,0 +1,7 @@
+.menu {
+    display: flex;
+
+    @media (min-width: 740px) {
+        display: none;
+    }
+}

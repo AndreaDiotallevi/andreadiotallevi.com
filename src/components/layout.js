@@ -1,15 +1,26 @@
-import React from "react"
+import React, { useState } from "react"
 
-import Header from "./header"
+import Navbar from "./navbar"
+import Menu from "./menu"
 import Footer from "./footer"
+
 import "../styles/index.scss"
 import layoutStyles from "./layout.module.scss"
 
 const Layout = (props) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
     return (
         <div className={layoutStyles.container}>
             <div className={layoutStyles.content}>
-                <Header />
+                <Navbar
+                    open={isMenuOpen}
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                />
+                <Menu
+                    open={isMenuOpen}
+                    onClick={() => setIsMenuOpen(false)}
+                />
                 {props.children}
             </div>
             <Footer />
