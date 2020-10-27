@@ -12,7 +12,6 @@
 
             p {
                 margin-bottom: 0;
-                // font-weight: bold;
                 font-style: italic;
             }
         }
@@ -29,13 +28,39 @@
         }
 
         li {
-            margin-left: 25px;
+            margin-left: 20px;
             margin-bottom: 0;
+
+            // div:first-child {
+            //     position: relative;
+            //     top: -3px;
+            //     left: -3px;
+
+            //     div:first-child {
+            //         position: absolute;
+            //         width: 12px;
+            //         height: 12px;
+            //         background-color: rgba(0, 0, 255, 0.25);
+            //     }
+            // }
 
             a {
                 text-decoration: none;
                 color: inherit;
+                padding: 6px;
+                border-radius: 3px;
+            }
+
+            a:hover {
+                background-color: rgba(0, 0, 255, 0.6);
+                color: white !important;
+                transition: 0.3s;
             }
         }
     }
+}
+
+.active-nav-item {
+    background-color: rgba(0, 0, 255, 0.6);
+    color: white !important;
 }

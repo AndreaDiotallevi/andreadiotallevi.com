@@ -19,7 +19,7 @@ const Navbar = ({ open, onClick }) => {
             <ul>
                 {routes.map(({ menuName, baseUrl }) => (
                     <li key={menuName}>
-                        <Link to={baseUrl}>
+                        <Link to={baseUrl} activeClassName={navbarStyles.activeNavItem}>
                             {menuName}
                         </Link>
                     </li>
