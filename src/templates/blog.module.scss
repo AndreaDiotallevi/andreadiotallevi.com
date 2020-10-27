@@ -1,0 +1,47 @@
+.date {
+    font-style: italic
+}
+
+.blog {
+    a {
+        color: inherit;
+        padding: 2px;
+        text-decoration: none;
+        background-image: linear-gradient(
+          transparent 0%,
+          transparent calc(50% - 8px),
+          rgba(0, 0, 255, 0.25) calc(50% - 9px),
+          rgba(0, 0, 255, 0.25) 100%
+        );
+        background-size: 100% 200%;
+    }
+
+    a:hover {
+        color: white;
+        background-image: linear-gradient(
+          transparent 0%,
+          transparent calc(50% - 8px),
+          rgba(0, 0, 255, 0.6) calc(50% - 9px),
+          rgba(0, 0, 255, 0.6) 100%
+        );
+        background-position: 0px 100%;
+        transition: 0.3s;
+    }
+      
+    a.link-active {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    p:first-of-type {
+        margin-bottom: 0.5rem;
+      }
+
+    figcaption {
+        text-align: center;
+        font-style: normal;
+        font-size: 0.8em;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+}

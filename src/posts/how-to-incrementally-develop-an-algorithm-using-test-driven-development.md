@@ -1,14 +1,13 @@
 ---
-title: "How to Incrementally Develop an Algorithm using Test Driven Development — The Prime Factors Kata"
+title: "How to Incrementally Develop an Algorithm using Test Driven Development"
+description: "The prime factors kata"
 date: "2020-02-20"
 ---
 
-<figure>
-  <img src="https://miro.medium.com/max/1400/1*lc5X8DcDSwQ5SQDvHoA9Cg.jpeg" alt="Photo by Darwin Vegher"/>
-  <figcaption>
-  <p>Photo by <a href='https://unsplash.com/@_bahador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Bahador</a> on <a href='https://unsplash.com/s/photos/traffic-lights?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
-  </figcaption>
-</figure>
+![Photo by Darwin Vegher](./traffic-lights.jpg)
+<figcaption>
+    <p>Photo by <a href='https://unsplash.com/@_bahador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Bahador</a> on <a href='https://unsplash.com/s/photos/traffic-lights?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
+</figcaption>
 
 In the world of software development, test-driven development (TDD) is a discipline where failing tests are written first, and _only then_ is the actual software code created, aiming to pass the newly-generated tests.
 

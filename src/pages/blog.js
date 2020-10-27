@@ -13,6 +13,7 @@ const BlogPage = () => {
                     node {
                         frontmatter {
                             title
+                            description
                             date
                         }
                         fields {

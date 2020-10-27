@@ -1,16 +1,13 @@
 ---
 title: "Big O Notation and the Magic of Time Complexity"
+description: "A guide on how to compare algorithms’ behaviour"
 date: "2020-04-15"
 ---
 
-#### A guide on how to compare algorithms’ behaviour
-
-<figure>
-  <img src="https://miro.medium.com/max/1400/1*ffsj9y13OznSarnmcxVBFw.jpeg" alt="Photo by Darwin Vegher"/>
-  <figcaption>
-  <p>Photo by <a href='https://unsplash.com/@darwiiiin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Darwin Vegher</a> on <a href='https://unsplash.com/s/photos/vortex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
-  </figcaption>
-</figure>
+![Photo by Darwin Vegher](./circular-building.jpg)
+<figcaption>
+   <p>Photo by <a href='https://unsplash.com/@darwiiiin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Darwin Vegher</a> on <a href='https://unsplash.com/s/photos/vortex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
+</figcaption>
 
 Have you ever wondered how your algorithm would perform if you _drastically increase_ the input data set? The concept programmers use to **compare algorithms’ behaviours** is the [big-O mathematical notation](https://en.wikipedia.org/wiki/Big_O_notation).
 

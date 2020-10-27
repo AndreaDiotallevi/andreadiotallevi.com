@@ -80,20 +80,3 @@
     outline: none;
 }
   
-.toggle-button-line {
-    width: 20px;
-    height: 2px;
-    background: black;
-}
-  
-.menu-open.line-top {
-    transform: rotate(45deg);
-    transform-origin: top left;
-    margin-bottom: 5px;
-}
-  
-.menu-open.line-bottom {
-    transform: rotate(-45deg);
-    transform-origin: top left;
-    margin-top: 5px;
-}

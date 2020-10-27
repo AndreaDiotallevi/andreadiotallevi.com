@@ -12,7 +12,7 @@ const Navbar = ({ open, onClick }) => {
             <div>
                 {!open && (
                     <Link to="/">
-                        <h2>Andrea Diotallevi</h2>
+                        <p>Andrea Diotallevi</p>
                     </Link>
                 )}
             </div>

@@ -10,8 +10,10 @@
             text-decoration: none;
             color: inherit;
 
-            h2 {
+            p {
                 margin-bottom: 0;
+                // font-weight: bold;
+                font-style: italic;
             }
         }
     }
@@ -27,7 +29,7 @@
         }
 
         li {
-            margin-left: 15px;
+            margin-left: 25px;
             margin-bottom: 0;
 
             a {
