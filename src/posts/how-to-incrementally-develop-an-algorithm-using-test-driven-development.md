@@ -1,10 +1,10 @@
 ---
 title: "How to Incrementally Develop an Algorithm using Test Driven Development"
-description: "The prime factors kata"
+description: "The prime factors kata."
 date: "2020-02-20"
+featuredImage: traffic-lights.jpg
 ---
 
-![Photo by Darwin Vegher](./traffic-lights.jpg)
 <figcaption>
     <p>Photo by <a href='https://unsplash.com/@_bahador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Bahador</a> on <a href='https://unsplash.com/s/photos/traffic-lights?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
 </figcaption>

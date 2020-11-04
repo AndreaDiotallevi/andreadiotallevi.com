@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
@@ -19,7 +20,14 @@ query (
       frontmatter {
         title
         description
-        date
+		date
+		featuredImage {
+			childImageSharp {
+				fluid(maxWidth: 750) {
+					...GatsbyImageSharpFluid
+				}
+			}
+		}
       }
       html
     }
@@ -54,6 +62,8 @@ const Blog = (props) => {
 			</div>
 
 			<p className={blogStyles.date}>{props.data.markdownRemark.frontmatter.date}</p>
+
+			<Img fluid={props.data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid} />
 
 			<div
 				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}

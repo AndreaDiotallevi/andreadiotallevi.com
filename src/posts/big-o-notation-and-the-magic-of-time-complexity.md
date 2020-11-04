@@ -1,10 +1,10 @@
 ---
 title: "Big O Notation and the Magic of Time Complexity"
-description: "A guide on how to compare algorithms’ behaviour"
+description: "A guide on how to compare algorithms’ behaviour."
 date: "2020-04-15"
+featuredImage: circular-building.jpg
 ---
 
-![Photo by Darwin Vegher](./circular-building.jpg)
 <figcaption>
    <p>Photo by <a href='https://unsplash.com/@darwiiiin?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Darwin Vegher</a> on <a href='https://unsplash.com/s/photos/vortex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
 </figcaption>
