@@ -1,8 +1,9 @@
 ---
 title: "Big O Notation and the Magic of Time Complexity"
-description: "A guide on how to compare algorithms’ behaviour."
+description: "In this article I explore the fundamental components of algorithm complexity analysis, describe how to derive an algorithm big-O and list all the common big-O classes of runtime complexity."
 date: "2020-04-15"
 featuredImage: circular-building.jpg
+thumbnailImage: circular-building-thumbnail.jpg
 ---
 
 <figcaption>

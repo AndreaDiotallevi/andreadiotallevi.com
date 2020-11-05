@@ -1,8 +1,9 @@
 ---
 title: "How to Incrementally Develop an Algorithm using Test Driven Development"
-description: "The prime factors kata."
+description: "In this article I explore the fundamental components of test-driven development, with an example of how to incrementally develop an algorithm using the TTD cycle."
 date: "2020-02-20"
 featuredImage: traffic-lights.jpg
+thumbnailImage: traffic-lights-thumbnail.jpg
 ---
 
 <figcaption>

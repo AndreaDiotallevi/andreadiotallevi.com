@@ -1,0 +1,26 @@
+.title {
+    margin-bottom: 1rem;
+}
+
+.image-container {
+    min-width: 175px;
+    margin-bottom: 1rem;
+}
+
+.flex-div {
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        margin-left: 0;
+    }
+}
+
+.about-text-div {
+    margin-left: 1rem;
+
+    @media only screen and (max-width: 600px) {
+        margin-left: 0;
+    }
+}

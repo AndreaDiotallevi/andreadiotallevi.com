@@ -1,32 +1,38 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
-const AboutPage = () => {
+import aboutStyles from "./about.module.scss"
+
+export const query = graphql`
+  query {
+    fileName: file(relativePath: { eq: "assets/profile-photo.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 175) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
+const AboutPage = (props) => {
     return (
         <Layout>
-            <h1>About</h1>
-            <p>I am a full-stack software engineer based in London.</p>
-            <p>
-                I have expertise in designing, implementing, and maintaining
-                full-stack applications with proficiency in Node, React, Python,
-                Git, CI/CD, and RESTful APIs.
-            </p>
-            <p>
-                I have also experience collaborating in modern software
-                methodologies like test-driven development, pair programming, code
-                reviews and AGILE.
-            </p>
-            <p>
-                Before becoming a software engineer and graduating from Makers
-                Academy, I worked as an architect for five years, where I learnt a
-                great deal about attention to detail, team collaboration, developing
-                technical documentation and meeting given specifications in time.
-            </p>
-            <p>
-                I'm looking forward to being part of a dynamic, agile team, solving
-                new challenges and building innovative digital technology.
-            </p>
+            <h2 className={aboutStyles.title}>About</h2>
+            <div className={aboutStyles.flexDiv}>
+                <div className={aboutStyles.imageContainer}>
+                    <Img fluid={props.data.fileName.childImageSharp.fluid} />
+                </div>
+                <div className={aboutStyles.aboutTextDiv}>
+                    <p>I am a full-stack software developer based in London.</p>
+                    <p>I enjoy writing about algorithms and software development best practices to improve my skills and for sharing what I learn with our amazing software community.</p>
+                    <p>Before moving into software development, I worked as a residential architect for five years, which helps me every day to communicate with clarity with my teammates and contribute with my design sensibility.</p>
+                    <p>As a pianist, music has always been an integral part of my life. The habit of practicing and composing pieces of music has taught me how to concentrate for long hours and build a balanced and grounded mindset.</p>
+                </div>
+            </div>
         </Layout>
     )
 }

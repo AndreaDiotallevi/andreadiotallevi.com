@@ -7,30 +7,56 @@
 }
 
 .post {
-    margin: 1rem 0;
-    width: 42%;
+    margin: 0;
+    margin-bottom: 5rem;
 
     a {
         color: inherit;
         display: block;
         text-decoration: none;
-        margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 400px;
 
-        div h2 {
+        h2 {
             margin-bottom: 1rem;
         }
+    }
 
-        div div {
-            margin-bottom: 1rem;
+    &:hover {
+        transition: 0.3s;
+
+        h2 {
+            text-decoration: underline;
         }
     }
 }
 
 .date {
     font-size: .8rem;
-        font-style: italic;
+    font-style: italic;
+}
+
+.image-container {
+    min-width: 175px;
+
+    @media only screen and (max-width: 600px) {
+        margin-bottom: 1rem;
+    }
+}
+
+.flex-container {
+    display: flex;
+
+    @media only screen and (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.description-date-div {
+    margin-left: 1rem;
+
+    @media only screen and (max-width: 600px) {
+        margin-left: 0;
+    }
 }
