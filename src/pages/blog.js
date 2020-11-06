@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
 
@@ -35,6 +36,10 @@ const BlogPage = () => {
 
     return (
         <Layout>
+            <Seo
+                title="Blog | Andrea Diotallevi"
+                description="Andrea Diotallevi's blog posts"
+            />
             <ol className={blogStyles.posts}>
                 {data.allMarkdownRemark.edges.map(edge => (
                     <li className={blogStyles.post} key={edge.node.frontmatter.title}>

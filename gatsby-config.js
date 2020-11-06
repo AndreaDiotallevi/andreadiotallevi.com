@@ -1,9 +1,14 @@
 module.exports = {
 	siteMetadata: {
 		title: "Andrea Diotallevi | Software Developer",
-		author: "Andrea Diotallevi"
+		author: "Andrea Diotallevi",
+		description: "Andrea Diotallevi's personal website",
+		url: "https://www.andreadiotallevi.com",
+		image: "./andrea-diotallevi.jpg",
+		twitterUsername: "@a_diotallevi_"
 	},
 	plugins: [
+		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sass",
 		{
 			resolve: "gatsby-source-filesystem",

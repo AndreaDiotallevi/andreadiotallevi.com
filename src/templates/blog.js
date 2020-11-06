@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
 
@@ -11,11 +12,11 @@ query (
     $slug: String!
   ) {
     markdownRemark (
-      fields: {
-        slug: {
-          eq: $slug
-        }
-      }
+      	fields: {
+        	slug: {
+          		eq: $slug
+        	}
+      	}	
     ) {
       frontmatter {
         title
@@ -35,8 +36,16 @@ query (
 `
 
 const Blog = (props) => {
+	const { title, description, date, featuredImage } = props.data.markdownRemark.frontmatter
+
 	return (
 		<Layout>
+			<Seo
+				title={title + " | Andrea Diotallevi"}
+				description={description}
+				image={featuredImage.childImageSharp.fluid.src}
+				article={true}
+			/>
 			<div style={{ position: "relative", top: -16, left: -16 }}>
 				<div
 					style={{
@@ -47,9 +56,7 @@ const Blog = (props) => {
 					}}
 				/>
 			</div>
-
-			<h1 className={blogStyles.title}>{props.data.markdownRemark.frontmatter.title}</h1>
-
+			<h1 className={blogStyles.title}>{title}</h1>
 			<div style={{ position: "relative", top: -14, left: -16 }}>
 				<div
 					style={{
@@ -60,11 +67,8 @@ const Blog = (props) => {
 					}}
 				/>
 			</div>
-
-			<p className={blogStyles.date}>{props.data.markdownRemark.frontmatter.date}</p>
-
-			<Img fluid={props.data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid} />
-
+			<p className={blogStyles.date}>{date}</p>
+			<Img fluid={featuredImage.childImageSharp.fluid} />
 			<div
 				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
 				className={blogStyles.blog}
