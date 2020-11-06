@@ -1,10 +1,10 @@
 .title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .image-container {
     min-width: 175px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .flex-div {
@@ -19,6 +19,31 @@
 
 .about-text-div {
     margin-left: 1.5rem;
+    
+    a {
+        color: inherit;
+        padding: 2px;
+        text-decoration: none;
+        background-image: linear-gradient(
+          transparent 0%,
+          transparent calc(50% - 8px),
+          rgba(0, 0, 255, 0.25) calc(50% - 8px),
+          rgba(0, 0, 255, 0.25) 100%
+        );
+        background-size: 100% 200%;
+    }
+
+    a:hover {
+        color: white;
+        background-image: linear-gradient(
+          transparent 0%,
+          transparent calc(50% - 8px),
+          rgba(0, 0, 255, 0.6) calc(50% - 8px),
+          rgba(0, 0, 255, 0.6) 100%
+        );
+        background-position: 0px 100%;
+        transition: 0.3s;
+    }
 
     @media only screen and (max-width: 600px) {
         margin-left: 0;
