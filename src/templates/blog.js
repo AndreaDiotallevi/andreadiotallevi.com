@@ -21,7 +21,7 @@ query (
       frontmatter {
         title
         description
-		date
+		date(formatString: "MMMM Do, YYYY")
 		featuredImage {
 			childImageSharp {
 				fluid(maxWidth: 750) {

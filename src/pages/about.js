@@ -11,7 +11,7 @@ export const query = graphql`
   query {
     fileName: file(relativePath: { eq: "assets/profile-photo.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 175) {
+        fluid(maxWidth: 170) {
           ...GatsbyImageSharpFluid
         }
       }

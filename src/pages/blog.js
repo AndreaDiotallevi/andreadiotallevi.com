@@ -16,10 +16,10 @@ const BlogPage = () => {
                         frontmatter {
                             title
                             description
-                            date
-                            thumbnailImage {
+                            date(formatString: "MMMM Do, YYYY")
+                            featuredImage {
                                 childImageSharp {
-                                    fluid(maxWidth: 175) {
+                                    fluid(maxWidth: 170) {
                                         ...GatsbyImageSharpFluid
                                     }
                                 }
@@ -77,13 +77,13 @@ const BlogPage = () => {
                         </div> */}
                         <Link to={`/blog/${edge.node.fields.slug}`}>
                             <h2>{edge.node.frontmatter.title}</h2>
+                            <p className={blogStyles.date}>{edge.node.frontmatter.date}</p>
                             <div className={blogStyles.flexContainer}>
-                                <div className={blogStyles.imageContainer}>
-                                    <Img fluid={edge.node.frontmatter.thumbnailImage.childImageSharp.fluid} className={blogStyles.image} />
-                                </div>
                                 <div className={blogStyles.descriptionDateDiv}>
                                     <p>{edge.node.frontmatter.description}</p>
-                                    <p className={blogStyles.date}>{edge.node.frontmatter.date}</p>
+                                </div>
+                                <div className={blogStyles.imageContainer}>
+                                    <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
                                 </div>
                             </div>
                         </Link>

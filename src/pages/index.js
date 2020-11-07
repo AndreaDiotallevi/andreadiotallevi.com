@@ -16,10 +16,10 @@ const IndexPage = () => {
                         frontmatter {
                             title
                             description
-                            date
-                            thumbnailImage {
+                            date(formatString: "MMMM Do, YYYY")
+                            featuredImage {
                                 childImageSharp {
-                                    fluid(maxWidth: 175) {
+                                    fluid(maxWidth: 170) {
                                         ...GatsbyImageSharpFluid
                                     }
                                 }
@@ -45,13 +45,13 @@ const IndexPage = () => {
                     <li className={indexStyles.post} key={edge.node.frontmatter.title}>
                         <Link to={`/blog/${edge.node.fields.slug}`}>
                             <h2>{edge.node.frontmatter.title}</h2>
+                            <p className={indexStyles.date}>{edge.node.frontmatter.date}</p>
                             <div className={indexStyles.flexContainer}>
-                                <div className={indexStyles.imageContainer}>
-                                    <Img fluid={edge.node.frontmatter.thumbnailImage.childImageSharp.fluid} className={indexStyles.image} />
-                                </div>
                                 <div className={indexStyles.descriptionDateDiv}>
                                     <p>{edge.node.frontmatter.description}</p>
-                                    <p className={indexStyles.date}>{edge.node.frontmatter.date}</p>
+                                </div>
+                                <div className={indexStyles.imageContainer}>
+                                    <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={indexStyles.image} />
                                 </div>
                             </div>
                         </Link>
