@@ -7,7 +7,7 @@ const MenuToggleButton = ({ open, onClick }) => {
         <button
             className={`${menuToggleButtonStyles.toggleButton} ${open ? menuToggleButtonStyles.menuOpen : ""}`}
             onClick={onClick}
-            ariaLabel="menu-toggle"
+            aria-label="menu-toggle"
         >
             <span></span>
             <span></span>
