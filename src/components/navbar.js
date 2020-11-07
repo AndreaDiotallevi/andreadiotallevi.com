@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import MenuToggleButton from "./MenuToggleButton"
+import MenuToggleButton from "./menuToggleButton"
 import routes from "../utils/routes"
 
 import navbarStyles from "./navbar.module.scss"

@@ -1,6 +1,6 @@
 import React from "react"
 
-import MenuItem from "./MenuItem"
+import MenuItem from "./menuItem"
 import routes from "../utils/routes"
 
 import menuStyles from "./menu.module.scss"
