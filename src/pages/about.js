@@ -26,6 +26,16 @@ const AboutPage = (props) => {
 				title="About | Andrea Diotallevi"
 				description="All about Andrea Diotallevi"
 			/>
+			<div style={{ position: "relative", top: -16, left: -16 }}>
+				<div
+					style={{
+						position: "absolute",
+						width: 43,
+						height: 43,
+						backgroundColor: "rgba(0, 0, 255, 0.25)",
+					}}
+				/>
+			</div>
 			<h2 className={aboutStyles.title}>About</h2>
 			<div className={aboutStyles.flexDiv}>
 				<div className={aboutStyles.imageContainer}>
