@@ -8,7 +8,7 @@ module.exports = {
 		author: "Andrea Diotallevi",
 		description: "Andrea Diotallevi's personal website",
 		url: "https://www.andreadiotallevi.com",
-		image: "./andrea-diotallevi.jpg",
+		image: "/andrea-diotallevi.jpg",
 		twitterUsername: "@a_diotallevi_"
 	},
 	plugins: [
