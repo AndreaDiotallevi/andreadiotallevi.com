@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import Navbar from "./navbar"
 import Menu from "./menu"
-import Footer from "./footer"
+// import Footer from "./footer"
 
 import "../styles/index.scss"
 import layoutStyles from "./layout.module.scss"
