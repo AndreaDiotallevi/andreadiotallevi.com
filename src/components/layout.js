@@ -23,7 +23,7 @@ const Layout = (props) => {
                 />
                 {!isMenuOpen && props.children}
             </div>
-            {!isMenuOpen && <Footer />}
+            {/* {!isMenuOpen && <Footer />} */}
         </div>
     )
 }
