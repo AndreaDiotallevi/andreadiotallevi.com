@@ -11,13 +11,7 @@ export const query = graphql`
 query (
     $slug: String!
   ) {
-    markdownRemark (
-      	fields: {
-        	slug: {
-          		eq: $slug
-        	}
-      	}	
-    ) {
+    markdownRemark (fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         description
@@ -30,7 +24,12 @@ query (
 			}
 		}
       }
-      html
+	  html
+	  fields {
+		  readingTime {
+			  text
+		  }
+	  }
     }
   }
 `
@@ -67,7 +66,11 @@ const Blog = (props) => {
 					}}
 				/>
 			</div>
-			<p className={blogStyles.date}>{date}</p>
+			<div className={blogStyles.dateAndReadingTimeDiv}>
+				<p>{date}</p>
+				<p style={{ margin: "0 10px" }}>·</p>
+				<p>{props.data.markdownRemark.fields.readingTime.text}</p>
+			</div>
 			<Img fluid={featuredImage.childImageSharp.fluid} />
 			<div
 				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}

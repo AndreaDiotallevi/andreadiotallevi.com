@@ -27,6 +27,9 @@ const IndexPage = () => {
                         }
                         fields {
                             slug
+                            readingTime {
+                                text
+                            }
                         }
                     }
                 }
@@ -65,7 +68,11 @@ const IndexPage = () => {
                                     }}
                                 />
                             </div>
-                            <p className={indexStyles.date}>{edge.node.frontmatter.date}</p>
+                            <div className={indexStyles.dateAndReadingTimeDiv}>
+                                <p>{edge.node.frontmatter.date}</p>
+                                <p style={{ margin: "0 10px" }}>·</p>
+                                <p>{edge.node.fields.readingTime.text}</p>
+                            </div>
                             <div className={indexStyles.flexContainer}>
                                 <div className={indexStyles.descriptionDateDiv}>
                                     <p>{edge.node.frontmatter.description}</p>

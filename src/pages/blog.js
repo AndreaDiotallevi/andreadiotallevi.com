@@ -27,6 +27,9 @@ const BlogPage = () => {
                         }
                         fields {
                             slug
+                            readingTime {
+                                text
+                            }
                         }
                     }
                 }
@@ -97,7 +100,11 @@ const BlogPage = () => {
                                     }}
                                 />
                             </div>
-                            <p className={blogStyles.date}>{edge.node.frontmatter.date}</p>
+                            <div className={blogStyles.dateAndReadingTimeDiv}>
+                                <p>{edge.node.frontmatter.date}</p>
+                                <p style={{ margin: "0 10px" }}>·</p>
+                                <p>{edge.node.fields.readingTime.text}</p>
+                            </div>
                             <div className={blogStyles.flexContainer}>
                                 <div className={blogStyles.descriptionDateDiv}>
                                     <p>{edge.node.frontmatter.description}</p>
