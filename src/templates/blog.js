@@ -47,23 +47,15 @@ const Blog = (props) => {
 			/>
 			<div style={{ position: "relative", top: -16, left: -16 }}>
 				<div
-					style={{
-						position: "absolute",
-						width: 54,
-						height: 54,
-						backgroundColor: "rgba(0, 0, 255, 0.25)",
-					}}
+					style={{ position: "absolute" }}
+					className={blogStyles.titleSquaredDiv}
 				/>
 			</div>
 			<h1 className={blogStyles.title}>{title}</h1>
 			<div style={{ position: "relative", top: -14, left: -16 }}>
 				<div
-					style={{
-						position: "absolute",
-						width: 8,
-						height: 54,
-						backgroundColor: "rgba(0, 0, 255, 0.25)",
-					}}
+					style={{ position: "absolute" }}
+					className={blogStyles.dateRectangularDiv}
 				/>
 			</div>
 			<div className={blogStyles.dateAndReadingTimeDiv}>

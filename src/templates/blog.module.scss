@@ -48,3 +48,24 @@
         margin-bottom: 1.5rem;
     }
 }
+
+.title-squared-div {
+    width: 54px;
+    height: 54px;
+    background-color: rgba(0, 0, 255, 0.25);
+
+    @media only screen and (max-width: 480px) {
+        width: 49px;
+        height: 49px;
+    }
+}
+
+.date-rectangular-div {
+    width: 8px;
+    height: 54px;
+    background-color: rgba(0, 0, 255, 0.25);
+
+    @media only screen and (max-width: 480px) {
+        height: 49px;
+    }
+}

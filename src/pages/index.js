@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import indexStyles from "./blog.module.scss"
+import blogStyles from "./blog.module.scss"
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -43,42 +43,38 @@ const IndexPage = () => {
                 title="Andrea Diotallevi | Software Developer"
                 description="Andrea Diotallevi's website"
             />
-            <ol className={indexStyles.posts}>
+            <ol className={blogStyles.posts}>
                 {data.allMarkdownRemark.edges.map(edge => (
-                    <li className={indexStyles.post} key={edge.node.frontmatter.title}>
+                    <li className={blogStyles.post} key={edge.node.frontmatter.title}>
                         <div style={{ position: "relative", top: -16, left: -16 }}>
                             <div
-                                style={{
-                                    position: "absolute",
-                                    width: 43,
-                                    height: 43,
-                                    backgroundColor: "rgba(0, 0, 255, 0.25)",
-                                }}
+                                style={{ position: "absolute", }}
+                                className={blogStyles.titleSquaredDiv}
                             />
                         </div>
                         <Link to={`/blog/${edge.node.fields.slug}`}>
                             <h2>{edge.node.frontmatter.title}</h2>
-                            <div style={{ position: "relative", top: -8, left: -16 }}>
+                            {/* <div style={{ position: "relative", top: -8, left: -16 }}>
                                 <div
                                     style={{
                                         position: "absolute",
                                         width: 8,
                                         height: 42,
-                                        backgroundColor: "rgba(0, 0, 255, 0.25)",
                                     }}
+                                    className={blogStyles.dateRectangularDiv}
                                 />
-                            </div>
-                            <div className={indexStyles.dateAndReadingTimeDiv}>
+                            </div> */}
+                            <div className={blogStyles.dateAndReadingTimeDiv}>
                                 <p>{edge.node.frontmatter.date}</p>
                                 <p style={{ margin: "0 10px" }}>·</p>
                                 <p>{edge.node.fields.readingTime.text}</p>
                             </div>
-                            <div className={indexStyles.flexContainer}>
-                                <div className={indexStyles.descriptionDateDiv}>
+                            <div className={blogStyles.flexContainer}>
+                                <div className={blogStyles.descriptionDateDiv}>
                                     <p>{edge.node.frontmatter.description}</p>
                                 </div>
-                                <div className={indexStyles.imageContainer}>
-                                    <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={indexStyles.image} />
+                                <div className={blogStyles.imageContainer}>
+                                    <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
                                 </div>
                             </div>
                         </Link>
