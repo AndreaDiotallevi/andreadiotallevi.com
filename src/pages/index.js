@@ -2,10 +2,11 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
+import LayoutWide from "../components/layoutWide"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
+import templateBlogStyles from "../templates/blog.module.scss"
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -38,50 +39,41 @@ const IndexPage = () => {
     `)
 
     return (
-        <Layout>
+        <LayoutWide>
             <Seo
                 title="Andrea Diotallevi | Software Developer"
                 description="Andrea Diotallevi's website"
             />
-            <ol className={blogStyles.posts}>
-                {data.allMarkdownRemark.edges.map(edge => (
-                    <li className={blogStyles.post} key={edge.node.frontmatter.title}>
-                        <div style={{ position: "relative", top: -16, left: -16 }}>
-                            <div
-                                style={{ position: "absolute", }}
-                                className={blogStyles.titleSquaredDiv}
-                            />
-                        </div>
-                        <Link to={`/blog/${edge.node.fields.slug}`}>
-                            <h2>{edge.node.frontmatter.title}</h2>
-                            {/* <div style={{ position: "relative", top: -8, left: -16 }}>
-                                <div
-                                    style={{
-                                        position: "absolute",
-                                        width: 8,
-                                        height: 42,
-                                    }}
-                                    className={blogStyles.dateRectangularDiv}
-                                />
-                            </div> */}
-                            <div className={blogStyles.dateAndReadingTimeDiv}>
-                                <p>{edge.node.frontmatter.date}</p>
-                                <p style={{ margin: "0 10px" }}>·</p>
-                                <p>{edge.node.fields.readingTime.text}</p>
-                            </div>
-                            <div className={blogStyles.flexContainer}>
-                                <div className={blogStyles.descriptionDateDiv}>
+            <div>
+                <div style={{ position: "relative", top: -16, left: -16 }}>
+                    <div
+                        style={{ position: "absolute" }}
+                        className={templateBlogStyles.titleSquaredDiv}
+                    />
+                </div>
+                <h1>Blog</h1>
+                <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+                    <ol className={blogStyles.posts}>
+                        {data.allMarkdownRemark.edges.map(edge => (
+                            <li className={blogStyles.post} key={edge.node.frontmatter.title}>
+                                <Link to={`/blog/${edge.node.fields.slug}`}>
+                                    <div className={blogStyles.imageContainer}>
+                                        <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
+                                    </div>
+                                    <div className={blogStyles.dateAndReadingTimeDiv}>
+                                        <p>{edge.node.frontmatter.date}</p>
+                                        <p style={{ margin: "0 10px" }}>·</p>
+                                        <p>{edge.node.fields.readingTime.text}</p>
+                                    </div>
+                                    <h2>{edge.node.frontmatter.title}</h2>
                                     <p>{edge.node.frontmatter.description}</p>
-                                </div>
-                                <div className={blogStyles.imageContainer}>
-                                    <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
-                                </div>
-                            </div>
-                        </Link>
-                    </li>
-                ))}
-            </ol>
-        </Layout>
+                                </Link>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            </div>
+        </LayoutWide>
     )
 }
 

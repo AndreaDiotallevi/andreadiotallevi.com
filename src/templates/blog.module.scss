@@ -8,6 +8,14 @@
     font-weight: 700;
 }
 
+.image {
+    border-radius: 20px;
+
+    @media only screen and (max-width: 750px) {
+        border-radius: 10px;
+    }
+}
+
 .blog {
     a {
         color: inherit;

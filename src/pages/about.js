@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import aboutStyles from "./about.module.scss"
+import templateBlogStyles from "../templates/blog.module.scss"
 
 export const query = graphql`
   query {
@@ -28,15 +29,11 @@ const AboutPage = (props) => {
 			/>
 			<div style={{ position: "relative", top: -16, left: -16 }}>
 				<div
-					style={{
-						position: "absolute",
-						width: 43,
-						height: 43,
-						backgroundColor: "rgba(0, 0, 255, 0.25)",
-					}}
+					style={{ position: "absolute" }}
+					className={templateBlogStyles.titleSquaredDiv}
 				/>
 			</div>
-			<h2 className={aboutStyles.title}>About</h2>
+			<h1 className={aboutStyles.title}>About</h1>
 			<div className={aboutStyles.flexDiv}>
 				<div className={aboutStyles.imageContainer}>
 					<Img fluid={props.data.fileName.childImageSharp.fluid} />

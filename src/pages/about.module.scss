@@ -5,6 +5,9 @@
 .image-container {
     min-width: 215px;
     margin-bottom: 1.5rem;
+    img {
+        border-radius: 10px;
+    }
 }
 
 .flex-div {

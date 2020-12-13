@@ -63,7 +63,7 @@ const Blog = (props) => {
 				<p style={{ margin: "0 10px" }}>·</p>
 				<p>{props.data.markdownRemark.fields.readingTime.text}</p>
 			</div>
-			<Img fluid={featuredImage.childImageSharp.fluid} />
+			<Img fluid={featuredImage.childImageSharp.fluid} className={blogStyles.image} />
 			<div
 				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
 				className={blogStyles.blog}

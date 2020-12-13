@@ -4,6 +4,8 @@
     align-items: center;
     height: 50px;
     margin-bottom: 75px;
+    max-width: 714px;
+    width: 100%;
 
     div {
         a {
@@ -12,8 +14,9 @@
 
             p {
                 margin-bottom: 0;
-                color: rgba(0, 0, 255, 0.6);
+                // color: rgba(0, 0, 255, 0.6);
                 font-weight: 700;
+                text-transform: uppercase;
             }
         }
     }
@@ -36,7 +39,7 @@
                 text-decoration: none;
                 color: inherit;
                 padding: 6px;
-                // border-radius: 3px;
+                border-radius: 3px;
             }
 
             a:hover {

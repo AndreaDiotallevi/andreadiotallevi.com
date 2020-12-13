@@ -1,14 +1,22 @@
 .posts {
+    // max-width: 900px;
     list-style-type: none;
     margin: 0;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .post {
+    width: 47%;
+    cursor: pointer;
     margin: 0;
     margin-bottom: 5rem;
+
+    @media only screen and (max-width: 900px) {
+        width: 100%;
+    }
 
     a {
         color: inherit;
@@ -24,10 +32,14 @@
     }
 
     &:hover {
-        transition: 0.3s;
+        transition: all 0.3s ease-in;
+        
+        .image {
+            box-shadow: 1px -1px 10px 0 rgba(0, 0, 0, 0.25);
+        }
 
-        .title-squared-div, .date-rectangular-div {
-            background-color: rgba(0, 0, 255, 0.6);
+        h2 {
+            text-decoration: underline;
         }
     }
 }
@@ -36,30 +48,28 @@
     display: flex;
     color: rgba(0, 0, 255, 0.6);
     font-weight: 700;
+    font-size: 0.85rem;
 }
 
 .image-container {
     min-width: 215px;
+    margin-bottom: 1.5rem;
+}
+
+.image {
+    border-radius: 10px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.25);
 }
 
 .flex-container {
     display: flex;
-
-    @media only screen and (max-width: 600px) {
-        flex-direction: column;
-    }
+    flex-direction: column;
 }
 
 .description-date-div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 1.5rem;
-
-    @media only screen and (max-width: 600px) {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
 }
 
 .title-squared-div, .date-rectangular-div {
