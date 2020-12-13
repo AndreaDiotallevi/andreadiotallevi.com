@@ -14,7 +14,7 @@
 
             p {
                 margin-bottom: 0;
-                // color: rgba(0, 0, 255, 0.6);
+                // color: rgba(0, 0, 255, 0.65);
                 font-weight: 700;
                 text-transform: uppercase;
             }
@@ -43,7 +43,7 @@
             }
 
             a:hover {
-                background-color: rgba(0, 0, 255, 0.6);
+                background-color: rgba(0, 0, 255, 0.65);
                 color: white !important;
                 transition: 0.3s;
             }
@@ -52,6 +52,6 @@
 }
 
 .active-nav-item {
-    background-color: rgba(0, 0, 255, 0.6);
+    background-color: rgba(0, 0, 255, 0.65);
     color: white !important;
 }

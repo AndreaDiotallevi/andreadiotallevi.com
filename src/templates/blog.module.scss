@@ -4,7 +4,7 @@
 
 .date-and-reading-time-div {
     display: flex;
-    color: rgba(0, 0, 255, 0.6);
+    color: rgba(0, 0, 255, 0.65);
     font-weight: 700;
 }
 
@@ -35,8 +35,8 @@
         background-image: linear-gradient(
           transparent 0%,
           transparent calc(50% - 8px),
-          rgba(0, 0, 255, 0.6) calc(50% - 8px),
-          rgba(0, 0, 255, 0.6) 100%
+          rgba(0, 0, 255, 0.65) calc(50% - 8px),
+          rgba(0, 0, 255, 0.65) 100%
         );
         background-position: 0px 100%;
         transition: 0.3s;
