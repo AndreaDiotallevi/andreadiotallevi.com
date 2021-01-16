@@ -57,7 +57,7 @@ Now, the first thing we will do is count how many **fundamental instructions** t
 Therefore, if we ignore the `for` body for the moment, the number of instructions this algorithm needs are `6 + 2n`:
 
 - `let max = arr[0]`: `arr[0]` lookup and max assignment
-- `let n = arr.length`: `arr.length` lookup and n assignment
+- `let n = arr.length`: `arr.length` lookup and `n` assignment
 - before the `for` loop: `i` initialisation and `i < n` comparison check
 - `for` loop: `++i` increment and `i < n` comparison check, `n` times
 
