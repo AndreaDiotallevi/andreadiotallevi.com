@@ -5,7 +5,8 @@ import Menu from "./menu"
 // import Footer from "./footer"
 
 import "../styles/index.scss"
-import "../styles/prism-tomorrow-modified.css"
+// import "../styles/prism-tomorrow-modified.css"
+import "../styles/prism-modified.css"
 import layoutStyles from "./layout.module.scss"
 
 const Layout = (props) => {
