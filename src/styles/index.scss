@@ -187,7 +187,7 @@ html {
     font: inherit;
   }
   html {
-    font: 112.5%/1.45em georgia, serif;
+    font: 112.5%/1.65em georgia, serif;
     box-sizing: border-box;
     overflow-y: scroll;
   }
@@ -542,7 +542,8 @@ html {
     margin-bottom: calc(1.45rem / 2);
   }
   code {
-    font-size: 0.85rem;
+    // font-size: 0.85rem;
+    font-size: 1rem;
     line-height: 1.45rem;
   }
   kbd {
@@ -592,7 +593,9 @@ html {
   }
   tt,
   code {
-    background-color: hsla(0, 0%, 0%, 0.04);
+    // background-color: hsla(0, 0%, 0%, 0.04);
+    background-color: #f5f2f0;
+    color: black;
     border-radius: 3px;
     font-family: "SFMono-Regular", Consolas, "rubik Mono", "Droid Sans Mono",
       "Liberation Mono", Menlo, Courier, monospace;
@@ -604,18 +607,26 @@ html {
     background: none;
     line-height: 1.42;
   }
-  code:before,
-  code:after,
-  tt:before,
-  tt:after {
-    letter-spacing: -0.2em;
-    content: " ";
+  // code:before,
+  // code:after,
+  // tt:before,
+  // tt:after {
+  //   letter-spacing: -0.2em;
+  //   content: " ";
+  // }
+  // pre code:before,
+  // pre code:after,
+  // pre tt:before,
+  // pre tt:after {
+  //   content: "";
+  // }
+  code {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
   }
-  pre code:before,
-  pre code:after,
-  pre tt:before,
-  pre tt:after {
-    content: "";
+  pre code {
+    padding-left: 0;
+    padding-right: 0;
   }
   @media only screen and (max-width: 480px) {
     html {
