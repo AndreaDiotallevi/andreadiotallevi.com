@@ -42,7 +42,7 @@ const IndexPage = () => {
         <LayoutWide>
             <Seo
                 title="Andrea Diotallevi | Software Developer"
-                description="Andrea Diotallevi's website"
+                description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
             />
             <div>
                 <div style={{ position: "relative", top: -16, left: -16 }}>
