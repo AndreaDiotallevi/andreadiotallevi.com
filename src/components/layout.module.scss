@@ -11,11 +11,13 @@
     width: 100%;
     padding: 1rem;
     margin-bottom: 75px;
-    // background-color: rgb(245, 242, 240);
     background-color: rgba(0, 0, 255, 0.05);
-    // background-color: rgba(0, 0, 255, 0.65);
 
     &.isOpen {
+        background-color: white;
+    }
+
+    @media (max-width: 750px) {
         background-color: white;
     }
 }
