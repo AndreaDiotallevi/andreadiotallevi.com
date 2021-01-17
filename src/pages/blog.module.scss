@@ -1,5 +1,10 @@
+.container {
+    max-width: 1010px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 .posts {
-    // max-width: 900px;
     list-style-type: none;
     margin: 0;
     display: flex;

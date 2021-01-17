@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-import LayoutWide from "../components/layoutWide"
+import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
@@ -39,12 +39,12 @@ const IndexPage = () => {
     `)
 
     return (
-        <LayoutWide>
+        <Layout>
             <Seo
                 title="Andrea Diotallevi | Software Developer"
                 description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
             />
-            <div>
+            <div className={blogStyles.container}>
                 <div style={{ position: "relative", top: -16, left: -16 }}>
                     <div
                         style={{ position: "absolute" }}
@@ -73,7 +73,7 @@ const IndexPage = () => {
                     </ol>
                 </div>
             </div>
-        </LayoutWide>
+        </Layout>
     )
 }
 

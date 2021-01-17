@@ -45,29 +45,31 @@ const Blog = (props) => {
 				image={featuredImage.childImageSharp.fluid.src}
 				article={true}
 			/>
-			<div style={{ position: "relative", top: -16, left: -16 }}>
+			<div className={blogStyles.container}>
+				<div style={{ position: "relative", top: -16, left: -16 }}>
+					<div
+						style={{ position: "absolute" }}
+						className={blogStyles.titleSquaredDiv}
+					/>
+				</div>
+				<h1 className={blogStyles.title}>{title}</h1>
+				<div style={{ position: "relative", top: -14, left: -16 }}>
+					<div
+						style={{ position: "absolute" }}
+						className={blogStyles.dateRectangularDiv}
+					/>
+				</div>
+				<div className={blogStyles.dateAndReadingTimeDiv}>
+					<p>{date}</p>
+					<p style={{ margin: "0 10px" }}>·</p>
+					<p>{props.data.markdownRemark.fields.readingTime.text}</p>
+				</div>
+				<Img fluid={featuredImage.childImageSharp.fluid} className={blogStyles.image} />
 				<div
-					style={{ position: "absolute" }}
-					className={blogStyles.titleSquaredDiv}
+					dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
+					className={blogStyles.blog}
 				/>
 			</div>
-			<h1 className={blogStyles.title}>{title}</h1>
-			<div style={{ position: "relative", top: -14, left: -16 }}>
-				<div
-					style={{ position: "absolute" }}
-					className={blogStyles.dateRectangularDiv}
-				/>
-			</div>
-			<div className={blogStyles.dateAndReadingTimeDiv}>
-				<p>{date}</p>
-				<p style={{ margin: "0 10px" }}>·</p>
-				<p>{props.data.markdownRemark.fields.readingTime.text}</p>
-			</div>
-			<Img fluid={featuredImage.childImageSharp.fluid} className={blogStyles.image} />
-			<div
-				dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
-				className={blogStyles.blog}
-			/>
 		</Layout>
 	)
 }

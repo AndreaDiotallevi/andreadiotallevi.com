@@ -2,10 +2,8 @@ import React, { useState } from "react"
 
 import Navbar from "./navbar"
 import Menu from "./menu"
-// import Footer from "./footer"
 
 import "../styles/index.scss"
-// import "../styles/prism-tomorrow-modified.css"
 import "../styles/prism-modified.css"
 import layoutStyles from "./layout.module.scss"
 
@@ -14,7 +12,7 @@ const Layout = (props) => {
 
     return (
         <div className={layoutStyles.container}>
-            <div className={layoutStyles.content}>
+            <header className={layoutStyles.header}>
                 <Navbar
                     open={isMenuOpen}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -23,9 +21,8 @@ const Layout = (props) => {
                     open={isMenuOpen}
                     onClick={() => setIsMenuOpen(false)}
                 />
-                {!isMenuOpen && props.children}
-            </div>
-            {/* {!isMenuOpen && <Footer />} */}
+            </header>
+            {!isMenuOpen && props.children}
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 
-import LayoutWide from "../components/layoutWide"
+import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
@@ -39,12 +39,12 @@ const BlogPage = () => {
     `)
 
     return (
-        <LayoutWide className={blogStyles.layout}>
+        <Layout className={blogStyles.layout}>
             <Seo
                 title="Blog | Andrea Diotallevi"
                 description="Andrea Diotallevi's blog posts"
             />
-            <div>
+            <div className={blogStyles.container}>
                 <div style={{ position: "relative", top: -16, left: -16 }}>
                     <div
                         style={{ position: "absolute" }}
@@ -73,7 +73,7 @@ const BlogPage = () => {
                     </ol>
                 </div>
             </div>
-        </LayoutWide>
+        </Layout>
     )
 }
 
