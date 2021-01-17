@@ -12,16 +12,18 @@ const Layout = (props) => {
 
     return (
         <div className={layoutStyles.container}>
-            <header className={layoutStyles.header}>
-                <Navbar
-                    open={isMenuOpen}
-                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                />
-                <Menu
-                    open={isMenuOpen}
-                    onClick={() => setIsMenuOpen(false)}
-                />
-            </header>
+            <div className={`${layoutStyles.headerContainer} ${isMenuOpen ? layoutStyles.isOpen : ""}`}>
+                <header className={layoutStyles.header}>
+                    <Navbar
+                        open={isMenuOpen}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    />
+                    <Menu
+                        open={isMenuOpen}
+                        onClick={() => setIsMenuOpen(false)}
+                    />
+                </header>
+            </div>
             {!isMenuOpen && props.children}
         </div>
     )
