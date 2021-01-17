@@ -12,7 +12,6 @@ const Navbar = ({ open, onClick }) => {
             <div>
                 {!open && (
                     <Link to="/">
-                        {/* <p>Andrea Diotallevi</p> */}
                         <p>andreadiotallevi.com</p>
                     </Link>
                 )}
