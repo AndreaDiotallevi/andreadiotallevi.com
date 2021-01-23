@@ -6,12 +6,12 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
-import templateBlogStyles from "../templates/blog.module.scss"
+// import templateBlogStyles from "../templates/blog.module.scss"
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
         query {
-            allMarkdownRemark {
+            allMarkdownRemark(sort:{ order: DESC, fields: [frontmatter___date] }) {
                 edges {
                     node {
                         frontmatter {
@@ -45,12 +45,12 @@ const BlogPage = () => {
                 description="Andrea Diotallevi's blog posts"
             />
             <div className={blogStyles.container}>
-                <div style={{ position: "relative", top: -16, left: -16 }}>
+                {/* <div style={{ position: "relative", top: -16, left: -16 }}>
                     <div
                         style={{ position: "absolute" }}
                         className={templateBlogStyles.titleSquaredDiv}
                     />
-                </div>
+                </div> */}
                 <h1>Blog</h1>
                 <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                     <ol className={blogStyles.posts}>
