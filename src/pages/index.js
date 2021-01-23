@@ -6,12 +6,12 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
-import templateBlogStyles from "../templates/blog.module.scss"
+// import templateBlogStyles from "../templates/blog.module.scss"
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
         query {
-            allMarkdownRemark {
+            allMarkdownRemark(sort:{ order: DESC, fields: [frontmatter___date] }) {
                 edges {
                     node {
                         frontmatter {
@@ -45,12 +45,12 @@ const IndexPage = () => {
                 description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
             />
             <div className={blogStyles.container}>
-                <div style={{ position: "relative", top: -16, left: -16 }}>
+                {/* <div style={{ position: "relative", top: -16, left: -16 }}>
                     <div
                         style={{ position: "absolute" }}
                         className={templateBlogStyles.titleSquaredDiv}
                     />
-                </div>
+                </div> */}
                 <h1>Blog</h1>
                 <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                     <ol className={blogStyles.posts}>
