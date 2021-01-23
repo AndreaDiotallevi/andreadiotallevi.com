@@ -46,19 +46,19 @@ const Blog = (props) => {
 				article={true}
 			/>
 			<div className={blogStyles.container}>
-				<div style={{ position: "relative", top: -16, left: -16 }}>
+				{/* <div style={{ position: "relative", top: -16, left: -16 }}>
 					<div
 						style={{ position: "absolute" }}
 						className={blogStyles.titleSquaredDiv}
 					/>
-				</div>
+				</div> */}
 				<h1 className={blogStyles.title}>{title}</h1>
-				<div style={{ position: "relative", top: -14, left: -16 }}>
+				{/* <div style={{ position: "relative", top: -14, left: -16 }}>
 					<div
 						style={{ position: "absolute" }}
 						className={blogStyles.dateRectangularDiv}
 					/>
-				</div>
+				</div> */}
 				<div className={blogStyles.dateAndReadingTimeDiv}>
 					<p>{date}</p>
 					<p style={{ margin: "0 10px" }}>·</p>
