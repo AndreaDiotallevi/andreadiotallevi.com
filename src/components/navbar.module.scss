@@ -2,14 +2,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 40px;
     width: 100%;
-    font-weight: 700;
+    // font-weight: 700;
+
+    @media (max-width: 750px) {
+        height: 40px;
+    }
 
     div {
         a {
             text-decoration: none;
-            color: inherit;
+            // color: inherit;
+            color: white;
+
+            @media (max-width: 750px) {
+                color: inherit;
+            }
 
             p {
                 margin-bottom: 0;
@@ -33,14 +42,16 @@
 
             a {
                 text-decoration: none;
-                color: inherit;
+                // color: inherit;
+                color: white;
                 padding: 6px;
                 border-radius: 3px;
             }
 
             a:hover {
-                background-color: rgba(0, 0, 255, 0.65);
+                // background-color: rgba(0, 0, 255, 0.65);
                 color: white !important;
+                font-weight: 700;
                 transition: 0.3s;
             }
         }
@@ -48,6 +59,7 @@
 }
 
 .active-nav-item {
-    background-color: rgba(0, 0, 255, 0.65);
+    // background-color: rgba(0, 0, 255, 0.65);
     color: white !important;
+    font-weight: 700;
 }
