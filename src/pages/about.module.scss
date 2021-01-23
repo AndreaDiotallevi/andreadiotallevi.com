@@ -1,5 +1,5 @@
 .container {
-    max-width: 750px;
+    max-width: 1200px;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -9,8 +9,13 @@
 }
 
 .image-container {
-    min-width: 215px;
+    width: 47%;
     margin-bottom: 1.5rem;
+
+    @media only screen and (max-width: 900px) {
+        width: 100%;
+    }
+
     img {
         border-radius: 10px;
     }
@@ -19,6 +24,11 @@
 .flex-div {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5rem;
+
+    @media only screen and (max-width: 900px) {
+        flex-direction: column;
+    }
 
     @media only screen and (max-width: 600px) {
         flex-direction: column;
@@ -27,7 +37,13 @@
 }
 
 .about-text-div {
+    width: 47%;
     margin-left: 1.5rem;
+
+    @media only screen and (max-width: 900px) {
+        width: 100%;
+        margin-left: 0;
+    }
     
     a {
         color: inherit;
