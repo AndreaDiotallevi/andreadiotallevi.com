@@ -2,7 +2,7 @@
 title: "How to Incrementally Develop an Algorithm using Test Driven Development"
 description: "In this article I explore the fundamental components of test-driven development, with an example of how to incrementally develop an algorithm using the TTD cycle."
 date: "2020-02-20"
-featuredImage: traffic-lights.jpg
+featuredImage: bahador-1400x840.jpg
 ---
 
 <figcaption>
