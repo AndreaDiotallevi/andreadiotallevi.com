@@ -188,7 +188,7 @@ html {
   }
   html {
     // font: 112.5%/1.65em georgia, serif;
-    font: 125%/1.65em georgia, serif;
+    font: 125%/1.75em georgia, serif;
     box-sizing: border-box;
     overflow-y: scroll;
   }
@@ -605,13 +605,20 @@ html {
     // color: black;
     // color: #07a;
     color: rgba(0, 0, 255, 0.65);
-    border-radius: 3px;
+    // border-radius: 3px;
+    border-radius: 20px;
+
+    @media only screen and (max-width: 750px) {
+      border-radius: 10px;
+    }
+    
     font-family: "SFMono-Regular", Consolas, "rubik Mono", "Droid Sans Mono",
       "Liberation Mono", Menlo, Courier, monospace;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     padding: 0;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
+    font-weight: 700;
   }
   pre code {
     background: none;
