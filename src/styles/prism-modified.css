@@ -9,7 +9,8 @@
      color: black;
      background: none;
      text-shadow: 0 1px white;
-     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+     /* font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; */
+     font-family: Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', monospace;
      text-align: left;
      white-space: pre;
      word-spacing: normal;
@@ -113,6 +114,7 @@
  .token.attr-value,
  .token.keyword {
      color: #07a;
+     /* color: rgba(0, 0, 255, 0.65); */
  }
  
  .token.function {

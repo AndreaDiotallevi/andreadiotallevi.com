@@ -257,6 +257,10 @@ html {
     text-rendering: optimizeLegibility;
     font-size: 1.62671rem;
     line-height: 1.1;
+
+    code {
+      font-size: 1.62671rem;
+    }
   }
   h3 {
     margin-left: 0;
@@ -598,11 +602,14 @@ html {
     // background-color: hsla(0, 0%, 0%, 0.04);
     // background-color: #f5f2f0;
     background: #f0f0f0;
-    color: black;
+    // color: black;
+    // color: #07a;
+    color: rgba(0, 0, 255, 0.65);
     border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "rubik Mono", "Droid Sans Mono",
-      "Liberation Mono", Menlo, Courier, monospace;
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    // font-family: "SFMono-Regular", Consolas, "rubik Mono", "Droid Sans Mono",
+    //   "Liberation Mono", Menlo, Courier, monospace;
+    // font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono', monospace;
     padding: 0;
     padding-top: 0.2em;
     padding-bottom: 0.2em;
