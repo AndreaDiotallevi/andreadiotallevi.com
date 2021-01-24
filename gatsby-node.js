@@ -1,4 +1,3 @@
-const { create } = require("domain")
 const path = require("path")
 
 module.exports.onCreateNode = ({ node, actions }) => {
@@ -21,15 +20,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const res = await graphql(`
     query {
         allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                  slug
-              }
+            edges {
+                node {
+                    fields {
+                        slug
+                    }
+                }
             }
-          }
         }
-      }
+    }
     `)
 
     res.data.allMarkdownRemark.edges.forEach((edge) => {
