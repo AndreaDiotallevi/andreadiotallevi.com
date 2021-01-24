@@ -47,13 +47,13 @@
     
     a {
         color: inherit;
-        padding: 2px;
+        padding: 4px;
         text-decoration: none;
         background-image: linear-gradient(
           transparent 0%,
-          transparent calc(50% - 8px),
-          rgba(0, 0, 255, 0.25) calc(50% - 8px),
-          rgba(0, 0, 255, 0.25) 100%
+          transparent calc(50% - 3px),
+          rgba(0, 0, 255, 0.65) calc(50% - 3px),
+          rgba(0, 0, 255, 0.65) 100%
         );
         background-size: 100% 200%;
     }
@@ -62,8 +62,8 @@
         color: white;
         background-image: linear-gradient(
           transparent 0%,
-          transparent calc(50% - 8px),
-          rgba(0, 0, 255, 0.65) calc(50% - 8px),
+          transparent calc(50% - 3px),
+          rgba(0, 0, 255, 0.65) calc(50% - 3px),
           rgba(0, 0, 255, 0.65) 100%
         );
         background-position: 0px 100%;
