@@ -1,6 +1,6 @@
 ---
 title: "Big O Notation and the Magic of Time Complexity"
-description: "In this article I explore the fundamental components of algorithm complexity analysis, describe how to derive an algorithm big-O and list all the common big-O classes of runtime complexity."
+description: "The fundamental components of algorithm complexity analysis, describe how to derive an algorithm big-O and list all the common big-O classes of runtime complexity."
 date: "2020-04-15"
 featuredImage: darwin-vegher-1400x840.jpg
 ---
