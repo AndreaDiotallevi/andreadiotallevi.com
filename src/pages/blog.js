@@ -18,6 +18,7 @@ const BlogPage = () => {
                             title
                             description
                             date(formatString: "MMMM Do, YYYY")
+                            tags
                             featuredImage {
                                 childImageSharp {
                                     fluid(maxWidth: 750) {
@@ -45,12 +46,6 @@ const BlogPage = () => {
                 description="Andrea Diotallevi's blog posts"
             />
             <div className={blogStyles.container}>
-                {/* <div style={{ position: "relative", top: -16, left: -16 }}>
-                    <div
-                        style={{ position: "absolute" }}
-                        className={templateBlogStyles.titleSquaredDiv}
-                    />
-                </div> */}
                 <h1>Blog</h1>
                 <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                     <ol className={blogStyles.posts}>
@@ -60,6 +55,8 @@ const BlogPage = () => {
                                     <div className={blogStyles.imageContainer}>
                                         <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
                                     </div>
+                                    {/* <h2>{edge.node.frontmatter.title}</h2>
+                                    <p>{edge.node.frontmatter.description}</p> */}
                                     <div className={blogStyles.dateAndReadingTimeDiv}>
                                         <p>{edge.node.frontmatter.date}</p>
                                         <p style={{ margin: "0 10px" }}>·</p>
@@ -68,6 +65,13 @@ const BlogPage = () => {
                                     <h2>{edge.node.frontmatter.title}</h2>
                                     <p>{edge.node.frontmatter.description}</p>
                                 </Link>
+                                <ul className={blogStyles.tags}>
+                                    {edge.node.frontmatter.tags.map(tag => (
+                                        <li key={tag}>
+                                            {tag}
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         ))}
                     </ol>

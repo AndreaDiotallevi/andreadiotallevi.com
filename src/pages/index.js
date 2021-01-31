@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import blogStyles from "./blog.module.scss"
-// import templateBlogStyles from "../templates/blog.module.scss"
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -18,6 +17,7 @@ const IndexPage = () => {
                             title
                             description
                             date(formatString: "MMMM Do, YYYY")
+                            tags
                             featuredImage {
                                 childImageSharp {
                                     fluid(maxWidth: 750) {
@@ -45,13 +45,7 @@ const IndexPage = () => {
                 description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
             />
             <div className={blogStyles.container}>
-                {/* <div style={{ position: "relative", top: -16, left: -16 }}>
-                    <div
-                        style={{ position: "absolute" }}
-                        className={templateBlogStyles.titleSquaredDiv}
-                    />
-                </div> */}
-                <h1>Blog</h1>
+                <h1>My latest articles</h1>
                 <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
                     <ol className={blogStyles.posts}>
                         {data.allMarkdownRemark.edges.map(edge => (
@@ -68,6 +62,13 @@ const IndexPage = () => {
                                     <h2>{edge.node.frontmatter.title}</h2>
                                     <p>{edge.node.frontmatter.description}</p>
                                 </Link>
+                                <ul className={blogStyles.tags}>
+                                    {edge.node.frontmatter.tags.map(tag => (
+                                        <li key={tag}>
+                                            {tag}
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         ))}
                     </ol>
