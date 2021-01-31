@@ -8,30 +8,30 @@ import Seo from "../components/seo"
 import blogStyles from "./blog.module.scss"
 
 export const query = graphql`
-query (
-    $slug: String!
-  ) {
-    markdownRemark (fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        description
-		date(formatString: "MMMM Do, YYYY")
-		featuredImage {
-			childImageSharp {
-				fluid(maxWidth: 750) {
-					...GatsbyImageSharpFluid
+	query (
+		$slug: String!
+	) {
+		markdownRemark (fields: { slug: { eq: $slug } }) {
+			frontmatter {
+				title
+				description
+				date(formatString: "MMMM Do, YYYY")
+				featuredImage {
+					childImageSharp {
+						fluid(maxWidth: 750) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
+			}
+			html
+			fields {
+				readingTime {
+					text
 				}
 			}
 		}
-      }
-	  html
-	  fields {
-		  readingTime {
-			  text
-		  }
-	  }
-    }
-  }
+	}
 `
 
 const Blog = (props) => {
@@ -45,20 +45,8 @@ const Blog = (props) => {
 				image={featuredImage.childImageSharp.fluid.src}
 				article={true}
 			/>
-			<div className={blogStyles.container}>
-				{/* <div style={{ position: "relative", top: -16, left: -16 }}>
-					<div
-						style={{ position: "absolute" }}
-						className={blogStyles.titleSquaredDiv}
-					/>
-				</div> */}
+			<article className={blogStyles.container}>
 				<h1 className={blogStyles.title}>{title}</h1>
-				{/* <div style={{ position: "relative", top: -14, left: -16 }}>
-					<div
-						style={{ position: "absolute" }}
-						className={blogStyles.dateRectangularDiv}
-					/>
-				</div> */}
 				<div className={blogStyles.dateAndReadingTimeDiv}>
 					<p>{date}</p>
 					<p style={{ margin: "0 10px" }}>·</p>
@@ -69,7 +57,7 @@ const Blog = (props) => {
 					dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
 					className={blogStyles.blog}
 				/>
-			</div>
+			</article>
 		</Layout>
 	)
 }
