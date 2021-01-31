@@ -12,7 +12,7 @@ export const query = graphql`
   	query {
     	fileName: file(relativePath: { eq: "assets/profile-photo.jpg" }) {
       		childImageSharp {
-        		fluid(maxWidth: 864) {
+        		fluid(maxWidth: 710) {
           			...GatsbyImageSharpFluid
         		}
       		}
@@ -28,12 +28,6 @@ const AboutPage = (props) => {
 				description="All about Andrea Diotallevi"
 			/>
 			<div className={aboutStyles.container}>
-				{/* <div style={{ position: "relative", top: -16, left: -16 }}>
-					<div
-						style={{ position: "absolute" }}
-						className={templateBlogStyles.titleSquaredDiv}
-					/>
-				</div> */}
 				<h1 className={aboutStyles.title}>About</h1>
 				<div className={aboutStyles.flexDiv}>
 					<div className={aboutStyles.imageContainer}>

@@ -1,4 +1,5 @@
 .toggle-button {
+    display: none;
     width: 32px;
     height: 25px;
     position: relative;
@@ -14,8 +15,8 @@
     border: none;
 	background-color: transparent;
 	
-	@media (min-width: 750px) {
-        display: none;
+	@media (max-width: 750px) {
+        display: block;
     }
 }
   

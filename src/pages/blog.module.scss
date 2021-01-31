@@ -18,7 +18,7 @@
     margin: 0;
     margin-bottom: 5rem;
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 750px) {
         width: 100%;
     }
 
@@ -106,7 +106,6 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-    // justify-content: start;
 
     li {
         // color: rgba(0, 0, 255, 0.65);

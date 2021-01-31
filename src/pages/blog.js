@@ -21,7 +21,7 @@ const BlogPage = () => {
                             tags
                             featuredImage {
                                 childImageSharp {
-                                    fluid(maxWidth: 750) {
+                                    fluid(maxWidth: 710) {
                                         ...GatsbyImageSharpFluid
                                     }
                                 }
@@ -55,8 +55,6 @@ const BlogPage = () => {
                                     <div className={blogStyles.imageContainer}>
                                         <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
                                     </div>
-                                    {/* <h2>{edge.node.frontmatter.title}</h2>
-                                    <p>{edge.node.frontmatter.description}</p> */}
                                     <div className={blogStyles.dateAndReadingTimeDiv}>
                                         <p>{edge.node.frontmatter.date}</p>
                                         <p style={{ margin: "0 10px" }}>·</p>

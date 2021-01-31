@@ -20,7 +20,7 @@ const IndexPage = () => {
                             tags
                             featuredImage {
                                 childImageSharp {
-                                    fluid(maxWidth: 750) {
+                                    fluid(maxWidth: 710) {
                                         ...GatsbyImageSharpFluid
                                     }
                                 }

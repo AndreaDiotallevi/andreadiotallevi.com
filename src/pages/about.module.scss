@@ -1,5 +1,5 @@
 .container {
-    max-width: 1000px;
+    max-width: 750px;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -12,7 +12,7 @@
     width: 47%;
     margin-bottom: 1.5rem;
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 750px) {
         width: 100%;
     }
 
@@ -23,27 +23,15 @@
 
 .flex-div {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 5rem;
-
-    @media only screen and (max-width: 900px) {
-        flex-direction: column;
-    }
-
-    @media only screen and (max-width: 600px) {
-        flex-direction: column;
-        margin-left: 0;
-    }
 }
 
 .about-text-div {
-    width: 47%;
-    margin-left: 1.5rem;
+    width: 100%;
 
     p {
         margin-bottom: 0.85rem;
-        font-size: 16px;
-        line-height: 1.5;
     }
     
     a {
@@ -69,14 +57,5 @@
         );
         background-position: 0px 100%;
         transition: 0.3s;
-    }
-
-    @media only screen and (max-width: 600px) {
-        margin-left: 0;
-    }
-
-    @media only screen and (max-width: 900px) {
-        width: 100%;
-        margin-left: 0;
     }
 }
