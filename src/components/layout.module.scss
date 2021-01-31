@@ -10,7 +10,7 @@
     justify-content: center;
     width: 100%;
     padding: 0.3rem 1rem;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
     background-color: rgba(0, 0, 255, 0.65);
     box-shadow: 1px -1px 10px 0 rgba(0, 0, 255, 0.25);
 
@@ -30,5 +30,5 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 1064px; // 1100 - 16 - 16
+    max-width: 964px; // 1000 - 16 - 16
 }

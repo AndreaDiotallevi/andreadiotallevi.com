@@ -1,5 +1,5 @@
 .container {
-    max-width: 1100px;
+    max-width: 1000px;
     padding-left: 1rem;
     padding-right: 1rem;
 }
@@ -15,7 +15,6 @@
 
 .post {
     width: 47%;
-    cursor: pointer;
     margin: 0;
     margin-bottom: 5rem;
 
@@ -33,20 +32,28 @@
         box-shadow: none;
 
         h2 {
-            margin-bottom: 1rem;
-        }
-    }
-
-    &:hover {
-        // transition: all 0.3s ease-in;
-        transition: 0.3s;
-        
-        .image {
-            box-shadow: 1px -1px 10px 0 rgba(0, 0, 0, 0.25);
+            margin-bottom: 0.85rem;
+            font-size: 1.4rem;
+            line-height: 1.2;
+            // color: rgba(0, 0, 255, 0.65);
         }
 
-        h2 {
-            text-decoration: underline;
+        > p {
+            margin-bottom: 0.85rem;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        &:hover {
+            transition: 0.3s;
+
+            .image {
+                box-shadow: 1px -1px 10px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            h2 {
+                text-decoration: underline;
+            }
         }
     }
 }
@@ -55,12 +62,16 @@
     display: flex;
     color: rgba(0, 0, 255, 0.65);
     font-weight: 700;
-    font-size: 0.85rem;
+    font-size: 16px;
+
+    > p {
+        margin-bottom: 0.85rem;
+    }
 }
 
 .image-container {
     min-width: 215px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.85rem;
 }
 
 .image {
@@ -87,5 +98,32 @@
     @media only screen and (max-width: 480px) {
         width: 40px;
         height: 40px;
+    }
+}
+
+.tags {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: start;
+
+    li {
+        // color: rgba(0, 0, 255, 0.65);
+        // font-weight: 700;
+        font-size: 14px;
+        margin-right: 0.7rem;
+        white-space: nowrap;
+        padding: 3px 10px;
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        line-height: 2.1em;
+
+        &:hover {
+            transition: 0.3s;
+            cursor: pointer;
+            color: white;
+            background-color: rgba(0, 0, 255, 0.65);
+        }
     }
 }
