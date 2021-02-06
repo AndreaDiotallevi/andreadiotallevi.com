@@ -9,7 +9,7 @@
      color: black;
      font-weight: normal;
      background: none;
-     text-shadow: 0 1px white;
+     /* text-shadow: 0 1px white; */
      font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
      text-align: left;
      white-space: pre;
