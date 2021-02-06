@@ -15,14 +15,19 @@
             text-decoration: none;
             // color: inherit;
             color: white;
-            font-weight: 700;
+            // font-weight: 700;
 
             @media (max-width: 750px) {
                 color: inherit;
+                font-weight: 700;
             }
 
             p {
                 margin-bottom: 0;
+            }
+
+            &:hover {
+                font-weight: 700;
             }
         }
     }
