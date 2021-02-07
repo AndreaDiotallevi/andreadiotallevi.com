@@ -36,12 +36,15 @@
     
     a {
         color: inherit;
-        padding: 4px 2px;
+        color: rgba(0, 0, 255, 0.65);
+        font-weight: 700;
+        // padding: 4px 2px;
+        padding: 3px 5px;
         text-decoration: none;
         background-image: linear-gradient(
           transparent 0%,
-          transparent calc(50% - 4px),
-          rgba(0, 0, 255, 0.65) calc(50% - 4px),
+          transparent calc(50% - 2px),
+          rgba(0, 0, 255, 0.65) calc(50% - 2px),
           rgba(0, 0, 255, 0.65) 100%
         );
         background-size: 100% 200%;
@@ -51,8 +54,8 @@
         color: white;
         background-image: linear-gradient(
           transparent 0%,
-          transparent calc(50% - 4px),
-          rgba(0, 0, 255, 0.65) calc(50% - 4px),
+          transparent calc(50% - 2px),
+          rgba(0, 0, 255, 0.65) calc(50% - 2px),
           rgba(0, 0, 255, 0.65) 100%
         );
         background-position: 0px 100%;
