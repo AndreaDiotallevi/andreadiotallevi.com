@@ -189,7 +189,7 @@ html {
   }
   html {
     // font: 112.5%/1.65em georgia, serif;
-    font: 125%/1.75em georgia, serif;
+    font: 125%/1.65em georgia, serif;
     box-sizing: border-box;
     overflow-y: scroll;
   }
@@ -642,6 +642,6 @@ html {
   }
   @media only screen and (max-width: 480px) {
     html {
-      font-size: 100%;
+      font: 100%/1.75em georgia, serif;
     }
   }
