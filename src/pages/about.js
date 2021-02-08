@@ -6,11 +6,10 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 import aboutStyles from "./about.module.scss"
-// import templateBlogStyles from "../templates/blog.module.scss"
 
 export const query = graphql`
   	query {
-    	fileName: file(relativePath: { eq: "assets/profile-photo.jpg" }) {
+    	fileName: file(relativePath: { eq: "assets/about.jpg" }) {
       		childImageSharp {
         		fluid(maxWidth: 710) {
           			...GatsbyImageSharpFluid
