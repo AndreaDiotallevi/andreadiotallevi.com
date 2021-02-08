@@ -1,77 +1,80 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import blogStyles from "./blog.module.scss"
+import indexStyles from "./index.module.scss"
 
-const IndexPage = () => {
-    const data = useStaticQuery(graphql`
-        query {
-            allMarkdownRemark(sort:{ order: DESC, fields: [frontmatter___date] }) {
-                edges {
-                    node {
-                        frontmatter {
-                            title
-                            description
-                            date(formatString: "MMMM Do, YYYY")
-                            tags
-                            featuredImage {
-                                childImageSharp {
-                                    fluid(maxWidth: 710) {
-                                        ...GatsbyImageSharpFluid
-                                    }
-                                }
-                            }
-                        }
-                        fields {
-                            slug
-                            readingTime {
-                                text
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `)
+export const query = graphql`
+  	query {
+    	fileName1: file(relativePath: { eq: "assets/about.jpg" }) {
+      		childImageSharp {
+        		fluid(maxWidth: 710) {
+          			...GatsbyImageSharpFluid
+        		}
+      		}
+    	}
+        fileName2: file(relativePath: { eq: "assets/dariusz-sankowski-1400x1400.jpg" }) {
+      		childImageSharp {
+        		fluid(maxWidth: 710) {
+          			...GatsbyImageSharpFluid
+        		}
+      		}
+    	}
+        # allMarkdownRemark: allMarkdownRemark(sort:{ order: DESC, fields: [frontmatter___date] }) {
+        #         edges {
+        #             node {
+        #                 frontmatter {
+        #                     title
+        #                     featuredImage {
+        #                         childImageSharp {
+        #                             fluid(maxWidth: 710) {
+        #                                 ...GatsbyImageSharpFluid
+        #                             }
+        #                         }
+        #                     }
+        #                 }
+        #             }
+        #         }
+        #     }
+  	}
+`
 
+const IndexPage = (props) => {
     return (
         <Layout>
             <Seo
                 title="Andrea Diotallevi | Software Developer"
                 description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
             />
-            <div className={blogStyles.container}>
-                <h1>My latest articles</h1>
-                <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-                    <ol className={blogStyles.posts}>
-                        {data.allMarkdownRemark.edges.map(edge => (
-                            <li className={blogStyles.post} key={edge.node.frontmatter.title}>
-                                <Link to={`/blog/${edge.node.fields.slug}`}>
-                                    <div className={blogStyles.imageContainer}>
-                                        <Img fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid} className={blogStyles.image} />
-                                    </div>
-                                    <div className={blogStyles.dateAndReadingTimeDiv}>
-                                        <p>{edge.node.frontmatter.date}</p>
-                                        <p style={{ margin: "0 10px" }}>·</p>
-                                        <p>{edge.node.fields.readingTime.text}</p>
-                                    </div>
-                                    <h2>{edge.node.frontmatter.title}</h2>
-                                    <p>{edge.node.frontmatter.description}</p>
-                                </Link>
-                                <ul className={blogStyles.tags}>
-                                    {edge.node.frontmatter.tags.map(tag => (
-                                        <li key={tag}>
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </li>
-                        ))}
-                    </ol>
+            <div className={indexStyles.container}>
+                {/* <h1>Hello! My name is Andrea Diotallevi</h1> */}
+                <h1>Welcome!</h1>
+                <div className={indexStyles.flexDiv}>
+                    <Link to="/about">
+                        <div className={indexStyles.imageContainer}>
+                            <Img
+                                fluid={props.data.fileName1.childImageSharp.fluid}
+                                className={indexStyles.image}
+                                alt="about"
+                            />
+                        </div>
+                        <h2>About</h2>
+                        <p>My professional history and passions.</p>
+                    </Link>
+                    <Link to="/blog">
+                        <div className={indexStyles.imageContainer}>
+                            <Img
+                                fluid={props.data.fileName2.childImageSharp.fluid}
+                                className={indexStyles.image}
+                                alt="blog"
+                            />
+                        </div>
+                        <h2>Blog</h2>
+                        <p>All my blog posts and recent learnings.</p>
+                    </Link>
                 </div>
             </div>
         </Layout>
