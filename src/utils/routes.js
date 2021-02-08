@@ -1,10 +1,12 @@
 const routes = [
     {
+        menuName: "About",
+        baseUrl: "/about",
+    },
+    {
         menuName: "Blog",
         baseUrl: "/blog",
-        pageTitle: "",
-    },
-    { menuName: "About", baseUrl: "/about", pageTitle: "" },
+    }
 ]
 
 export default routes
