@@ -1,11 +1,11 @@
 const routes = [
     {
-        menuName: "About",
-        baseUrl: "/about",
-    },
-    {
         menuName: "Blog",
         baseUrl: "/blog",
+    },
+    {
+        menuName: "About",
+        baseUrl: "/about",
     }
 ]
 

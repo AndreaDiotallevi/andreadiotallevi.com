@@ -53,17 +53,6 @@ const IndexPage = (props) => {
                 {/* <h1>Hello! My name is Andrea Diotallevi</h1> */}
                 <h1>Welcome!</h1>
                 <div className={indexStyles.flexDiv}>
-                    <Link to="/about">
-                        <div className={indexStyles.imageContainer}>
-                            <Img
-                                fluid={props.data.fileName1.childImageSharp.fluid}
-                                className={indexStyles.image}
-                                alt="about"
-                            />
-                        </div>
-                        <h2>About</h2>
-                        <p>My professional history and passions.</p>
-                    </Link>
                     <Link to="/blog">
                         <div className={indexStyles.imageContainer}>
                             <Img
@@ -74,6 +63,17 @@ const IndexPage = (props) => {
                         </div>
                         <h2>Blog</h2>
                         <p>All my blog posts and recent learnings.</p>
+                    </Link>
+                    <Link to="/about">
+                        <div className={indexStyles.imageContainer}>
+                            <Img
+                                fluid={props.data.fileName1.childImageSharp.fluid}
+                                className={indexStyles.image}
+                                alt="about"
+                            />
+                        </div>
+                        <h2>About</h2>
+                        <p>My professional history and passions.</p>
                     </Link>
                 </div>
             </div>
