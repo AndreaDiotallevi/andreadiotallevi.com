@@ -63,13 +63,13 @@ const BlogPage = () => {
                                     <h2>{edge.node.frontmatter.title}</h2>
                                     <p>{edge.node.frontmatter.description}</p>
                                 </Link>
-                                <ul className={blogStyles.tags}>
+                                {/* <ul className={blogStyles.tags}>
                                     {edge.node.frontmatter.tags.map(tag => (
                                         <li key={tag}>
                                             {tag}
                                         </li>
                                     ))}
-                                </ul>
+                                </ul> */}
                             </li>
                         ))}
                     </ol>
