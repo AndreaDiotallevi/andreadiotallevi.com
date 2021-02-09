@@ -122,9 +122,8 @@
  .token.atrule,
  .token.attr-value,
  .token.keyword {
-     color: #07a;
+    color: #07a;
      font-weight: 700;
-     /* color: rgba(0, 40, 150, 0.65); */
  }
  
  .token.function,
