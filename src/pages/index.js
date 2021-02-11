@@ -9,14 +9,16 @@ import indexStyles from "./index.module.scss"
 
 export const query = graphql`
   	query {
-    	fileName1: file(relativePath: { eq: "assets/about.jpg" }) {
+    	# fileName1: file(relativePath: { eq: "assets/35-sandstorm-1400x1400.jpg" }) {
+    	fileName1: file(relativePath: { eq: "assets/35-sandstorm-1400x840.jpg" }) {
       		childImageSharp {
         		fluid(maxWidth: 710) {
           			...GatsbyImageSharpFluid
         		}
       		}
     	}
-        fileName2: file(relativePath: { eq: "assets/dariusz-sankowski-1400x1400.jpg" }) {
+        # fileName2: file(relativePath: { eq: "assets/dariusz-sankowski-1400x1400.jpg" }) {
+        fileName2: file(relativePath: { eq: "assets/dariusz-sankowski-1400x840.jpg" }) {
       		childImageSharp {
         		fluid(maxWidth: 710) {
           			...GatsbyImageSharpFluid
@@ -61,8 +63,9 @@ const IndexPage = (props) => {
                                 alt="blog"
                             />
                         </div>
-                        <h2>Blog</h2>
-                        <p>All my blog posts and recent learnings.</p>
+                        <p style={{ marginBottom: "0.5rem", lineHeight: 1.5 }}>Blog</p>
+                        <h2>My blog posts and recent learnings</h2>
+                        <p>I write about algorithms, software methodologies and challenges I face every day as a full-stack software developer.</p>
                     </Link>
                     <Link to="/about">
                         <div className={indexStyles.imageContainer}>
@@ -72,8 +75,9 @@ const IndexPage = (props) => {
                                 alt="about"
                             />
                         </div>
-                        <h2>About</h2>
-                        <p>My professional history and passions.</p>
+                        <p style={{ marginBottom: "0.5rem", lineHeight: 1.5 }}>About</p>
+                        <h2>My professional history and passions</h2>
+                        <p>The journey that made me become a software developer, with a background as a pianist and architect.</p>
                     </Link>
                 </div>
             </div>

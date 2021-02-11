@@ -61,9 +61,8 @@
 
 .date-and-reading-time-div {
     display: flex;
-    // color: rgba(0, 40, 120, 0.65);
-    // font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 1.5;
 
     > p {
         margin-bottom: 0.5rem;
@@ -71,7 +70,6 @@
 }
 
 .image-container {
-    min-width: 215px;
     margin-bottom: 0.85rem;
 }
 
