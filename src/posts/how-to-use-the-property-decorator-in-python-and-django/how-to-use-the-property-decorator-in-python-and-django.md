@@ -3,7 +3,7 @@ title: "How to use the @property decorator in Python and Django"
 description: "An overview of how the @property decorator works in Python and when to use it in Django."
 date: "2021-01-31"
 tags: ["Python", "Django", "Decorators"]
-featuredImage: sarah-dorweiler-1400x840.jpg
+featuredImage: sarah-dorweiler-1400x840-b-w.jpg
 ---
 
 <figcaption>
