@@ -4,7 +4,6 @@
     align-items: center;
     height: 40px;
     width: 100%;
-    // font-weight: 700;
 
     @media (max-width: 750px) {
         height: 40px;
@@ -13,17 +12,11 @@
     div {
         a {
             text-decoration: none;
-            color: inherit;
             color: white;
-            // font-size: 16px;
 
             @media (max-width: 750px) {
                 color: inherit;
                 font-weight: 700;
-            }
-
-            p {
-                margin-bottom: 0;
             }
 
             &:hover {
@@ -52,7 +45,6 @@
                 color: white;
                 padding: 6px;
                 border-radius: 3px;
-                // font-size: 16px;
             }
 
             a:hover {
