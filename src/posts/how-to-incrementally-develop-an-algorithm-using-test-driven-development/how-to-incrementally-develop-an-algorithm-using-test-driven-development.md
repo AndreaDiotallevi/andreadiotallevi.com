@@ -7,7 +7,7 @@ featuredImage: bahador-1400x840.jpg
 ---
 
 <figcaption>
-    <p>Photo by <a href='https://unsplash.com/@_bahador?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Bahador</a> on <a href='https://unsplash.com/s/photos/traffic-lights?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'>Unsplash</a></p>
+    <p>Photo by <a href="https://unsplash.com/photos/z6qLnIF1zl8" target="_blank">Bahador</a></p>
 </figcaption>
 
 In the world of software development, test-driven development (TDD) is a discipline where failing tests are written first, and _only then_ is the actual software code created, aiming to pass the newly-generated tests.

@@ -7,7 +7,7 @@ featuredImage: sarah-dorweiler-1400x840-b-w.jpg
 ---
 
 <figcaption>
-    <p>Photo by <a href="https://unsplash.com/@sarahdorweiler?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Sarah Dorweiler</a> on <a href="https://unsplash.com/s/photos/simple-house?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+    <p>Photo by <a href="https://unsplash.com/photos/x2Tmfd1-SgA" target="_blank">Sarah Dorweiler</a></p>
 </figcaption>
 
 In Python, the `@property` decorator allows you to call custom model methods as if they were normal model attributes.
