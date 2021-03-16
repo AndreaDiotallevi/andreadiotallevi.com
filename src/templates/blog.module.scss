@@ -1,103 +1,114 @@
 .container {
-    max-width: 750px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-bottom: 5rem;
+  max-width: 750px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 5rem;
 
-    h1 {
-        margin-bottom: 0.8rem;
-    }
+  h1 {
+    margin-bottom: 0.8rem;
+  }
 
-    @media only screen and (max-width: 750px) {
-        max-width: 100%;
-    }
+  p,
+  li,
+  ul,
+  ol,
+  code {
+    font-size: 18px;
+    line-height: 1.7em;
+  }
+
+  @media only screen and (max-width: 750px) {
+    max-width: 100%;
+  }
 }
 
 .title {
-    color: inherit;
+  color: inherit;
 }
 
 .date-and-reading-time-div {
-    display: flex;
-    // color: rgba(0, 40, 120, 0.65);
-    // font-weight: 700;
-    margin-bottom: 1.2rem;
-    width: fit-content;
-    font-size: 0.8em;
+  display: flex;
+  // color: rgb(75, 110, 153);
+  // font-weight: 700;
+  margin-bottom: 1.2rem;
+  width: fit-content;
+  // font-size: 0.8em;
+  font-size: 18px;
+  color: rgb(110, 110, 110);
 
-    & > p {
-        margin-bottom: 0;
-    }
+  & > p {
+    margin-bottom: 0;
+  }
 }
 
-.image {
-    border-radius: 20px;
+// .image {
+//     border-radius: 20px;
 
-    @media only screen and (max-width: 750px) {
-        border-radius: 10px;
-    }
-}
+//     @media only screen and (max-width: 750px) {
+//         border-radius: 10px;
+//     }
+// }
 
 .blog {
-    a {
-        color: inherit;
-        color: rgba(0, 40, 120, 0.65);
-        font-weight: 700;
-        padding: 3px 5px;
-        text-decoration: none;
-        background-image: linear-gradient(
-          transparent 0%,
-          transparent calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) 100%
-        );
-        background-size: 100% 200%;
-    }
+  a {
+    color: inherit;
+    color: rgb(75, 110, 153);
+    font-weight: 700;
+    padding: 3px 5px;
+    text-decoration: none;
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 2px),
+      rgb(75, 110, 153) calc(50% - 2px),
+      rgb(75, 110, 153) 100%
+    );
+    background-size: 100% 200%;
+  }
 
-    a:hover {
-        color: white;
-        background-image: linear-gradient(
-          transparent 0%,
-          transparent calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) 100%
-        );
-        background-position: 0px 100%;
-        transition: 0.3s;
-    }
-      
-    a.link-active {
-        font-size: 20px;
-        font-weight: bold;
-    }
+  a:hover {
+    color: white;
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 2px),
+      rgb(75, 110, 153) calc(50% - 2px),
+      rgb(75, 110, 153) 100%
+    );
+    background-position: 0px 100%;
+    transition: 0.3s;
+  }
 
-    figcaption {
-        text-align: center;
-        font-style: normal;
-        font-size: 0.8em;
-        width: 100%;
-        margin-top: 0.3rem;
-        margin-bottom: 1.5rem;
-    }
+  a.link-active {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  figcaption {
+    text-align: center;
+    font-style: normal;
+    font-size: 0.8em;
+    width: 100%;
+    margin-top: 0.3rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .title-squared-div {
-    width: 54px;
-    height: 54px;
-    background-color: rgba(0, 0, 255, 0.25);
+  width: 54px;
+  height: 54px;
+  background-color: rgba(0, 0, 255, 0.25);
 
-    @media only screen and (max-width: 480px) {
-        width: 49px;
-        height: 49px;
-    }
+  @media only screen and (max-width: 480px) {
+    width: 49px;
+    height: 49px;
+  }
 }
 
 .date-rectangular-div {
-    width: 8px;
-    height: 54px;
-    background-color: rgba(0, 0, 255, 0.25);
+  width: 8px;
+  height: 54px;
+  background-color: rgba(0, 0, 255, 0.25);
 
-    @media only screen and (max-width: 480px) {
-        height: 49px;
-    }
+  @media only screen and (max-width: 480px) {
+    height: 49px;
+  }
 }

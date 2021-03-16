@@ -1,64 +1,74 @@
 .container {
-    max-width: 1000px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  // max-width: 1000px;
+  max-width: 750px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+p,
+li,
+ul,
+ol,
+code {
+  font-size: 18px;
+  line-height: 1.7em;
 }
 
 .title {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .image-container {
-    width: 47%;
-    margin-bottom: 1.5rem;
+  // width: 47%;
+  margin-bottom: 1.5rem;
 
-    @media only screen and (max-width: 750px) {
-        width: 100%;
-    }
+  @media only screen and (max-width: 750px) {
+    width: 100%;
+  }
 
-    img {
-        border-radius: 10px;
-    }
+  // img {
+  //     border-radius: 10px;
+  // }
 }
 
 .flex-div {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
 }
 
 .about-text-div {
-    width: 100%;
+  width: 100%;
 
-    p {
-        margin-bottom: 0.85rem;
-        // font-size: 16px;
-    }
-    
-    a {
-        color: inherit;
-        color: rgba(0, 40, 120, 0.65);
-        font-weight: 700;
-        padding: 3px 5px;
-        text-decoration: none;
-        background-image: linear-gradient(
-          transparent 0%,
-          transparent calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) 100%
-        );
-        background-size: 100% 200%;
-    }
+  p {
+    margin-bottom: 0.85rem;
+    // font-size: 16px;
+  }
 
-    a:hover {
-        color: white;
-        background-image: linear-gradient(
-          transparent 0%,
-          transparent calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) calc(50% - 2px),
-          rgba(0, 40, 120, 0.65) 100%
-        );
-        background-position: 0px 100%;
-        transition: 0.3s;
-    }
+  a {
+    color: inherit;
+    color: rgb(75, 110, 153);
+    font-weight: 700;
+    padding: 3px 5px;
+    text-decoration: none;
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 2px),
+      rgb(75, 110, 153) calc(50% - 2px),
+      rgb(75, 110, 153) 100%
+    );
+    background-size: 100% 200%;
+  }
+
+  a:hover {
+    color: white;
+    background-image: linear-gradient(
+      transparent 0%,
+      transparent calc(50% - 2px),
+      rgb(75, 110, 153) calc(50% - 2px),
+      rgb(75, 110, 153) 100%
+    );
+    background-position: 0px 100%;
+    transition: 0.3s;
+  }
 }
