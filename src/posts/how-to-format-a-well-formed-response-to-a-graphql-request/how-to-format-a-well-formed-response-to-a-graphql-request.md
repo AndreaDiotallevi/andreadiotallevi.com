@@ -28,11 +28,11 @@ The [GraphQL specification](http://spec.graphql.org/draft/) is an evolving open 
 
 This document is presented to clarify intent, draw attention to potential edge-cases and pit-falls, and answer common questions that arise during implementation.
 
-In this article I will *copy* extracts of the documentation from the [section number 7](http://spec.graphql.org/draft/#sec-Response) on the GraphQL **response** and combine them with personal examples.
+In this article I will _copy_ extracts of the documentation from the [section number 7](http://spec.graphql.org/draft/#sec-Response) on the GraphQL **response** and combine them with personal examples.
 
 ## Response format
 
-> "When a GraphQL service receives a request, it must return a **well-formed response**. The service's response describes the result of executing the requested operation *if successful*, and describes any errors encountered during the request."
+> When a GraphQL service receives a request, it must return a **well-formed response**. The service's response describes the result of executing the requested operation _if successful_, and describes any errors encountered during the request.
 
 A response to a GraphQL operation must be a **map** containing one or all of the following keys: `errors`, `data` and `extensions`.
 
@@ -46,25 +46,25 @@ A response to a GraphQL operation must be a **map** containing one or all of the
 
 ### Data
 
-> "If the operation included **execution**, the response map must contain an entry key `data`. If the operation failed before execution, due to a syntax error, missing information, or validation error, this entry must not be present."
+> If the operation included **execution**, the response map must contain an entry key `data`. If the operation failed before execution, due to a syntax error, missing information, or validation error, this entry must not be present.
 
-> "If an error was encountered during the execution that prevented a valid response, the `data` entry in the response should be `null`."
+> If an error was encountered during the execution that prevented a valid response, the `data` entry in the response should be `null`.
 
 ### Errors
 
-> "If the operation encountered any errors, the response map must contain an entry with key `errors`. If the operation completed without encountering any errors, this entry must not be present."
+> If the operation encountered any errors, the response map must contain an entry with key `errors`. If the operation completed without encountering any errors, this entry must not be present.
 
-> "When `errors` is present in the response, it may be helpful for it to **appear first** when serialised to make it more clear when errors are present in a response during debugging."
+> When `errors` is present in the response, it may be helpful for it to **appear first** when serialised to make it more clear when errors are present in a response during debugging.
 
 ### Extensions
 
-> "The response map may also contain an entry with key `extensions`, which is reserved for implementors to extend the protocol."
+> The response map may also contain an entry with key `extensions`, which is reserved for implementors to extend the protocol.
 
 This entry is more rare and used only in special circumstances, so I won't be covering it in detail in this article.
 
 ## Data entry format
 
-> "The `data` entry in the response will be the result of the execution of the requested operation. If the operation was a `query`, this output will be an object of the **schema's query root type**".
+> The `data` entry in the response will be the result of the execution of the requested operation. If the operation was a `query`, this output will be an object of the **schema's query root type**.
 
 For example, if querying a `todo` is successful in the following `query`:
 
@@ -122,7 +122,7 @@ The response will look like:
 
 ## Errors entry format
 
-> "The `errors` entry in the response is a **non‐empty list** of errors, where each error is a **map**."
+> The `errors` entry in the response is a **non‐empty list** of errors, where each error is a **map**.
 
 <!-- > "If no errors were encountered during the requested operation, the `errors` entry should not be present in the result."
 
@@ -130,13 +130,13 @@ The response will look like:
 
 > "If the `data` entry in the response is present (including if it is the value `null`), the `errors` entry in the response may contain any errors that occurred during execution. If errors occurred during execution, it should contain those errors." -->
 
-> "Every error must contain an entry with the key `message` with a string description of the error intended for the developer **as a guide** to understand and correct the error."
+> Every error must contain an entry with the key `message` with a string description of the error intended for the developer **as a guide** to understand and correct the error.
 
-> "If an error can be associated to a particular point in the requested GraphQL document, it should contain an entry with the key `locations` with a **list** of locations, where each location is a **map** with the keys `line` and `column`, both positive numbers starting from `1` which **describe the beginning of an associated syntax element**."
+> If an error can be associated to a particular point in the requested GraphQL document, it should contain an entry with the key `locations` with a **list** of locations, where each location is a **map** with the keys `line` and `column`, both positive numbers starting from `1` which **describe the beginning of an associated syntax element**.
 
-> "If an error can be associated to a particular field in the GraphQL result, it must contain an entry with the key `path` that details the path of the **response field which experienced the error**. This allows clients to identify whether a `null` result is intentional or caused by a runtime error."
+> If an error can be associated to a particular field in the GraphQL result, it must contain an entry with the key `path` that details the path of the **response field which experienced the error**. This allows clients to identify whether a `null` result is intentional or caused by a runtime error.
 
-> "This field should be a list of path segments **starting at the root of the response** and ending with the field associated with the error. Path segments that represent fields should be strings, and path segments that represent list indices should be 0‐indexed integers."
+> This field should be a list of path segments **starting at the root of the response** and ending with the field associated with the error. Path segments that represent fields should be strings, and path segments that represent list indices should be 0‐indexed integers.
 
 For example, if fetching one of the todos' names fails in the following query:
 
@@ -175,7 +175,7 @@ The response might look like:
 }
 ```
 
-> "If the field which experienced an error was declared as `Non-Null`, **the null result will bubble up to the next nullable field**. In that case, the path for the error should include the **full path** to the result field where the error occurred, even if that field is not present in the response."
+> If the field which experienced an error was declared as `Non-Null`, **the null result will bubble up to the next nullable field**. In that case, the path for the error should include the **full path** to the result field where the error occurred, even if that field is not present in the response.
 
 For example, if the `name` field from above had declared a `Non-Null` return type in the schema, the result would look different but the error reported would be the same:
 
@@ -202,7 +202,7 @@ For example, if the `name` field from above had declared a `Non-Null` return typ
 
 ## Conclusion
 
-Having read the documentation in detail and created my own examples of successful and not successful operations have given me a better understanding of how to design GraphQL APIs for clients to use. 
+Having read the documentation in detail and created my own examples of successful and not successful operations have given me a better understanding of how to design GraphQL APIs for clients to use.
 
 Following this convention set by the GraphQL foundation allows you to create GraphQL services that are easier to develop and maintain, with higher readability and lower chance of collisions with future realises.
 
