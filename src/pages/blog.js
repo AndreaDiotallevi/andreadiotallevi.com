@@ -52,7 +52,12 @@ const BlogPage = () => {
         >
           <ol className={blogStyles.posts}>
             {data.allMarkdownRemark.edges.map(edge => (
-              <li className={blogStyles.post} key={edge.node.frontmatter.title}>
+              // <li className={blogStyles.post} key={edge.node.frontmatter.title}>
+              <Link
+                to={`/blog/${edge.node.fields.slug}`}
+                className={blogStyles.post}
+                key={edge.node.frontmatter.title}
+              >
                 <div className={blogStyles.dateAndReadingTimeDiv}>
                   <p>{edge.node.frontmatter.date}</p>
                   {/* <p>{edge.node.fields.readingTime.text}</p> */}
@@ -66,18 +71,18 @@ const BlogPage = () => {
                     />
                   </div>
                 </div>
-                <Link to={`/blog/${edge.node.fields.slug}`}>
+                {/* <Link to={`/blog/${edge.node.fields.slug}`}> */}
+                <div>
                   <h2>{edge.node.frontmatter.title}</h2>
                   <p>{edge.node.frontmatter.description}</p>
-                </Link>
-                {/* <ul className={blogStyles.tags}>
-                                    {edge.node.frontmatter.tags.map(tag => (
-                                        <li key={tag}>
-                                            {tag}
-                                        </li>
-                                    ))}
-                                </ul> */}
-              </li>
+                  {/* <ul className={blogStyles.tags}>
+                              {edge.node.frontmatter.tags.map(tag => (
+                              <li key={tag}>{tag}</li>
+                              ))}
+                          </ul> */}
+                </div>
+                {/* </li> */}
+              </Link>
             ))}
           </ol>
         </div>

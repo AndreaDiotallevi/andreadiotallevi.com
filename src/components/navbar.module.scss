@@ -5,6 +5,7 @@
   height: 40px;
   width: 100%;
   font-size: 18px;
+//   text-transform: uppercase;
 
   @media (max-width: 750px) {
     height: 40px;
@@ -14,6 +15,8 @@
     a {
       text-decoration: none;
       color: white;
+      color: inherit;
+    //   color: rgb(75, 110, 153);
 
       @media (max-width: 750px) {
         color: inherit;
@@ -43,7 +46,8 @@
       a {
         text-decoration: none;
         color: inherit;
-        color: white;
+        // color: white;
+        // color: rgb(75, 110, 153);
         padding: 6px;
         border-radius: 3px;
       }

@@ -58,7 +58,7 @@ const IndexPage = props => {
         description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
       />
       <div className={indexStyles.container}>
-        <h1>Hello! I'm Andrea Diotallevi</h1>
+        <h1>Hey! I'm Andrea Diotallevi</h1>
         <p style={{ lineHeight: "1.7em" }}>
           I am a full-stack software engineer, generative artist and pianist,
           living in London. I am currently working with Ripple Energy where I
@@ -68,12 +68,12 @@ const IndexPage = props => {
         <Link to="/about" className={indexStyles.link}>
           Learn more about me
         </Link>
-        <h1 style={{ marginTop: "4rem" }}>Writing</h1>
+        <h1 style={{ marginTop: "5rem" }}>Writing</h1>
         <Link
           className={indexStyles.blogLink}
           to={`/blog/${props.data.allMarkdownRemark.edges[0].node.fields.slug}`}
         >
-          <div style={{ marginBottom: "10px" }}>
+          <div style={{ marginBottom: "20px" }}>
             <Img
               fluid={
                 props.data.allMarkdownRemark.edges[0].node.frontmatter
