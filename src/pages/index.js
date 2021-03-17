@@ -58,11 +58,11 @@ const IndexPage = props => {
         description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
       />
       <div className={indexStyles.container}>
-        <h1>Hey! I'm Andrea Diotallevi</h1>
+        <h1>Hi, I'm Andrea Diotallevi</h1>
         <p style={{ lineHeight: "1.7em" }}>
           I am a full-stack software engineer, generative artist and pianist,
-          living in London. I am currently working with Ripple Energy where I
-          contribute to the renewable energy transformation.
+          living in London. I am currently working with Ripple Energy allowing
+          people to part-own a wind farm for the first time.
         </p>
         <Link to="/about" className={indexStyles.link}>
           Learn more about me
