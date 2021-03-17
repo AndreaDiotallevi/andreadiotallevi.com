@@ -5,21 +5,23 @@
   height: 40px;
   width: 100%;
   font-size: 18px;
-//   text-transform: uppercase;
+  text-transform: lowercase;
 
-  @media (max-width: 750px) {
-    height: 40px;
-  }
+  //   @media (max-width: 750px) {
+  //     height: 40px;
+  //   }
 
   div {
     a {
       text-decoration: none;
       color: white;
       color: inherit;
-    //   color: rgb(75, 110, 153);
+      //   color: rgb(75, 110, 153);
+      font-weight: 700;
 
       @media (max-width: 750px) {
         color: inherit;
+        // color: rgb(75, 110, 153);
         font-weight: 700;
       }
 
@@ -35,12 +37,12 @@
     list-style-type: none;
     margin-bottom: 0;
 
-    @media (max-width: 750px) {
-      display: none;
-    }
+    // @media (max-width: 750px) {
+    //   display: none;
+    // }
 
     li {
-      margin-left: 20px;
+      margin-left: 10px;
       margin-bottom: 0;
 
       a {
