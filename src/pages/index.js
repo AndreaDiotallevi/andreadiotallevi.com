@@ -62,13 +62,12 @@ const IndexPage = props => {
         <p style={{ lineHeight: "1.7em" }}>
           I am a full-stack software engineer, generative artist and pianist,
           living in London. I am currently working with Ripple Energy where I
-          contribute to the renewable energy transformation allowing people to
-          part-own a new wind farm to power their homes with clean electricity.
+          contribute to the renewable energy transformation.
         </p>
         <Link to="/about" className={indexStyles.link}>
           Learn more about me
         </Link>
-        <h1 style={{ marginTop: "5rem" }}>Writing</h1>
+        <h1 style={{ marginTop: "4rem" }}>Writing</h1>
         <Link
           className={indexStyles.blogLink}
           to={`/blog/${props.data.allMarkdownRemark.edges[0].node.fields.slug}`}
