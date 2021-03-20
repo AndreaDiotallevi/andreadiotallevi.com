@@ -55,13 +55,15 @@ const IndexPage = props => {
     <Layout>
       <Seo
         title="Andrea Diotallevi | Software Developer"
-        description="I am a full-stack software developer at Ripple Energy, where I contribute to the renewable energy transformation allowing people to part-own a new wind farm to power their homes with clean electricity. To improve my skills, I enjoy writing articles about algorithms and software development best practices sharing what I learn with our great software community."
+        description="I am a full-stack software engineer, generative artist and pianist,
+        living in London. I am currently working with Ripple Energy enabling
+        people to part-own a wind farm for the first time."
       />
       <div className={indexStyles.container}>
         <h1>Hi, I'm Andrea Diotallevi</h1>
         <p style={{ lineHeight: "1.7em" }}>
           I am a full-stack software engineer, generative artist and pianist,
-          living in London. I am currently working with Ripple Energy allowing
+          living in London. I am currently working with Ripple Energy enabling
           people to part-own a wind farm for the first time.
         </p>
         <Link to="/about" className={indexStyles.link}>
