@@ -1,6 +1,6 @@
 ---
 title: "How to handle multiple setState calls on the same object in React"
-description: "A common pitfall and solution when using React setState multiple times on the same object."
+description: "A common pitfall and solution when calling React setState multiple times on the same object."
 date: "2021-03-30"
 tags: ["React"]
 # featuredImage: linus-nylund-1400x840.jpg
