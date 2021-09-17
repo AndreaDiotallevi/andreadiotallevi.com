@@ -66,9 +66,23 @@ const IndexPage = props => {
           living in London. I am currently working with Ripple Energy enabling
           people to part-own a wind farm for the first time.
         </p>
-        <Link to="/about" className={indexStyles.link}>
-          Learn more about me
-        </Link>
+        <div style={{ display: "flex", flexWrap: "wrap" }}>
+          <Link
+            to="/about"
+            className={indexStyles.link}
+            style={{ marginRight: "20px" }}
+          >
+            Learn more about me
+          </Link>
+          <a
+            href="https://twitter.com/a_diotallevi_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={indexStyles.link}
+          >
+            Follow me on Twitter
+          </a>
+        </div>
         <h1 style={{ marginTop: "4rem" }}>Writing</h1>
         <Link
           className={indexStyles.blogLink}
