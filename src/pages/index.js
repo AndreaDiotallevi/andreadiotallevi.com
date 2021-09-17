@@ -110,9 +110,11 @@ const IndexPage = props => {
             {props.data.allMarkdownRemark.edges[0].node.frontmatter.description}
           </p>
         </Link>
-        <Link to="/blog" className={indexStyles.link}>
-          Read all posts
-        </Link>
+        <div style={{ display: "flex" }}>
+          <Link to="/blog" className={indexStyles.link}>
+            Read all posts
+          </Link>
+        </div>
       </div>
     </Layout>
   )

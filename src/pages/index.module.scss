@@ -31,13 +31,14 @@
     box-shadow: none;
     // border-radius: 5px;
     font-size: 18px;
-    padding: 13px 16px;
+    padding: 13px 0;
     width: 220px;
     margin-bottom: 10px;
 
     &:hover {
-      //   transition: 0.3s;
-      font-weight: 700;
+      transition: 0.3s;
+      //   font-weight: 700;
+      background-color: rgb(47, 82, 126);
     }
   }
 
