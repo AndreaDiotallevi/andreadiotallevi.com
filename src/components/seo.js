@@ -27,13 +27,15 @@ const SEO = ({ title, description, image, article }) => {
         <Helmet
             title={seo.title}
             htmlAttributes={{
-                lang: 'en',
+                lang: "en",
             }}
         >
             <meta name="description" content={seo.description} />
             <meta name="image" content={seo.image} />
             {seo.url && <meta property="og:url" content={seo.url} />}
-            {(article ? true : null) && <meta property="og:type" content="article" />}
+            {(article ? true : null) && (
+                <meta property="og:type" content="article" />
+            )}
             {seo.title && <meta property="og:title" content={seo.title} />}
             {seo.description && (
                 <meta property="og:description" content={seo.description} />
@@ -48,7 +50,10 @@ const SEO = ({ title, description, image, article }) => {
                 <meta name="twitter:description" content={seo.description} />
             )}
             {seo.image && <meta name="twitter:image" content={seo.image} />}
-            <meta name="google-site-verification" content="DlrlSzOYQAINOPnh8NahKCsl-UI116Fv_4J9JEQMr-k" />
+            <meta
+                name="google-site-verification"
+                content="DlrlSzOYQAINOPnh8NahKCsl-UI116Fv_4J9JEQMr-k"
+            />
         </Helmet>
     )
 }
@@ -70,15 +75,15 @@ SEO.defaultProps = {
 }
 
 const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        defaultTitle: title
-        defaultDescription: description
-        siteUrl: url
-        defaultImage: image
-        twitterUsername
-      }
+    query SEO {
+        site {
+            siteMetadata {
+                defaultTitle: title
+                defaultDescription: description
+                siteUrl: url
+                defaultImage: image
+                twitterUsername
+            }
+        }
     }
-  }
 `

@@ -14,11 +14,7 @@ const Menu = ({ open, onClick }) => {
         <div className={menuStyles.menu}>
             <ul>
                 {routes.map((item, index) => (
-                    <MenuItem
-                        key={index}
-                        onClick={onClick}
-                        item={item}
-                    />
+                    <MenuItem key={index} onClick={onClick} item={item} />
                 ))}
             </ul>
         </div>

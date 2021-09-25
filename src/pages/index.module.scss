@@ -1,72 +1,72 @@
 .container {
-  // min-width: 1000px;
-  max-width: 750px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 80px;
+    // min-width: 1000px;
+    max-width: 750px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 80px;
 
-  h1 {
-    margin-bottom: 1.5rem;
-    // color: rgb(75, 110, 153);
-  }
-
-  p {
-    font-size: 18px;
-    color: rgb(110, 110, 110);
-    // color: inherit;
-    margin-bottom: 1.5rem;
-    // border-top: 1px solid rgb(235, 235, 235);
-  }
-
-  .link {
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    // background-color: #6e6e6e;
-    background-color: rgb(75, 110, 153);
-    color: inherit;
-    color: white;
-    box-shadow: none;
-    // border-radius: 5px;
-    font-size: 18px;
-    padding: 13px 0;
-    width: 220px;
-    margin-bottom: 10px;
-
-    &:hover {
-      transition: 0.3s;
-      //   font-weight: 700;
-      background-color: rgb(47, 82, 126);
-    }
-  }
-
-  .blogLink {
-    text-decoration: none;
-
-    h2 {
-      color: rgb(75, 110, 153);
-      color: inherit;
-      color: rgba(0, 0, 0, 0.8);
+    h1 {
+        margin-bottom: 1.5rem;
+        // color: rgb(75, 110, 153);
     }
 
-    &:hover {
-      h2 {
+    p {
+        font-size: 18px;
         color: rgb(110, 110, 110);
-      }
+        // color: inherit;
+        margin-bottom: 1.5rem;
+        // border-top: 1px solid rgb(235, 235, 235);
     }
-  }
 
-  // a:first-of-type {
-  //     background-color: rgb(75, 110, 153);
-  //     color: white;
-  // }
+    .link {
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        // background-color: #6e6e6e;
+        background-color: rgb(75, 110, 153);
+        color: inherit;
+        color: white;
+        box-shadow: none;
+        // border-radius: 5px;
+        font-size: 18px;
+        padding: 13px 0;
+        width: 220px;
+        margin-bottom: 10px;
 
-  @media only screen and (max-width: 750px) {
-    min-width: auto;
-    width: 100%;
-  }
+        &:hover {
+            transition: 0.3s;
+            //   font-weight: 700;
+            background-color: rgb(47, 82, 126);
+        }
+    }
+
+    .blogLink {
+        text-decoration: none;
+
+        h2 {
+            color: rgb(75, 110, 153);
+            color: inherit;
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        &:hover {
+            h2 {
+                color: rgb(110, 110, 110);
+            }
+        }
+    }
+
+    // a:first-of-type {
+    //     background-color: rgb(75, 110, 153);
+    //     color: white;
+    // }
+
+    @media only screen and (max-width: 750px) {
+        min-width: auto;
+        width: 100%;
+    }
 }
 
 // .image-container {

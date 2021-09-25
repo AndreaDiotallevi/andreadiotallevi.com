@@ -10,9 +10,7 @@ const MenuItem = ({ item, onClick }) => {
             onClick={onClick}
             className={menuItemStyles.link}
         >
-            <h1>
-                {item.menuName}
-            </h1>
+            <h1>{item.menuName}</h1>
         </Link>
     )
 }
