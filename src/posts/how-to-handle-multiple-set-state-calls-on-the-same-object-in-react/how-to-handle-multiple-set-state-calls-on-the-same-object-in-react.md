@@ -2,8 +2,7 @@
 title: "How to handle multiple setState calls on the same object in React"
 description: "A common pitfall and solution when calling React setState multiple times on the same object."
 date: "2021-03-30"
-tags: ["React"]
-# featuredImage: linus-nylund-1400x840.jpg
+tags: ["React", "React State Management", "React Hooks", "React Documentation"]
 featuredImage: chris-lawton-1400x840.jpg
 ---
 
@@ -21,14 +20,14 @@ In React, the [useState](https://reactjs.org/docs/hooks-state.html) hook allows 
 import React, { useState } from "react"
 
 const Example = () => {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0)
 
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </div>
-  )
+    return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+        </div>
+    )
 }
 ```
 
@@ -97,6 +96,6 @@ Having stumbled across this problem made me read carefully the documentation, wh
 
 So, if we summarise the takeaways from this article we can list the following:
 
-- React `setState` is asynchronous, which means the update function is taken outside the main program flow.
-- If you access a variable straight after it has been updated you will likely still see the old value and not the updated value.
-- If a new state is computed using the previous state, the best way is to pass a function to `setState` referencing the previous value, rather than destructuring the previously updated state itself.
+-   React `setState` is asynchronous, which means the update function is taken outside the main program flow.
+-   If you access a variable straight after it has been updated you will likely still see the old value and not the updated value.
+-   If a new state is computed using the previous state, the best way is to pass a function to `setState` referencing the previous value, rather than destructuring the previously updated state itself.

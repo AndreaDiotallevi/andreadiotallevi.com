@@ -2,7 +2,7 @@
 title: "Big O notation and the magic of time complexity"
 description: "The fundamental components of algorithm complexity analysis, how to derive an algorithm big-O and a list of all the common big-O classes of runtime complexity."
 date: "2020-04-15"
-tags: ["Algorithms", "Big O Notation", "Scalability"]
+tags: ["Algorithms", "Big O Notation", "Scalability", "Complexity"]
 featuredImage: darwin-vegher-1400x840.jpg
 ---
 
@@ -26,9 +26,9 @@ This allows us to compare different algorithms, by putting them in the same clas
 
 On the next paragraphs, we will go through each step on how to calculate an algorithm big-O:
 
-- Counting Instructions
-- Worst-Case Scenario
-- Asymptotic Behaviour
+-   Counting Instructions
+-   Worst-Case Scenario
+-   Asymptotic Behaviour
 
 ### Counting Instructions
 
@@ -40,16 +40,16 @@ The example we will use is a JavaScript function to find the maximum element in 
 
 ```javascript
 function findMax(arr) {
-  let max = arr[0];
-  let n = arr.length;
+    let max = arr[0]
+    let n = arr.length
 
-  for (let i = 0; i < n; ++i) {
-    if (arr[i] > max) {
-      max = arr[i];
+    for (let i = 0; i < n; ++i) {
+        if (arr[i] > max) {
+            max = arr[i]
+        }
     }
-  }
 
-  return max;
+    return max
 }
 ```
 
@@ -57,10 +57,10 @@ Now, the first thing we will do is count how many **fundamental instructions** t
 
 Therefore, if we ignore the `for` body for the moment, the number of instructions this algorithm needs are `6 + 2n`:
 
-- `let max = arr[0]`: `arr[0]` lookup and max assignment
-- `let n = arr.length`: `arr.length` lookup and `n` assignment
-- before the `for` loop: `i` initialisation and `i < n` comparison check
-- `for` loop: `++i` increment and `i < n` comparison check, `n` times
+-   `let max = arr[0]`: `arr[0]` lookup and max assignment
+-   `let n = arr.length`: `arr.length` lookup and `n` assignment
+-   before the `for` loop: `i` initialisation and `i < n` comparison check
+-   `for` loop: `++i` increment and `i < n` comparison check, `n` times
 
 ### Worst-Case Scenario
 
@@ -101,7 +101,7 @@ For example, printing the first element of an array:
 
 ```javascript
 function printFirstElement(arr) {
-  console.log(arr[0]);
+    console.log(arr[0])
 }
 ```
 
@@ -113,23 +113,23 @@ A common example is [binary search](https://en.wikipedia.org/wiki/Binary_search_
 
 ```javascript
 function isInArray(arr, num) {
-  let startIndex = 0;
-  let endIndex = arr.length - 1;
+    let startIndex = 0
+    let endIndex = arr.length - 1
 
-  while (startIndex <= endIndex) {
-    let midIndex = Math.floor((startIndex + endIndex) / 2);
-    let midNum = arr[midIndex];
+    while (startIndex <= endIndex) {
+        let midIndex = Math.floor((startIndex + endIndex) / 2)
+        let midNum = arr[midIndex]
 
-    if (midNum === num) {
-      return true;
-    } else if (midNum > num) {
-      endIndex = midIndex - 1;
-    } else {
-      startIndex = midIndex + 1;
+        if (midNum === num) {
+            return true
+        } else if (midNum > num) {
+            endIndex = midIndex - 1
+        } else {
+            startIndex = midIndex + 1
+        }
     }
-  }
 
-  return false;
+    return false
 }
 ```
 
@@ -143,28 +143,28 @@ In computer science _base 2 logarithms_ are much more common than any other type
 
 So, if we take a worst-case example of checking if the array `[1, 4, 6, 8, 9, 23, 35, 56]` includes the number 1, we would have the following operations:
 
-- Initial array, `n = 8`
+-   Initial array, `n = 8`
 
 ```javascript
-[1, 4, 6, 8, 9, 23, 35, 56];
+;[1, 4, 6, 8, 9, 23, 35, 56]
 ```
 
-- With 9 as pivot, we keep checking the left half, `n = 8 * 1/2 = 4`
+-   With 9 as pivot, we keep checking the left half, `n = 8 * 1/2 = 4`
 
 ```javascript
-[1, 4, 6, 8];
+;[1, 4, 6, 8]
 ```
 
-- With 6 as pivot, we keep checking the left half, `n = 4 * 1/2 = 2`
+-   With 6 as pivot, we keep checking the left half, `n = 4 * 1/2 = 2`
 
 ```javascript
-[1, 4];
+;[1, 4]
 ```
 
-- With 4 as pivot, we keep checking the left half, `n = 2 * 1/2 = 1`
+-   With 4 as pivot, we keep checking the left half, `n = 2 * 1/2 = 1`
 
 ```javascript
-[1];
+;[1]
 ```
 
 So, we can say we had to divide the array 3 times, which leads us to this equation:
@@ -176,15 +176,15 @@ So, we can say we had to divide the array 3 times, which leads us to this equati
 Similarly, for n elements:
 
 ```javascript
-(n * (1 / 2)) ^ k = 1;
-n * ((1 / 2) ^ k) = 1;
-n = 2 ^ k;
+;(n * (1 / 2)) ^ k = 1
+n * ((1 / 2) ^ k) = 1
+n = 2 ^ k
 ```
 
 Which makes our equation to:
 
 ```javascript
-log((base = 2))(n) = k;
+log((base = 2))(n) = k
 ```
 
 ### O( n ) — Linear Time
@@ -195,11 +195,11 @@ For example, printing all the elements of an array:
 
 ```javascript
 function printAllElements(arr) {
-  let n = arr.length;
+    let n = arr.length
 
-  for (let i = 0; i < n; i++) {
-    console.log(arr[i]);
-  }
+    for (let i = 0; i < n; i++) {
+        console.log(arr[i])
+    }
 }
 ```
 
@@ -209,10 +209,10 @@ O( n log n ) represents an algorithm when a data set is repeatedly divided into 
 
 A common example is the [mergesort](https://en.wikipedia.org/wiki/Merge_sort) algorithm, for which we would have the following operations:
 
-- Divide the list into two sublists
-- Sort the left one recursively
-- Sort the right one recursively
-- Merge the sorted lists
+-   Divide the list into two sublists
+-   Sort the left one recursively
+-   Sort the right one recursively
+-   Merge the sorted lists
 
 ### O( n² ) — Quadratic Time
 
@@ -222,13 +222,13 @@ For example, printing all possible pairs of values in an array:
 
 ```javascript
 function printAllPairs(arr) {
-  let n = arr.length;
+    let n = arr.length
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      console.log(arr[i], arr[j]);
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            console.log(arr[i], arr[j])
+        }
     }
-  }
 }
 ```
 
@@ -240,11 +240,11 @@ For example, the recursive calculation to find the n-th [Fibonacci](https://en.w
 
 ```javascript
 function fibonacci(n) {
-  if (n < 2) {
-    return n;
-  }
+    if (n < 2) {
+        return n
+    }
 
-  return fibonacci(n - 2) + fibonacci(n - 1);
+    return fibonacci(n - 2) + fibonacci(n - 1)
 }
 ```
 
@@ -276,6 +276,6 @@ Hopefully, this article has helped you to grasp the concept of big-O notation, a
 
 Here are some resources that massively helped me understand the underlining concepts behind the big-O notation and gave me a great foundation for writing this article:
 
-- [A Gentle Introduction to Algorithm Complexity Analysis](http://discrete.gr/complexity/)
-- [A Beginner’s Guide to Big O Notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/)
-- [The Basics of Big O Notation](https://somedudesays.com/2020/01/the-basics-of-big-o-notation/)
+-   [A Gentle Introduction to Algorithm Complexity Analysis](http://discrete.gr/complexity/)
+-   [A Beginner’s Guide to Big O Notation](https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/)
+-   [The Basics of Big O Notation](https://somedudesays.com/2020/01/the-basics-of-big-o-notation/)

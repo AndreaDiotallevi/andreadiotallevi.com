@@ -2,7 +2,7 @@
 title: "How to use the @property decorator in Python and Django"
 description: "An overview of how the @property decorator works in Python and when to use it in Django."
 date: "2021-01-31"
-tags: ["Python", "Django", "Decorators"]
+tags: ["Python", "Django", "Decorators", "Property Decorator"]
 featuredImage: sarah-dorweiler-1400x840-b-w.jpg
 ---
 
@@ -73,7 +73,7 @@ Initial Functionality
 
 The `f` is a function whose behaviour we want to extend. So, we will have to write a custom function like `decorator()`, which takes the `f` as an argument.
 
-The `new_function()` is an inner function where we can write additional code to extend the behaviour of the `f`, before or after calling it. 
+The `new_function()` is an inner function where we can write additional code to extend the behaviour of the `f`, before or after calling it.
 
 And finally, the `new_function()` should be returned. In this way, Python includes decorator functions. Also, we can define our own decorator function to extend the behaviour of a function without modifying it.
 
@@ -141,7 +141,7 @@ import locale
 
 class Book(models.Model):
     price = models.IntegerField()
-    
+
     @property
     def price_locale(self):
         locale.setlocale(locale.LC_ALL, '')
@@ -187,8 +187,8 @@ So, before deciding whether creating a new model attribute or just adding a cust
 
 A big thank you to the following resources, which greatly helped me grasp the concepts described in this article:
 
-- [Property function](https://docs.python.org/2/library/functions.html#property) (Python Docs)
-- [Descriptors](https://docs.python.org/2/howto/descriptor.html) (Python Docs)
-- [How does the property decorator work in Python](https://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work-in-python) (Stack Overflow)
-- [Using the @property decorator on custom model methods](http://dylanbfox.blogspot.com/2015/01/django-tip-using-property-decorator-on.html) (Dylan B. Fox)
-- [The @property Decorator in Python](https://www.freecodecamp.org/news/python-property-decorator/) (Estefania Cassingena Navone)
+-   [Property function](https://docs.python.org/2/library/functions.html#property) (Python Docs)
+-   [Descriptors](https://docs.python.org/2/howto/descriptor.html) (Python Docs)
+-   [How does the property decorator work in Python](https://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work-in-python) (Stack Overflow)
+-   [Using the @property decorator on custom model methods](http://dylanbfox.blogspot.com/2015/01/django-tip-using-property-decorator-on.html) (Dylan B. Fox)
+-   [The @property Decorator in Python](https://www.freecodecamp.org/news/python-property-decorator/) (Estefania Cassingena Navone)

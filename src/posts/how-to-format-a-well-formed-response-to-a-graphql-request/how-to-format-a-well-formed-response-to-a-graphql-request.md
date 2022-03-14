@@ -2,7 +2,7 @@
 title: "How to format a well-formed response to a GraphQL request"
 description: "The convention for designing a well-formed GraphQL response in line with the GraphQL specification."
 date: "2021-02-28"
-tags: ["GraphQL", "Documentation", "APIs"]
+tags: ["GraphQL", "GraphQL Documentation", "GraphQL Specification", "APIs"]
 featuredImage: zdenek-machacek-1400x840-mod2.jpg
 ---
 
@@ -70,10 +70,10 @@ For example, if querying a `todo` is successful in the following `query`:
 
 ```graphql
 query GetTodo($id: Int = 1) {
-  todo(id: $id) {
-    id
-    name
-  }
+    todo(id: $id) {
+        id
+        name
+    }
 }
 ```
 
@@ -96,12 +96,12 @@ For example, if creating a `todo` is successful in the following `mutation`:
 
 ```graphql
 mutation CreateTodo($name: String = "Read book") {
-  createTodo(name: $name) {
-    todo {
-      id
-      name
+    createTodo(name: $name) {
+        todo {
+            id
+            name
+        }
     }
-  }
 }
 ```
 
@@ -142,10 +142,10 @@ For example, if fetching one of the todos' names fails in the following query:
 
 ```graphql
 query GetTodos {
-  todos {
-    id
-    name
-  }
+    todos {
+        id
+        name
+    }
 }
 ```
 

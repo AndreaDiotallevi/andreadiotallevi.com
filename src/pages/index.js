@@ -45,6 +45,15 @@ const IndexPage = props => {
                 description="I am a full-stack software engineer, generative artist and pianist,
         living in London. I am currently working with Ripple Energy enabling
         people to part-own a wind farm for the first time."
+                tags={[
+                    "Learn JavaScript",
+                    "Learn React",
+                    "Learn Python",
+                    "Learn Django",
+                    "Learn GraphQL",
+                    "Software Development",
+                    "Andrea Diotallevi's Website",
+                ]}
             />
             <div className={indexStyles.container}>
                 <h1>Hi, I'm Andrea Diotallevi</h1>

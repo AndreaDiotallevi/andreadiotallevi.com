@@ -28,6 +28,7 @@ const AboutPage = props => {
             <Seo
                 title="About | Andrea Diotallevi"
                 description="All about Andrea Diotallevi"
+                tags={["About, Andrea Diotallevi, About Andrea Diotallevi"]}
             />
             <div className={aboutStyles.container}>
                 <h1 className={aboutStyles.title}>About</h1>

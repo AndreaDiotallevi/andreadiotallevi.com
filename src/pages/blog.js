@@ -45,6 +45,15 @@ const BlogPage = () => {
             <Seo
                 title="Blog | Andrea Diotallevi"
                 description="Andrea Diotallevi's blog posts"
+                tags={[
+                    "JavaScript",
+                    "React",
+                    "Python",
+                    "Django",
+                    "GraphQL",
+                    "Software Development",
+                    "Andrea Diotallevi's Blog",
+                ]}
             />
             <div className={blogStyles.container}>
                 <h1>Blog</h1>

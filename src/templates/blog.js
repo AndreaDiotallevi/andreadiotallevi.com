@@ -15,6 +15,7 @@ export const query = graphql`
                 title
                 description
                 date(formatString: "MMMM Do, YYYY")
+                tags
                 featuredImage {
                     childImageSharp {
                         gatsbyImageData(
@@ -36,6 +37,7 @@ const Blog = props => {
         title,
         description,
         date,
+        tags,
         featuredImage,
     } = props.data.markdownRemark.frontmatter
 
@@ -46,6 +48,7 @@ const Blog = props => {
                 description={description}
                 image={featuredImage.childImageSharp.gatsbyImageData.src}
                 article={true}
+                tags={tags}
             />
             <article className={blogStyles.container}>
                 <h1 className={blogStyles.title}>{title}</h1>

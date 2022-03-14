@@ -2,7 +2,13 @@
 title: "How to incrementally develop an algorithm using Test Driven Development"
 description: "The fundamental components of test-driven development, with an example of how to incrementally develop an algorithm using the red-green-refactor cycle."
 date: "2020-02-20"
-tags: ["Test Driven Development", "Algorithms", "Best Practices"]
+tags:
+    [
+        "Test Driven Development",
+        "Algorithms",
+        "Best Practices",
+        "Prime Factors Kata",
+    ]
 featuredImage: bahador-1400x840.jpg
 ---
 
@@ -38,10 +44,10 @@ We are now ready to write our first test, which expects the _yet_ undefined `pri
 
 ```javascript
 describe("primeFactors", () => {
-  it("should return [] if given 1", () => {
-    expect(primeFactors(1)).toEqual([]);
-  });
-});
+    it("should return [] if given 1", () => {
+        expect(primeFactors(1)).toEqual([])
+    })
+})
 ```
 
 Once the test is created, the next step is to confirm that the test fails. By confirming that the new test fails, and does so for the reasons we expect, we can be confident that the test is _useful_, and will be beneficial once we write the code necessary to pass the test. Let’s run the tests:
@@ -73,7 +79,7 @@ In order to make the test pass with the _least amount of keystrokes_, we can jus
 
 ```javascript
 function primeFactors() {
-  return [];
+    return []
 }
 ```
 
@@ -93,8 +99,8 @@ It’s time for the next test, which expects the prime factors of `2` to be an a
 
 ```javascript
 it("should return [2] if given 2", () => {
-  expect(primeFactors(2)).toEqual([2]);
-});
+    expect(primeFactors(2)).toEqual([2])
+})
 ```
 
 We expect the test to fail:
@@ -108,9 +114,9 @@ We can make this pass by modifying our algorithm. We still want to start with th
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) factors.push(2);
-  return factors;
+    factors = []
+    if (n > 1) factors.push(2)
+    return factors
 }
 ```
 
@@ -128,8 +134,8 @@ The next test will be to expect the prime factors of `3` to be an array with `3`
 
 ```javascript
 it("should return [3] if given 3", () => {
-  expect(primeFactors(3)).toEqual([3]);
-});
+    expect(primeFactors(3)).toEqual([3])
+})
 ```
 
 This test should fail. Notice how we are getting into a _hypothesis experiment loop_, as we write a test and expect it to fail:
@@ -144,9 +150,9 @@ Our hypothesis was correct. Now, we need to make this test pass with the _fewest
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) factors.push(n);
-  return factors;
+    factors = []
+    if (n > 1) factors.push(n)
+    return factors
 }
 ```
 
@@ -158,8 +164,8 @@ We expect the prime factors of 4 to be an array with two `2` in it (`4 = 2 * 2`)
 
 ```javascript
 it("should return [2, 2] if given 4", () => {
-  expect(primeFactors(4)).toEqual([2, 2]);
-});
+    expect(primeFactors(4)).toEqual([2, 2])
+})
 ```
 
 We expect the test to fail:
@@ -174,15 +180,15 @@ If we look at the code, we can get it to pass by putting another if statement th
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) {
-    if (n % 2 === 0) {
-      factors.push(2);
-      n /= 2;
+    factors = []
+    if (n > 1) {
+        if (n % 2 === 0) {
+            factors.push(2)
+            n /= 2
+        }
+        factors.push(n)
     }
-    factors.push(n);
-  }
-  return factors;
+    return factors
 }
 ```
 
@@ -201,15 +207,15 @@ We can see the new test passed, but the test that failed is the test number 2. A
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) {
-    if (n % 2 === 0) {
-      factors.push(2);
-      n /= 2;
+    factors = []
+    if (n > 1) {
+        if (n % 2 === 0) {
+            factors.push(2)
+            n /= 2
+        }
+        if (n > 1) factors.push(n)
     }
-    if (n > 1) factors.push(n);
-  }
-  return factors;
+    return factors
 }
 ```
 
@@ -223,15 +229,15 @@ However, that new `if` statement is an interesting one, as it is the same as the
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) {
-    if (n % 2 === 0) {
-      factors.push(2);
-      n /= 2;
+    factors = []
+    if (n > 1) {
+        if (n % 2 === 0) {
+            factors.push(2)
+            n /= 2
+        }
     }
-  }
-  if (n > 1) factors.push(n);
-  return factors;
+    if (n > 1) factors.push(n)
+    return factors
 }
 ```
 
@@ -243,14 +249,14 @@ The next three tests are the following:
 
 ```javascript
 it("should return [5] if given 5", () => {
-  expect(primeFactors(5)).toEqual([5]);
-});
+    expect(primeFactors(5)).toEqual([5])
+})
 it("should return [2, 3] if given 6", () => {
-  expect(primeFactors(6)).toEqual([2, 3]);
-});
+    expect(primeFactors(6)).toEqual([2, 3])
+})
 it("should return [7] if given 7", () => {
-  expect(primeFactors(7)).toEqual([7]);
-});
+    expect(primeFactors(7)).toEqual([7])
+})
 ```
 
 And they all pass:
@@ -265,8 +271,8 @@ We expect the prime factors of `8` to be an array with three 2 in it (`8 = 2 * 2
 
 ```javascript
 it("should return [2, 2, 2] if given 8", () => {
-  expect(primeFactors(8)).toEqual([2, 2, 2]);
-});
+    expect(primeFactors(8)).toEqual([2, 2, 2])
+})
 ```
 
 We expect this test to fail, as there is nothing in our code that puts three elements in the array:
@@ -281,15 +287,15 @@ How can we get this to pass with the fewest possible keystrokes? We can change t
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) {
-    while (n % 2 === 0) {
-      factors.push(2);
-      n /= 2;
+    factors = []
+    if (n > 1) {
+        while (n % 2 === 0) {
+            factors.push(2)
+            n /= 2
+        }
     }
-  }
-  if (n > 1) factors.push(n);
-  return factors;
+    if (n > 1) factors.push(n)
+    return factors
 }
 ```
 
@@ -307,8 +313,8 @@ We expect the prime factors of `9` to be an array with two 3 in it (`9 = 3 * 3`)
 
 ```javascript
 it("should return [3, 3] if given 9", () => {
-  expect(primeFactors(9)).toEqual([3, 3]);
-});
+    expect(primeFactors(9)).toEqual([3, 3])
+})
 ```
 
 We expect this test to fail as there is nothing in our code that can put two `3`s in it:
@@ -323,19 +329,19 @@ If we look at the code, we realise that there is a little engine that factors ou
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  if (n > 1) {
-    while (n % 2 === 0) {
-      factors.push(2);
-      n /= 2;
+    factors = []
+    if (n > 1) {
+        while (n % 2 === 0) {
+            factors.push(2)
+            n /= 2
+        }
+        while (n % 3 === 0) {
+            factors.push(3)
+            n /= 3
+        }
     }
-    while (n % 3 === 0) {
-      factors.push(3);
-      n /= 3;
-    }
-  }
-  if (n > 1) factors.push(n);
-  return factors;
+    if (n > 1) factors.push(n)
+    return factors
 }
 ```
 
@@ -351,17 +357,17 @@ First thing we need to do is change that 2 into a variable called `divisor`. The
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  divisor = 2;
-  while (n > 1) {
-    while (n % divisor === 0) {
-      factors.push(divisor);
-      n /= divisor;
+    factors = []
+    divisor = 2
+    while (n > 1) {
+        while (n % divisor === 0) {
+            factors.push(divisor)
+            n /= divisor
+        }
+        divisor++
     }
-    divisor++;
-  }
-  if (n > 1) factors.push(n);
-  return factors;
+    if (n > 1) factors.push(n)
+    return factors
 }
 ```
 
@@ -369,16 +375,16 @@ However, there is still some refactoring we can do. The first `while` loop canno
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  divisor = 2;
-  while (n > 1) {
-    while (n % divisor === 0) {
-      factors.push(divisor);
-      n /= divisor;
+    factors = []
+    divisor = 2
+    while (n > 1) {
+        while (n % divisor === 0) {
+            factors.push(divisor)
+            n /= divisor
+        }
+        divisor++
     }
-    divisor++;
-  }
-  return factors;
+    return factors
 }
 ```
 
@@ -386,15 +392,15 @@ There is still more refactoring we can do. While loops are wordy and can be tran
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  divisor = 2;
-  while (n > 1) {
-    for (; n % divisor === 0; n /= divisor) {
-      factors.push(divisor);
+    factors = []
+    divisor = 2
+    while (n > 1) {
+        for (; n % divisor === 0; n /= divisor) {
+            factors.push(divisor)
+        }
+        divisor++
     }
-    divisor++;
-  }
-  return factors;
+    return factors
 }
 ```
 
@@ -402,13 +408,13 @@ And we can do the same for the outer `while` loop:
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  for (divisor = 2; n > 1; divisor++) {
-    for (; n % divisor === 0; n /= divisor) {
-      factors.push(divisor);
+    factors = []
+    for (divisor = 2; n > 1; divisor++) {
+        for (; n % divisor === 0; n /= divisor) {
+            factors.push(divisor)
+        }
     }
-  }
-  return factors;
+    return factors
 }
 ```
 
@@ -434,13 +440,13 @@ Although the algorithm works, there is still a small improvement we can make to 
 
 ```javascript
 function primeFactors(n) {
-  factors = [];
-  for (divisor = 2; n > n ** 0.5; divisor++) {
-    for (; n % divisor === 0; n /= divisor) {
-      factors.push(divisor);
+    factors = []
+    for (divisor = 2; n > n ** 0.5; divisor++) {
+        for (; n % divisor === 0; n /= divisor) {
+            factors.push(divisor)
+        }
     }
-  }
-  return factors;
+    return factors
 }
 ```
 
