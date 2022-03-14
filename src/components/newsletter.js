@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import { useLocation } from "@reach/router"
 
-import newsletterStyles from "./newsletter.module.scss"
+import * as newsletterStyles from "./newsletter.module.scss"
 
 const Newsletter = () => {
     const { pathname } = useLocation()

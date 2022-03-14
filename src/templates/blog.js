@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Newsletter from "../components/newsletter"
 
-import blogStyles from "./blog.module.scss"
+import * as blogStyles from "./blog.module.scss"
 
 export const query = graphql`
     query($slug: String!) {
@@ -24,11 +24,6 @@ export const query = graphql`
                 }
             }
             html
-            fields {
-                readingTime {
-                    text
-                }
-            }
         }
     }
 `
@@ -53,13 +48,10 @@ const Blog = props => {
                 <h1 className={blogStyles.title}>{title}</h1>
                 <div className={blogStyles.dateAndReadingTimeDiv}>
                     <p>{date}</p>
-                    <p style={{ margin: "0 10px" }}>·</p>
-                    <p>{props.data.markdownRemark.fields.readingTime.text}</p>
+                    {/* <p style={{ margin: "0 10px" }}>·</p> */}
+                    {/* <p>{props.data.markdownRemark.fields.readingTime.text}</p> */}
                 </div>
-                <Img
-                    fluid={featuredImage.childImageSharp.fluid}
-                    className={blogStyles.image}
-                />
+                <Img fluid={featuredImage.childImageSharp.fluid} />
                 <div
                     dangerouslySetInnerHTML={{
                         __html: props.data.markdownRemark.html,

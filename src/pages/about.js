@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import aboutStyles from "./about.module.scss"
+import * as aboutStyles from "./about.module.scss"
 
 export const query = graphql`
     query {

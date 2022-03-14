@@ -5,8 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import blogStyles from "./blog.module.scss"
-// import templateBlogStyles from "../templates/blog.module.scss"
+import * as blogStyles from "./blog.module.scss"
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
@@ -31,9 +30,6 @@ const BlogPage = () => {
                         }
                         fields {
                             slug
-                            readingTime {
-                                text
-                            }
                         }
                     }
                 }
@@ -42,7 +38,7 @@ const BlogPage = () => {
     `)
 
     return (
-        <Layout className={blogStyles.layout}>
+        <Layout>
             <Seo
                 title="Blog | Andrea Diotallevi"
                 description="Andrea Diotallevi's blog posts"

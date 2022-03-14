@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import MenuToggleButton from "./menuToggleButton"
+// import MenuToggleButton from "./menuToggleButton"
 import routes from "../utils/routes"
 
-import navbarStyles from "./navbar.module.scss"
+import * as navbarStyles from "./navbar.module.scss"
 
 const Navbar = ({ open, onClick }) => {
     return (

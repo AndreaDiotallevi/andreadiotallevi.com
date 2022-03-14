@@ -3,7 +3,7 @@ import React from "react"
 import MenuItem from "./menuItem"
 import routes from "../utils/routes"
 
-import menuStyles from "./menu.module.scss"
+import * as menuStyles from "./menu.module.scss"
 
 const Menu = ({ open, onClick }) => {
     if (!open) {

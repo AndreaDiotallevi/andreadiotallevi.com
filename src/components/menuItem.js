@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import menuItemStyles from "./menuItem.module.scss"
+import * as menuItemStyles from "./menuItem.module.scss"
 
 const MenuItem = ({ item, onClick }) => {
     return (

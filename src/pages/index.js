@@ -5,7 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-import indexStyles from "./index.module.scss"
+import * as indexStyles from "./index.module.scss"
 
 export const query = graphql`
     query {
@@ -98,7 +98,6 @@ const IndexPage = props => {
                                     .frontmatter.featuredImage.childImageSharp
                                     .fluid
                             }
-                            className={indexStyles.image}
                         />
                     </div>
                     <h2

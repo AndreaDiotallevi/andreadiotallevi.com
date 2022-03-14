@@ -1,6 +1,6 @@
 import React from "react"
 
-import menuToggleButtonStyles from "./menuToggleButton.module.scss"
+import * as menuToggleButtonStyles from "./menuToggleButton.module.scss"
 
 const MenuToggleButton = ({ open, onClick }) => {
     return (

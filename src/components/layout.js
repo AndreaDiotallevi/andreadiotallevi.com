@@ -5,14 +5,18 @@ import Menu from "./menu"
 
 import "../styles/index.scss"
 import "../styles/prism-modified.css"
-import layoutStyles from "./layout.module.scss"
+import * as layoutStyles from "./layout.module.scss"
 
-const Layout = (props) => {
+const Layout = props => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
         <div className={layoutStyles.container}>
-            <div className={`${layoutStyles.headerContainer} ${isMenuOpen ? layoutStyles.isOpen : ""}`}>
+            <div
+                className={`${layoutStyles.headerContainer} ${
+                    isMenuOpen ? layoutStyles.isOpen : ""
+                }`}
+            >
                 <header className={layoutStyles.header}>
                     <Navbar
                         open={isMenuOpen}

@@ -27,7 +27,7 @@ module.exports = {
             resolve: `gatsby-transformer-remark`,
             options: {
                 plugins: [
-                    `gatsby-remark-reading-time`,
+                    // `gatsby-remark-reading-time`,
                     `gatsby-remark-relative-images`,
                     {
                         resolve: `gatsby-remark-prismjs`,
@@ -53,9 +53,15 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-analytics`,
+            resolve: `gatsby-plugin-google-gtag`,
             options: {
-                trackingId: process.env.GA_TRACKING_ID,
+                trackingIds: [
+                    process.env.GA_TRACKING_ID,
+                    // process.env.GA4_TRACKING_ID,
+                ],
+                pluginConfig: {
+                    head: true,
+                },
             },
         },
         {
