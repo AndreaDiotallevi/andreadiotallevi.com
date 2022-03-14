@@ -32,6 +32,7 @@ const AboutPage = props => {
                     <div className={aboutStyles.imageContainer}>
                         <Img
                             fluid={props.data.fileName.childImageSharp.fluid}
+                            style={{ borderRadius: 4 }}
                         />
                     </div>
                     <div className={aboutStyles.aboutTextDiv}>
