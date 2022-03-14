@@ -6,6 +6,7 @@
     width: 100%;
     font-size: 18px;
     text-transform: lowercase;
+    font-weight: 700;
 
     //   @media (max-width: 750px) {
     //     height: 40px;
@@ -48,24 +49,20 @@
             a {
                 text-decoration: none;
                 color: inherit;
-                // color: white;
-                // color: rgb(75, 110, 153);
                 padding: 6px;
                 border-radius: 3px;
+                color: rgb(110, 110, 110);
             }
 
             a:hover {
-                // background-color: rgb(75, 110, 153);
-                // color: white !important;
+                transition: 0.3s;
                 font-weight: 700;
-                // transition: 0.3s;
+                color: rgba(0, 0, 0, 0.8);
             }
         }
     }
 }
 
 .active-nav-item {
-    // background-color: rgb(75, 110, 153);
-    // color: white !important;
-    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8) !important;
 }
