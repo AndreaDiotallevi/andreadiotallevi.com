@@ -98,6 +98,7 @@ const IndexPage = props => {
                                     .frontmatter.featuredImage.childImageSharp
                                     .fluid
                             }
+                            style={{ borderRadius: 4 }}
                         />
                     </div>
                     <h2
