@@ -57,7 +57,7 @@ module.exports = {
             options: {
                 trackingIds: [
                     process.env.GA_TRACKING_ID,
-                    // process.env.GA4_TRACKING_ID,
+                    process.env.GA4_TRACKING_ID,
                 ],
                 pluginConfig: {
                     head: true,
