@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -17,9 +17,12 @@ export const query = graphql`
                 date(formatString: "MMMM Do, YYYY")
                 featuredImage {
                     childImageSharp {
-                        fluid(maxWidth: 710) {
-                            ...GatsbyImageSharpFluid
-                        }
+                        gatsbyImageData(
+                            width: 710
+                            quality: 100
+                            layout: CONSTRAINED
+                            placeholder: BLURRED
+                        )
                     }
                 }
             }
@@ -41,7 +44,7 @@ const Blog = props => {
             <Seo
                 title={title + " | Andrea Diotallevi"}
                 description={description}
-                image={featuredImage.childImageSharp.fluid.src}
+                image={featuredImage.childImageSharp.gatsbyImageData.src}
                 article={true}
             />
             <article className={blogStyles.container}>
@@ -51,8 +54,9 @@ const Blog = props => {
                     {/* <p style={{ margin: "0 10px" }}>·</p> */}
                     {/* <p>{props.data.markdownRemark.fields.readingTime.text}</p> */}
                 </div>
-                <Img
-                    fluid={featuredImage.childImageSharp.fluid}
+                <GatsbyImage
+                    image={featuredImage.childImageSharp.gatsbyImageData}
+                    alt={title}
                     style={{ borderRadius: 4 }}
                 />
                 <div

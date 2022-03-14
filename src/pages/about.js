@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -8,12 +8,15 @@ import Seo from "../components/seo"
 import * as aboutStyles from "./about.module.scss"
 
 export const query = graphql`
-    query {
+    {
         fileName: file(relativePath: { eq: "assets/about.jpg" }) {
             childImageSharp {
-                fluid(maxWidth: 710) {
-                    ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                    width: 710
+                    quality: 100
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                )
             }
         }
     }
@@ -30,8 +33,12 @@ const AboutPage = props => {
                 <h1 className={aboutStyles.title}>About</h1>
                 <div className={aboutStyles.flexDiv}>
                     <div className={aboutStyles.imageContainer}>
-                        <Img
-                            fluid={props.data.fileName.childImageSharp.fluid}
+                        <GatsbyImage
+                            image={
+                                props.data.fileName.childImageSharp
+                                    .gatsbyImageData
+                            }
+                            alt="about page image"
                             style={{ borderRadius: 4 }}
                         />
                     </div>

@@ -53,7 +53,7 @@
 .date-and-reading-time-div {
     display: flex;
     flex-direction: column;
-    min-width: 135px;
+    // min-width: 135px;
     margin-right: 24px;
     font-size: 18px;
     line-height: 1.5;
@@ -79,6 +79,7 @@
 .image {
     box-shadow: none;
     border-radius: 4px;
+    width: 100%;
 }
 
 .flex-container {

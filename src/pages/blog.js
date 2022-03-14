@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -9,7 +9,7 @@ import * as blogStyles from "./blog.module.scss"
 
 const BlogPage = () => {
     const data = useStaticQuery(graphql`
-        query {
+        {
             allMarkdownRemark(
                 sort: { order: DESC, fields: [frontmatter___date] }
             ) {
@@ -22,9 +22,12 @@ const BlogPage = () => {
                             tags
                             featuredImage {
                                 childImageSharp {
-                                    fluid(maxWidth: 710) {
-                                        ...GatsbyImageSharpFluid
-                                    }
+                                    gatsbyImageData(
+                                        width: 710
+                                        quality: 100
+                                        layout: CONSTRAINED
+                                        placeholder: BLURRED
+                                    )
                                 }
                             }
                         }
@@ -54,7 +57,6 @@ const BlogPage = () => {
                 >
                     <ol className={blogStyles.posts}>
                         {data.allMarkdownRemark.edges.map(edge => (
-                            // <li className={blogStyles.post} key={edge.node.frontmatter.title}>
                             <Link
                                 to={`/blog/${edge.node.fields.slug}`}
                                 className={blogStyles.post}
@@ -64,20 +66,20 @@ const BlogPage = () => {
                                     className={blogStyles.dateAndReadingTimeDiv}
                                 >
                                     <p>{edge.node.frontmatter.date}</p>
-                                    {/* <p>{edge.node.fields.readingTime.text}</p> */}
                                     <div className={blogStyles.imageContainer}>
-                                        <Img
-                                            fluid={
+                                        <GatsbyImage
+                                            image={
                                                 edge.node.frontmatter
                                                     .featuredImage
-                                                    .childImageSharp.fluid
+                                                    .childImageSharp
+                                                    .gatsbyImageData
                                             }
+                                            alt={edge.node.frontmatter.title}
                                             className={blogStyles.image}
                                         />
                                     </div>
                                 </div>
-                                {/* <Link to={`/blog/${edge.node.fields.slug}`}> */}
-                                <div>
+                                <div style={{ width: "100%" }}>
                                     <h2>{edge.node.frontmatter.title}</h2>
                                     <p>{edge.node.frontmatter.description}</p>
                                     {/* <ul className={blogStyles.tags}>

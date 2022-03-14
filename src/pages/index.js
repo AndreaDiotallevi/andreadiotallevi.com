@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -8,25 +8,7 @@ import Seo from "../components/seo"
 import * as indexStyles from "./index.module.scss"
 
 export const query = graphql`
-    query {
-        fileName1: file(
-            relativePath: { eq: "assets/35-sandstorm-1400x840.jpg" }
-        ) {
-            childImageSharp {
-                fluid(maxWidth: 710) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
-        fileName2: file(
-            relativePath: { eq: "assets/dariusz-sankowski-1400x840.jpg" }
-        ) {
-            childImageSharp {
-                fluid(maxWidth: 710) {
-                    ...GatsbyImageSharpFluid
-                }
-            }
-        }
+    {
         allMarkdownRemark: allMarkdownRemark(
             sort: { order: DESC, fields: [frontmatter___date] }
         ) {
@@ -37,9 +19,12 @@ export const query = graphql`
                         description
                         featuredImage {
                             childImageSharp {
-                                fluid(maxWidth: 710) {
-                                    ...GatsbyImageSharpFluid
-                                }
+                                gatsbyImageData(
+                                    width: 710
+                                    quality: 100
+                                    layout: CONSTRAINED
+                                    placeholder: BLURRED
+                                )
                             }
                         }
                     }
@@ -92,11 +77,15 @@ const IndexPage = props => {
                     to={`/blog/${props.data.allMarkdownRemark.edges[0].node.fields.slug}`}
                 >
                     <div style={{ marginBottom: "20px" }}>
-                        <Img
-                            fluid={
+                        <GatsbyImage
+                            image={
                                 props.data.allMarkdownRemark.edges[0].node
                                     .frontmatter.featuredImage.childImageSharp
-                                    .fluid
+                                    .gatsbyImageData
+                            }
+                            alt={
+                                props.data.allMarkdownRemark.edges[0].node
+                                    .frontmatter.title
                             }
                             style={{ borderRadius: 4 }}
                         />
