@@ -1,8 +1,7 @@
-require(`dotenv`).config({
-    path: `.env.${process.env.NODE_ENV}`,
-})
+import type { GatsbyConfig } from "gatsby"
+import path from "path"
 
-module.exports = {
+const config: GatsbyConfig = {
     siteMetadata: {
         title: `Andrea Diotallevi | Software Developer`,
         author: `Andrea Diotallevi`,
@@ -18,7 +17,7 @@ module.exports = {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `src`,
-                path: `${__dirname}/src/`,
+                path: path.resolve("src"),
             },
         },
         `gatsby-plugin-image`,
@@ -74,3 +73,5 @@ module.exports = {
         },
     ],
 }
+
+export default config
