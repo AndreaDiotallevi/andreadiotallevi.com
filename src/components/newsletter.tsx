@@ -8,9 +8,12 @@ const Newsletter = () => {
     const { pathname } = useLocation()
     const [firstName, setFirstName] = useState("")
     const [email, setEmail] = useState("")
-    const [result, setResult] = useState(null)
+    const [result, setResult] = useState<{
+        result: string
+        msg: string
+    } | null>(null)
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
 
         if (!firstName) {

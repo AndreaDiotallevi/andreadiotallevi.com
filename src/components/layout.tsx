@@ -7,7 +7,11 @@ import "../styles/index.scss"
 import "../styles/prism-modified.css"
 import * as layoutStyles from "./layout.module.scss"
 
-const Layout = props => {
+type DataProps = {
+    children: JSX.Element
+}
+
+const Layout = (props: DataProps) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (

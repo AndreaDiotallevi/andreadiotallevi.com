@@ -6,7 +6,12 @@ import routes from "../utils/routes"
 
 import * as navbarStyles from "./navbar.module.scss"
 
-const Navbar = ({ open, onClick }) => {
+type DataProps = {
+    open: boolean
+    onClick: () => void
+}
+
+const Navbar = ({ open, onClick }: DataProps) => {
     return (
         <nav className={navbarStyles.navbar}>
             <div>{!open && <Link to="/">andreadiotallevi</Link>}</div>
