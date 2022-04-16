@@ -8,10 +8,16 @@
         max-width: 100%;
     }
 
-    article {
-        h1 {
-            margin-bottom: 0.8rem;
-        }
+    h1 {
+        margin-bottom: 0.8rem;
+    }
+
+    p:first-of-type {
+        color: rgb(110, 110, 110);
+    }
+
+    img {
+        border-radius: 4px;
     }
 }
 
@@ -23,10 +29,6 @@
     code {
         font-size: 18px;
         line-height: 1.7em;
-    }
-
-    img {
-        border-radius: 4px;
     }
 
     figcaption {
