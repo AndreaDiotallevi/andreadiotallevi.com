@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, PageProps } from "gatsby"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, IGatsbyImageData, getSrc } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -18,9 +18,6 @@ type DataProps = {
             featuredImage: {
                 childImageSharp: {
                     gatsbyImageData: IGatsbyImageData
-                    fixed: {
-                        src: string
-                    }
                 }
             }
         }
@@ -28,9 +25,23 @@ type DataProps = {
     }
 }
 
-const Blog = ({ data: { markdownRemark } }: PageProps<DataProps>) => {
-    const { frontmatter, html } = markdownRemark
-    const { title, description, date, tags, featuredImage } = frontmatter
+const Blog = (props: PageProps<DataProps>) => {
+    const {
+        data: {
+            markdownRemark: {
+                frontmatter: {
+                    title,
+                    description,
+                    date,
+                    tags,
+                    featuredImage: {
+                        childImageSharp: { gatsbyImageData },
+                    },
+                },
+                html,
+            },
+        },
+    } = props
 
     return (
         <Layout>
@@ -38,26 +49,16 @@ const Blog = ({ data: { markdownRemark } }: PageProps<DataProps>) => {
                 <Seo
                     title={title + " | Andrea Diotallevi"}
                     description={description}
-                    image={featuredImage.childImageSharp.fixed.src}
+                    image={getSrc(gatsbyImageData)}
                     article={true}
                     tags={tags}
                 />
                 <article className={blogStyles.container}>
-                    <h1 className={blogStyles.title}>{title}</h1>
-                    <div className={blogStyles.dateAndReadingTimeDiv}>
-                        <p>{date}</p>
-                        {/* <p style={{ margin: "0 10px" }}>·</p> */}
-                        {/* <p>{props.data.markdownRemark.fields.readingTime.text}</p> */}
-                    </div>
-                    <GatsbyImage
-                        image={featuredImage.childImageSharp.gatsbyImageData}
-                        alt={title}
-                        style={{ borderRadius: 4 }}
-                    />
+                    <h1>{title}</h1>
+                    <p>{date}</p>
+                    <GatsbyImage image={gatsbyImageData} alt={title} />
                     <div
-                        dangerouslySetInnerHTML={{
-                            __html: html,
-                        }}
+                        dangerouslySetInnerHTML={{ __html: html }}
                         className={blogStyles.blog}
                     />
                 </article>
@@ -80,14 +81,11 @@ export const query = graphql`
                 featuredImage {
                     childImageSharp {
                         gatsbyImageData(
-                            width: 710
+                            width: 718
                             quality: 99
                             layout: CONSTRAINED
                             placeholder: BLURRED
                         )
-                        fixed {
-                            src
-                        }
                     }
                 }
             }
