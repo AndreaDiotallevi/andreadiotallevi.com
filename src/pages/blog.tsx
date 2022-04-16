@@ -51,60 +51,31 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                 />
                 <div className={blogStyles.container}>
                     <h1>Blog</h1>
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            width: "100%",
-                        }}
-                    >
-                        <ol className={blogStyles.posts}>
-                            {allMarkdownRemark.edges.map(edge => (
+                    <div>
+                        {allMarkdownRemark.edges.map(
+                            ({ node: { fields, frontmatter } }) => (
                                 <Link
-                                    to={`/blog/${edge.node.fields.slug}`}
-                                    className={blogStyles.post}
-                                    key={edge.node.frontmatter.title}
+                                    to={`/blog/${fields.slug}`}
+                                    key={frontmatter.title}
                                 >
-                                    <div
-                                        className={
-                                            blogStyles.dateAndReadingTimeDiv
-                                        }
-                                    >
-                                        <p>{edge.node.frontmatter.date}</p>
-                                        <div
-                                            className={
-                                                blogStyles.imageContainer
+                                    <div>
+                                        <p>{frontmatter.date}</p>
+                                        <GatsbyImage
+                                            image={
+                                                frontmatter.featuredImage
+                                                    .childImageSharp
+                                                    .gatsbyImageData
                                             }
-                                        >
-                                            <GatsbyImage
-                                                image={
-                                                    edge.node.frontmatter
-                                                        .featuredImage
-                                                        .childImageSharp
-                                                        .gatsbyImageData
-                                                }
-                                                alt={
-                                                    edge.node.frontmatter.title
-                                                }
-                                                className={blogStyles.image}
-                                            />
-                                        </div>
+                                            alt={frontmatter.title}
+                                        />
                                     </div>
-                                    <div style={{ width: "100%" }}>
-                                        <h2>{edge.node.frontmatter.title}</h2>
-                                        <p>
-                                            {edge.node.frontmatter.description}
-                                        </p>
-                                        {/* <ul className={blogStyles.tags}>
-                              {edge.node.frontmatter.tags.map(tag => (
-                              <li key={tag}>{tag}</li>
-                              ))}
-                          </ul> */}
+                                    <div>
+                                        <h2>{frontmatter.title}</h2>
+                                        <p>{frontmatter.description}</p>
                                     </div>
-                                    {/* </li> */}
                                 </Link>
-                            ))}
-                        </ol>
+                            )
+                        )}
                     </div>
                 </div>
             </React.Fragment>
@@ -127,7 +98,7 @@ export const query = graphql`
                         featuredImage {
                             childImageSharp {
                                 gatsbyImageData(
-                                    width: 310
+                                    width: 718
                                     quality: 99
                                     layout: CONSTRAINED
                                     placeholder: BLURRED
