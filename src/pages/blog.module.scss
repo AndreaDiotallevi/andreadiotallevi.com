@@ -4,7 +4,9 @@
     padding-right: 1rem;
     margin-bottom: 80px;
 
-    h1 {
+    h1,
+    h2,
+    p {
         color: var(--text-primary);
     }
 
@@ -26,10 +28,7 @@
 
             &:hover {
                 transition: 0.3s;
-
-                h2 {
-                    color: var(--text-secondary);
-                }
+                opacity: 0.8;
             }
 
             @media only screen and (max-width: 750px) {
@@ -48,7 +47,7 @@
                 p {
                     margin-bottom: 0.85rem;
                     font-size: 18px;
-                    color: var(--text-secondary);
+                    // color: var(--text-secondary);
                     line-height: 1.7em;
                 }
 

@@ -5,6 +5,11 @@
     margin-bottom: 5rem;
     margin-top: 2rem;
 
+    h2,
+    p {
+        color: var(--text-primary);
+    }
+
     form {
         display: flex;
         flex-direction: column;
