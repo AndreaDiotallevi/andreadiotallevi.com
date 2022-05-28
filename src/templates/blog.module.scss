@@ -13,7 +13,7 @@
     }
 
     p:first-of-type {
-        color: rgb(110, 110, 110);
+        color: var(--text-secondary);
     }
 
     img {
@@ -41,7 +41,6 @@
     }
 
     a {
-        color: inherit;
         color: rgb(75, 110, 153);
         font-weight: 700;
         padding: 3px 5px;

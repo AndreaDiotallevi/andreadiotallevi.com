@@ -4,6 +4,10 @@
     padding-right: 1rem;
     margin-bottom: 80px;
 
+    h1 {
+        color: var(--text-primary);
+    }
+
     > div {
         display: flex;
         flex-direction: column;
@@ -15,16 +19,16 @@
             width: 100%;
             margin: 0;
             padding: 16px 0 48px 0;
-            border-top: 1px solid rgb(235, 235, 235);
+            border-top: 1px solid var(--border);
             text-decoration: none;
-            color: inherit;
+            color: var(--text-primary);
             box-shadow: none;
 
             &:hover {
                 transition: 0.3s;
 
                 h2 {
-                    color: rgb(110, 110, 110);
+                    color: var(--text-secondary);
                 }
             }
 
@@ -44,7 +48,7 @@
                 p {
                     margin-bottom: 0.85rem;
                     font-size: 18px;
-                    color: rgb(110, 110, 110);
+                    color: var(--text-secondary);
                     line-height: 1.7em;
                 }
 

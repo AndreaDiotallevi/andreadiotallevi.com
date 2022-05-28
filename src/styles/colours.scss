@@ -1,0 +1,15 @@
+body {
+    --background: white;
+    --text-primary: hsla(0, 0%, 0%, 0.8);
+    --text-secondary: rgb(110, 110, 110);
+    --button-color: white;
+    --button-background: rgb(75, 110, 153);
+    --button-background-hover: rgb(47, 82, 126);
+    --border: rgb(235, 235, 235);
+}
+
+body.dark {
+    --background: rgb(8, 15, 23);
+    --text-primary: rgb(221, 225, 228);
+    --text-secondary: rgb(182, 189, 195);
+}

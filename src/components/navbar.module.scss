@@ -8,27 +8,15 @@
     text-transform: lowercase;
     font-weight: 700;
 
-    //   @media (max-width: 750px) {
-    //     height: 40px;
-    //   }
-
     div {
         a {
             text-decoration: none;
-            color: white;
-            color: inherit;
-            //   color: rgb(75, 110, 153);
+            color: var(--text-primary);
             font-weight: 700;
 
             @media (max-width: 750px) {
-                color: inherit;
-                // color: rgb(75, 110, 153);
                 font-weight: 700;
             }
-
-            // &:hover {
-            //     font-weight: 700;
-            // }
         }
     }
 
@@ -38,31 +26,26 @@
         list-style-type: none;
         margin-bottom: 0;
 
-        // @media (max-width: 750px) {
-        //   display: none;
-        // }
-
         li {
-            margin-left: 10px;
+            margin-left: 20px;
             margin-bottom: 0;
 
             a {
                 text-decoration: none;
-                color: inherit;
-                padding: 6px;
+                padding: 0;
                 border-radius: 3px;
-                color: rgb(110, 110, 110);
+                color: var(--text-secondary);
             }
 
             a:hover {
                 transition: 0.3s;
                 font-weight: 700;
-                color: rgba(0, 0, 0, 0.8);
+                color: var(--text-primary);
             }
         }
     }
 }
 
 .active-nav-item {
-    color: rgba(0, 0, 0, 0.8) !important;
+    color: var(--text-primary) !important;
 }

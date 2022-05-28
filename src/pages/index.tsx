@@ -106,7 +106,6 @@ const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                         </h2>
                         <p
                             style={{
-                                color: "rgb(110, 110, 110)",
                                 lineHeight: "1.7em",
                             }}
                         >
