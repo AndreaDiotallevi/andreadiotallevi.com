@@ -32,7 +32,7 @@ const Newsletter = () => {
         <div
             style={{
                 width: "100%",
-                borderTop: "1px solid rgb(235,235,235)",
+                borderTop: "1px solid var(--border)",
                 display: "flex",
                 justifyContent: "center",
             }}
