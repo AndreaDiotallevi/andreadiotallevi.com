@@ -18,6 +18,7 @@ const SEO = (props: DataProps) => {
 
     const {
         defaultTitle,
+        author,
         defaultDescription,
         siteUrl,
         defaultImage,
@@ -40,6 +41,7 @@ const SEO = (props: DataProps) => {
         >
             <meta name="description" content={seo.description} />
             <meta name="keywords" content={tags.join(", ")} />
+            <meta name="author" content={author}></meta>
             <meta name="image" content={seo.image} />
             {seo.url && <meta property="og:url" content={seo.url} />}
             {(article ? true : null) && (
@@ -74,8 +76,9 @@ const query = graphql`
         site {
             siteMetadata {
                 defaultTitle: title
+                author
                 defaultDescription: description
-                siteUrl: url
+                siteUrl
                 defaultImage: image
                 twitterUsername
             }
