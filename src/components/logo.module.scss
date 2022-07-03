@@ -1,0 +1,16 @@
+.svg {
+    // fill: var(--text-primary);
+    // fill: rgb(231, 137, 73);
+    height: 50px;
+
+    &:hover {
+        transition: 0.3s;
+        // fill: var(--text-secondary);
+        fill: var(--text-primary);
+    }
+}
+
+.span {
+    visibility: hidden;
+    font-size: 1px;
+}
