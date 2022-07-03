@@ -4,6 +4,7 @@ description: "The convention for designing a well-formed GraphQL response in lin
 date: "2021-02-28"
 tags: ["GraphQL", "GraphQL Documentation", "GraphQL Specification", "APIs"]
 featuredImage: zdenek-machacek-1400x840-mod2.jpg
+color: "rgb(229, 200, 0)"
 ---
 
 <figcaption>

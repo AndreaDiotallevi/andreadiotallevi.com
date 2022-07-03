@@ -4,6 +4,7 @@ description: "An overview of how the @property decorator works in Python and whe
 date: "2021-01-31"
 tags: ["Python", "Django", "Decorators", "Property Decorator"]
 featuredImage: sarah-dorweiler-1400x840-b-w.jpg
+color: "rgb(106, 133, 88)"
 ---
 
 <figcaption>
