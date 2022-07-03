@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: var(--navbar-height);
     width: 100%;
     font-size: 18px;
-    text-transform: lowercase;
     font-weight: 700;
+    max-width: 718px; // 750 - 16 - 16
 
     div {
         a {
@@ -34,18 +34,17 @@
                 text-decoration: none;
                 padding: 0;
                 border-radius: 3px;
-                color: var(--text-secondary);
+                color: var(--text-primary);
             }
 
             a:hover {
                 transition: 0.3s;
-                font-weight: 700;
-                color: var(--text-primary);
+                color: var(--text-secondary);
             }
         }
     }
 }
 
 .active-nav-item {
-    color: var(--text-primary) !important;
+    color: var(--text-secondary) !important;
 }
