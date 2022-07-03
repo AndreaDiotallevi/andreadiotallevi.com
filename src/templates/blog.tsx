@@ -20,6 +20,7 @@ type DataProps = {
                     gatsbyImageData: IGatsbyImageData
                 }
             }
+            color: string
         }
         html: string
     }
@@ -44,7 +45,7 @@ const Blog = (props: PageProps<DataProps>) => {
     } = props
 
     return (
-        <Layout>
+        <Layout color={props.data.markdownRemark.frontmatter.color}>
             <React.Fragment>
                 <Seo
                     title={title + " | Andrea Diotallevi"}
@@ -88,6 +89,7 @@ export const query = graphql`
                         )
                     }
                 }
+                color
             }
             html
         }
