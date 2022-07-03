@@ -92,7 +92,7 @@ const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                     allMarkdownRemark.edges[0].node.frontmatter
                                         .title
                                 }
-                                style={{ borderRadius: 4 }}
+                                style={{ borderRadius: "var(--border-radius)" }}
                             />
                         </div>
                         <h2

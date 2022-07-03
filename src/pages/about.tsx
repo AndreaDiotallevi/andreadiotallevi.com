@@ -31,7 +31,7 @@ const AboutPage = ({ data: { file } }: PageProps<DataProps>) => {
                             <GatsbyImage
                                 image={file.childImageSharp.gatsbyImageData}
                                 alt="about page image"
-                                style={{ borderRadius: 4 }}
+                                style={{ borderRadius: "var(--border-radius)" }}
                             />
                         </div>
                         <div className={aboutStyles.aboutTextDiv}>
