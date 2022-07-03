@@ -9,6 +9,7 @@ import * as layoutStyles from "./layout.module.scss"
 
 type DataProps = {
     children: JSX.Element
+    color?: string
 }
 
 const Layout = (props: DataProps) => {
@@ -21,10 +22,18 @@ const Layout = (props: DataProps) => {
                     isMenuOpen ? layoutStyles.isOpen : ""
                 }`}
             >
-                <header className={layoutStyles.header}>
+                <header
+                    className={layoutStyles.header}
+                    // style={{
+                    //     boxShadow: `0 2px 2px 0 ${
+                    //         props.color || "var(--border)"
+                    //     }`,
+                    // }}
+                >
                     <Navbar
                         open={isMenuOpen}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        color={props.color}
                     />
                     <Menu
                         open={isMenuOpen}
@@ -32,7 +41,11 @@ const Layout = (props: DataProps) => {
                     />
                 </header>
             </div>
-            {!isMenuOpen && props.children}
+            <div
+                style={{ marginTop: "var(--navbar-height)", maxWidth: "100%" }}
+            >
+                {!isMenuOpen && props.children}
+            </div>
         </div>
     )
 }
