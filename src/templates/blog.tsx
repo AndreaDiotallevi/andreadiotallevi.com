@@ -7,6 +7,8 @@ import Seo from "../components/seo"
 import Newsletter from "../components/newsletter"
 
 import * as blogStyles from "./blog.module.scss"
+import Tag from "../components/tag"
+import Time from "../components/time"
 
 type DataProps = {
     markdownRemark: {
@@ -23,6 +25,9 @@ type DataProps = {
             color: string
         }
         html: string
+        fields: {
+            slug: string
+        }
     }
 }
 
@@ -38,33 +43,73 @@ const Blog = (props: PageProps<DataProps>) => {
                     featuredImage: {
                         childImageSharp: { gatsbyImageData },
                     },
+                    color,
                 },
                 html,
+                fields: { slug },
             },
         },
     } = props
 
     return (
-        <Layout color={props.data.markdownRemark.frontmatter.color}>
-            <React.Fragment>
-                <Seo
-                    title={title + " | Andrea Diotallevi"}
-                    description={description}
-                    image={getSrc(gatsbyImageData)}
-                    article={true}
-                    tags={tags}
+        <Layout color={color}>
+            <Seo
+                title={title + " | Andrea Diotallevi"}
+                description={description}
+                image={getSrc(gatsbyImageData)}
+                article={true}
+                tags={tags}
+            />
+            <article className={blogStyles.container}>
+                <h1>{title}</h1>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "1.45rem",
+                    }}
+                >
+                    <Time color={color} />
+                    <p
+                        style={{
+                            marginBottom: 0,
+                            marginLeft: "8px",
+                            fontWeight: 700,
+                        }}
+                    >
+                        {date}
+                    </p>
+                </div>
+                <ul
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        margin: 0,
+                        marginBottom: "1.45rem",
+                    }}
+                >
+                    {props.data.markdownRemark.frontmatter.tags.map(tag => (
+                        <Tag key={tag} name={tag} />
+                    ))}
+                </ul>
+                <GatsbyImage image={gatsbyImageData} alt={title} />
+                <div
+                    dangerouslySetInnerHTML={{ __html: html }}
+                    className={blogStyles.blog}
                 />
-                <article className={blogStyles.container}>
-                    <h1>{title}</h1>
-                    <p>{date}</p>
-                    <GatsbyImage image={gatsbyImageData} alt={title} />
-                    <div
-                        dangerouslySetInnerHTML={{ __html: html }}
-                        className={blogStyles.blog}
-                    />
-                </article>
-                <Newsletter />
-            </React.Fragment>
+            </article>
+            {/* <div>
+                <a
+                    // href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=Test`}
+                    href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/how-to-handle-multiple-set-state-calls-on-the-same-object-in-react&text=I+have`}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    Tweet this article
+                </a>
+            </div> */}
+            <Newsletter />
         </Layout>
     )
 }
@@ -92,6 +137,9 @@ export const query = graphql`
                 color
             }
             html
+            fields {
+                slug
+            }
         }
     }
 `

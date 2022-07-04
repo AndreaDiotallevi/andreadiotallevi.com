@@ -32,19 +32,23 @@ const Newsletter = () => {
         <div
             style={{
                 width: "100%",
-                borderTop: "1px solid var(--border)",
                 display: "flex",
                 justifyContent: "center",
             }}
         >
             <div className={newsletterStyles.container}>
-                <div>
+                <div
+                    style={{
+                        borderTop: "1px solid var(--border)",
+                        paddingTop: "40px",
+                    }}
+                >
                     <h2>Get my new blog posts to your inbox</h2>
                     <p>
                         Every few months I write a new blog post about software
                         development here, on my blog. It might be on JavaScript,
-                        React, GraphQL, Python, Django or personal development
-                        topics.
+                        TypeScript, React, GraphQL, Python, Django or personal
+                        development topics.
                     </p>
                     <p>
                         My goal is to share my daily learnings as a software

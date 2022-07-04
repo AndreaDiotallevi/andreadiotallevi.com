@@ -8,7 +8,7 @@ import "../styles/prism-modified.css"
 import * as layoutStyles from "./layout.module.scss"
 
 type DataProps = {
-    children: JSX.Element
+    children: JSX.Element | JSX.Element[]
     color?: string
 }
 
@@ -22,14 +22,7 @@ const Layout = (props: DataProps) => {
                     isMenuOpen ? layoutStyles.isOpen : ""
                 }`}
             >
-                <header
-                    className={layoutStyles.header}
-                    // style={{
-                    //     boxShadow: `0 2px 2px 0 ${
-                    //         props.color || "var(--border)"
-                    //     }`,
-                    // }}
-                >
+                <header className={layoutStyles.header}>
                     <Navbar
                         open={isMenuOpen}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -42,7 +35,13 @@ const Layout = (props: DataProps) => {
                 </header>
             </div>
             <div
-                style={{ marginTop: "var(--navbar-height)", maxWidth: "100%" }}
+                style={{
+                    marginTop: "var(--header-height)",
+                    width: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
             >
                 {!isMenuOpen && props.children}
             </div>
