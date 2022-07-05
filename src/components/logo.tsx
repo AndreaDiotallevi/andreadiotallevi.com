@@ -52,7 +52,6 @@ const Logo = (props: DataProps) => {
                     transform="translate(-90 378) rotate(-90)"
                 />
             </svg> */}
-            <span className={styles.span}>Andrea Diotallevi Home Page</span>
         </React.Fragment>
     )
 }

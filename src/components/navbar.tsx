@@ -16,8 +16,13 @@ const Navbar = (props: DataProps) => {
     return (
         <nav className={navbarStyles.navbar}>
             {/* <div>{!open && <Link to="/">andreadiotallevi</Link>}</div> */}
-            <Link to="/" style={{ display: "flex", alignItems: "center" }}>
+            <Link
+                to="/"
+                style={{ display: "flex", alignItems: "center" }}
+                aria-label="Andrea Diotallevi Website Logo"
+            >
                 <Logo color={props.color} />
+                <span>Andrea Diotallevi Website Logo</span>
             </Link>
             <ul>
                 {routes.map(({ menuName, baseUrl }) => (
