@@ -1,5 +1,5 @@
 ---
-title: "Big O notation and the magic of time complexity"
+title: "Big O Notation And The Magic Of Time Complexity"
 description: "The fundamental components of algorithm complexity analysis, how to derive an algorithm big-O and a list of all the common big-O classes of runtime complexity."
 date: "2020-04-15"
 tags: ["Algorithms", "Big O Notation", "Scalability", "Complexity"]

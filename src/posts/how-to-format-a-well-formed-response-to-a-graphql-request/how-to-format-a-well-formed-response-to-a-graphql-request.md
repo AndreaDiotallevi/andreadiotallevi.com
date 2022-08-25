@@ -1,5 +1,5 @@
 ---
-title: "How to format a well-formed response to a GraphQL request"
+title: "How To Format A Well-Formed Response To A GraphQL Request"
 description: "The convention for designing a well-formed GraphQL response in line with the GraphQL specification."
 date: "2021-02-28"
 tags: ["GraphQL", "GraphQL Documentation", "GraphQL Specification", "APIs"]

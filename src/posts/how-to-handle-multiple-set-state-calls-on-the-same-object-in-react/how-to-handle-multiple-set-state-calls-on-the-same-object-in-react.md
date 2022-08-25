@@ -1,5 +1,5 @@
 ---
-title: "How to handle multiple setState calls on the same object in React"
+title: "How To Handle Multiple setState Calls On The Same Object In React"
 description: "A common pitfall and solution when calling React setState multiple times on the same object."
 date: "2021-03-30"
 tags: ["React", "React State Management", "React Hooks", "React Documentation"]

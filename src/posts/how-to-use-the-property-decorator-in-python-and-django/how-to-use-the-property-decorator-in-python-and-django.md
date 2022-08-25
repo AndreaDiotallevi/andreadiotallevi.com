@@ -1,5 +1,5 @@
 ---
-title: "How to use the @property decorator in Python and Django"
+title: "How To Use The @property Decorator In Python And Django"
 description: "An overview of how the @property decorator works in Python and when to use it in Django."
 date: "2021-01-31"
 tags: ["Python", "Django", "Decorators", "Property Decorator"]

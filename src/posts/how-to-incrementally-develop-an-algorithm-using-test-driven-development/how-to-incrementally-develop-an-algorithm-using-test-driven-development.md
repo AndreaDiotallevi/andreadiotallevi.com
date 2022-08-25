@@ -1,5 +1,5 @@
 ---
-title: "How to incrementally develop an algorithm using Test Driven Development"
+title: "How To Incrementally Develop An Algorithm Using Test Driven Development"
 description: "The fundamental components of test-driven development, with an example of how to incrementally develop an algorithm using the red-green-refactor cycle."
 date: "2020-02-20"
 tags:
