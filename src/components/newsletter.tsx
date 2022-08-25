@@ -46,14 +46,16 @@ const Newsletter = () => {
                     <h2>Get my new blog posts to your inbox</h2>
                     <p>
                         Every few weeks I write a new blog post about software
-                        development here, on my blog. It might be on JavaScript,
-                        TypeScript, React, GraphQL, Python, Django or personal
-                        development topics.
+                        development here, on my blog. It might be on{" "}
+                        <b>
+                            JavaScript, TypeScript, React, GraphQL, Python,
+                            Django or personal development topics.
+                        </b>
                     </p>
                     <p>
                         My goal is to share my daily learnings as a software
-                        developer, with the hope this will also help some of you
-                        out there!
+                        developer, with the hope this will also help some of
+                        you.
                     </p>
                     <form onSubmit={handleSubmit} noValidate>
                         <label>First name</label>
