@@ -98,17 +98,25 @@ const Blog = (props: PageProps<DataProps>) => {
                     dangerouslySetInnerHTML={{ __html: html }}
                     className={blogStyles.blog}
                 />
+                <div className={blogStyles.sharesDiv}>
+                    <a
+                        href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by @a_diotallevi_`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={blogStyles.anchor}
+                    >
+                        Tweet this article
+                    </a>
+                    <a
+                        href={`https://github.com/AndreaDiotallevi/andreadiotallevi.com/edit/main/src/posts/${slug}/${slug}.md`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={blogStyles.anchor}
+                    >
+                        Edit on GitHub
+                    </a>
+                </div>
             </article>
-            {/* <div>
-                <a
-                    // href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=Test`}
-                    href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/how-to-handle-multiple-set-state-calls-on-the-same-object-in-react&text=I+have`}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    Tweet this article
-                </a>
-            </div> */}
             <Newsletter />
         </Layout>
     )

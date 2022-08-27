@@ -2,7 +2,7 @@
     max-width: 750px;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-bottom: 80px;
+    margin-bottom: 16px;
 
     @media only screen and (max-width: 750px) {
         max-width: 100%;
@@ -76,5 +76,45 @@
             font-size: 20px;
             font-weight: bold;
         }
+    }
+}
+
+.anchor {
+    margin-bottom: 8px;
+    width: fit-content;
+    font-size: 18px;
+    color: rgb(75, 110, 153);
+    font-weight: 700;
+    padding: 3px 5px;
+    text-decoration: none;
+    background-image: linear-gradient(
+        transparent 0%,
+        transparent calc(50% - 2px),
+        rgb(75, 110, 153) calc(50% - 2px),
+        rgb(75, 110, 153) 100%
+    );
+    background-size: 100% 200%;
+
+    &:hover {
+        color: white;
+        background-image: linear-gradient(
+            transparent 0%,
+            transparent calc(50% - 2px),
+            rgb(75, 110, 153) calc(50% - 2px),
+            rgb(75, 110, 153) 100%
+        );
+        background-position: 0px 100%;
+        transition: 0.3s;
+    }
+}
+
+.sharesDiv {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+
+    @media only screen and (max-width: 750px) {
+        flex-direction: column;
+        justify-content: start;
     }
 }
