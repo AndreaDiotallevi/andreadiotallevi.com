@@ -29,6 +29,11 @@ type DataProps = {
             slug: string
         }
     }
+    site: {
+        siteMetadata: {
+            twitterUsername: string
+        }
+    }
 }
 
 const Blog = (props: PageProps<DataProps>) => {
@@ -47,6 +52,9 @@ const Blog = (props: PageProps<DataProps>) => {
                 },
                 html,
                 fields: { slug },
+            },
+            site: {
+                siteMetadata: { twitterUsername },
             },
         },
     } = props
@@ -100,7 +108,7 @@ const Blog = (props: PageProps<DataProps>) => {
                 />
                 <div className={blogStyles.sharesDiv}>
                     <a
-                        href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by @a_diotallevi_`}
+                        href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by ${twitterUsername}`}
                         target="_blank"
                         rel="noreferrer"
                         className={blogStyles.anchor}
@@ -147,6 +155,11 @@ export const query = graphql`
             html
             fields {
                 slug
+            }
+        }
+        site {
+            siteMetadata {
+                twitterUsername
             }
         }
     }
