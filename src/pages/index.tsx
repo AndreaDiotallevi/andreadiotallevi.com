@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -67,14 +68,14 @@ const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                         >
                             Learn more about me
                         </Link>
-                        <a
+                        <OutboundLink
                             href="https://twitter.com/a_diotallevi_"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={indexStyles.link}
                         >
                             Follow me on Twitter
-                        </a>
+                        </OutboundLink>
                     </div>
                     <h1 style={{ marginTop: "4rem" }}>Writing</h1>
                     <Link
