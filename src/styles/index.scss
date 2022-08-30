@@ -254,8 +254,11 @@ h1 {
     font-weight: bold;
     text-rendering: optimizeLegibility;
     font-size: 2.25rem;
-    // font-size: 2.6rem;
     line-height: 1.1;
+
+    @media (max-width: 750px) {
+        font-size: 1.9rem;
+    }
 }
 h2 {
     margin-left: 0;
