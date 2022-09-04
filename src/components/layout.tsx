@@ -34,15 +34,7 @@ const Layout = (props: DataProps) => {
                     />
                 </header>
             </div>
-            <div
-                style={{
-                    marginTop: "var(--header-height)",
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
-            >
+            <div className={layoutStyles.childrenContainer}>
                 {!isMenuOpen && props.children}
             </div>
         </div>
