@@ -4,6 +4,7 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Tag from "../components/tag"
 
 import * as blogStyles from "./blog.module.scss"
 
@@ -59,7 +60,7 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                     key={frontmatter.title}
                                 >
                                     <div>
-                                        <p>{frontmatter.date}</p>
+                                        {/* <p>{frontmatter.date}</p> */}
                                         <GatsbyImage
                                             image={
                                                 frontmatter.featuredImage
@@ -70,8 +71,22 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                         />
                                     </div>
                                     <div>
+                                        <p>{frontmatter.date}</p>
                                         <h2>{frontmatter.title}</h2>
-                                        <p>{frontmatter.description}</p>
+                                        {/* <p>{frontmatter.description}</p> */}
+                                        <ul
+                                            style={{
+                                                display: "flex",
+                                                alignItems: "center",
+                                                flexWrap: "wrap",
+                                                margin: 0,
+                                                marginBottom: "1.45rem",
+                                            }}
+                                        >
+                                            {frontmatter.tags.map(tag => (
+                                                <Tag key={tag} name={tag} />
+                                            ))}
+                                        </ul>
                                     </div>
                                 </Link>
                             )
@@ -93,7 +108,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         description
-                        date(formatString: "MMM Do, YYYY")
+                        date(formatString: "MMMM Do, YYYY")
                         tags
                         featuredImage {
                             childImageSharp {
