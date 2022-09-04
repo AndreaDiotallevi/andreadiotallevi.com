@@ -17,28 +17,7 @@
 
     p {
         font-size: 18px;
-        // color: var(--text-secondary);
         margin-bottom: 1.5rem;
-    }
-
-    .link {
-        text-decoration: none;
-        text-align: center;
-        cursor: pointer;
-        color: var(--button-color);
-        background-color: var(--button-background);
-        box-shadow: none;
-        border-radius: var(--border-radius);
-        font-size: 18px;
-        padding: 13px 0;
-        width: 220px;
-        margin-bottom: 10px;
-        font-weight: 700;
-
-        &:hover {
-            transition: 0.3s;
-            background-color: var(--button-background-hover);
-        }
     }
 
     .blogLink {
