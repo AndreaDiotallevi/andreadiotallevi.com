@@ -50,8 +50,8 @@ const Newsletter = (props: DataProps) => {
                     <h2>Get my new blog posts to your inbox</h2>
                     <p>
                         At the end of the month I send an email about what I
-                        have learned during that month (JavaScript, TypeScript,
-                        React, GraphQL, Python, Django or Personal Development).
+                        have learned - about TypeScript, React, GraphQL, Python,
+                        Django or Personal Development.
                     </p>
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
