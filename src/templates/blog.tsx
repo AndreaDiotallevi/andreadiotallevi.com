@@ -35,6 +35,11 @@ type DataProps = {
             twitterUsername: string
         }
     }
+    file: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData
+        }
+    }
 }
 
 const Blog = (props: PageProps<DataProps>) => {
@@ -57,6 +62,7 @@ const Blog = (props: PageProps<DataProps>) => {
             site: {
                 siteMetadata: { twitterUsername },
             },
+            file: profileImageFile,
         },
     } = props
 
@@ -130,7 +136,7 @@ const Blog = (props: PageProps<DataProps>) => {
                     </ButtonMainExternal>
                 </div>
             </article>
-            <Newsletter color={color} />
+            <Newsletter color={color} file={profileImageFile} />
         </Layout>
     )
 }
@@ -165,6 +171,16 @@ export const query = graphql`
         site {
             siteMetadata {
                 twitterUsername
+            }
+        }
+        file(relativePath: { eq: "assets/about.jpg" }) {
+            childImageSharp {
+                gatsbyImageData(
+                    width: 140
+                    quality: 99
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                )
             }
         }
     }

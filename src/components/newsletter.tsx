@@ -1,11 +1,18 @@
 import React, { useState } from "react"
 import addToMailchimp from "gatsby-plugin-mailchimp"
+import { Link } from "gatsby"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { useLocation } from "@reach/router"
 
 import * as newsletterStyles from "./newsletter.module.scss"
 
 type DataProps = {
     color: string
+    file: {
+        childImageSharp: {
+            gatsbyImageData: IGatsbyImageData
+        }
+    }
 }
 
 const Newsletter = (props: DataProps) => {
@@ -48,12 +55,49 @@ const Newsletter = (props: DataProps) => {
                     }}
                 >
                     <h2>Stay up to date</h2>
-                    <p>
-                        Once a month I send an email about what I learn on my
-                        daily job as a fullstack software developer - about
-                        TypeScript, React, GraphQL, Python, Django or Personal
-                        Development.
-                    </p>
+                    <div style={{ display: "flex", marginBottom: "40px" }}>
+                        <Link
+                            className={newsletterStyles.profileImageLink}
+                            to="/about"
+                            style={{
+                                minWidth: "140px",
+                                backgroundColor: "white",
+                                padding: 0,
+                                margin: "0 20px 0 0",
+                            }}
+                        >
+                            <GatsbyImage
+                                image={
+                                    props.file.childImageSharp.gatsbyImageData
+                                }
+                                alt="profile image"
+                                style={{ borderRadius: "var(--border-radius)" }}
+                            />
+                            <div
+                                style={{
+                                    display: "flex",
+                                    justifyContent: "center",
+                                }}
+                            >
+                                <p
+                                    style={{
+                                        fontSize: "15px",
+                                        fontWeight: 700,
+                                        marginTop: "4px",
+                                        marginBottom: 0,
+                                    }}
+                                >
+                                    Andrea Diotallevi
+                                </p>
+                            </div>
+                        </Link>
+                        <p style={{ marginBottom: 0 }}>
+                            Once a month I send an email about what I learn on
+                            my daily job as a fullstack software developer -
+                            about TypeScript, React, GraphQL, Python, Django or
+                            Personal Development.
+                        </p>
+                    </div>
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
                             <div>
