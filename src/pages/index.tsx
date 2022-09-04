@@ -3,6 +3,8 @@ import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 
+import ButtonMain from "../components/buttonMain"
+import ButtonMainExternal from "../components/buttonMainExternal"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -23,6 +25,7 @@ type DataProps = {
                                 gatsbyImageData: IGatsbyImageData
                             }
                         }
+                        color: string
                     }
                     fields: {
                         slug: string
@@ -31,9 +34,18 @@ type DataProps = {
             }
         ]
     }
+    site: {
+        siteMetadata: {
+            twitterUsername: string
+        }
+    }
 }
 
-const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
+const IndexPage = ({
+    data: { allMarkdownRemark, site },
+}: PageProps<DataProps>) => {
+    const { node } = allMarkdownRemark.edges[0]
+
     return (
         <Layout>
             <React.Fragment>
@@ -61,38 +73,34 @@ const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                         farm for the first time.
                     </p>
                     <div style={{ display: "flex", flexWrap: "wrap" }}>
-                        <Link
+                        <ButtonMain
+                            additionalStyles={{ marginRight: "20px" }}
+                            color={node.frontmatter.color}
+                            primary
                             to="/about"
-                            className={indexStyles.link}
-                            style={{ marginRight: "20px" }}
                         >
                             Learn more about me
-                        </Link>
-                        <OutboundLink
-                            href="https://twitter.com/a_diotallevi_"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={indexStyles.link}
+                        </ButtonMain>
+                        <ButtonMainExternal
+                            additionalStyles={{ marginRight: "20px" }}
+                            color={node.frontmatter.color}
+                            href={`https://twitter.com/${site.siteMetadata.twitterUsername}`}
                         >
                             Follow me on Twitter
-                        </OutboundLink>
+                        </ButtonMainExternal>
                     </div>
                     <h1 style={{ marginTop: "4rem" }}>Writing</h1>
                     <Link
                         className={indexStyles.blogLink}
-                        to={`/blog/${allMarkdownRemark.edges[0].node.fields.slug}`}
+                        to={`/blog/${node.fields.slug}`}
                     >
                         <div style={{ marginBottom: "20px" }}>
                             <GatsbyImage
                                 image={
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .featuredImage.childImageSharp
-                                        .gatsbyImageData
+                                    node.frontmatter.featuredImage
+                                        .childImageSharp.gatsbyImageData
                                 }
-                                alt={
-                                    allMarkdownRemark.edges[0].node.frontmatter
-                                        .title
-                                }
+                                alt={node.frontmatter.title}
                                 style={{ borderRadius: "var(--border-radius)" }}
                             />
                         </div>
@@ -103,23 +111,20 @@ const IndexPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                 lineHeight: 1.2,
                             }}
                         >
-                            {allMarkdownRemark.edges[0].node.frontmatter.title}
+                            {node.frontmatter.title}
                         </h2>
                         <p
                             style={{
                                 lineHeight: "1.7em",
                             }}
                         >
-                            {
-                                allMarkdownRemark.edges[0].node.frontmatter
-                                    .description
-                            }
+                            {node.frontmatter.description}
                         </p>
                     </Link>
                     <div style={{ display: "flex" }}>
-                        <Link to="/blog" className={indexStyles.link}>
+                        <ButtonMain color={node.frontmatter.color} to="/blog">
                             Read all posts
-                        </Link>
+                        </ButtonMain>
                     </div>
                 </div>
             </React.Fragment>
@@ -150,11 +155,17 @@ export const query = graphql`
                                 )
                             }
                         }
+                        color
                     }
                     fields {
                         slug
                     }
                 }
+            }
+        }
+        site {
+            siteMetadata {
+                twitterUsername
             }
         }
     }
