@@ -47,11 +47,12 @@ const Newsletter = (props: DataProps) => {
                         paddingTop: "40px",
                     }}
                 >
-                    <h2>Get my new blog posts to your inbox</h2>
+                    <h2>Stay up to date</h2>
                     <p>
                         At the end of the month I send an email about what I
-                        have learned - about TypeScript, React, GraphQL, Python,
-                        Django or Personal Development.
+                        learn on my daily job as a fullstack software developer
+                        - about TypeScript, React, GraphQL, Python, Django or
+                        Personal Development.
                     </p>
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
@@ -78,7 +79,7 @@ const Newsletter = (props: DataProps) => {
                             type="submit"
                             style={{ backgroundColor: props.color }}
                         >
-                            Subscribe
+                            Sign me up
                         </button>
                         {result?.result === "error" ? (
                             <p className={newsletterStyles.error}>
