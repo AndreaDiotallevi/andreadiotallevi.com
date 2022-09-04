@@ -30,6 +30,7 @@ const Navbar = (props: DataProps) => {
                         <Link
                             to={baseUrl}
                             activeClassName={navbarStyles.activeNavItem}
+                            partiallyActive={true}
                         >
                             {menuName}
                         </Link>
