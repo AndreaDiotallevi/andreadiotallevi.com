@@ -2,13 +2,14 @@ import React from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData, getSrc } from "gatsby-plugin-image"
 
+import ButtonMainExternal from "../components/buttonMainExternal"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import Newsletter from "../components/newsletter"
-
-import * as blogStyles from "./blog.module.scss"
+import Seo from "../components/seo"
 import Tag from "../components/tag"
 import Time from "../components/time"
+
+import * as blogStyles from "./blog.module.scss"
 
 type DataProps = {
     markdownRemark: {
@@ -106,26 +107,30 @@ const Blog = (props: PageProps<DataProps>) => {
                     dangerouslySetInnerHTML={{ __html: html }}
                     className={blogStyles.blog}
                 />
-                <div className={blogStyles.sharesDiv}>
-                    <a
+                <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        marginTop: "80px",
+                    }}
+                >
+                    <ButtonMainExternal
+                        additionalStyles={{ marginRight: "20px" }}
+                        color={color}
                         href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by ${twitterUsername}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={blogStyles.anchor}
+                        primary
                     >
                         Tweet this article
-                    </a>
-                    <a
+                    </ButtonMainExternal>
+                    <ButtonMainExternal
+                        color={color}
                         href={`https://github.com/AndreaDiotallevi/andreadiotallevi.com/edit/main/src/posts/${slug}/${slug}.md`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={blogStyles.anchor}
                     >
                         Edit on GitHub
-                    </a>
+                    </ButtonMainExternal>
                 </div>
             </article>
-            <Newsletter />
+            <Newsletter color={color} />
         </Layout>
     )
 }
