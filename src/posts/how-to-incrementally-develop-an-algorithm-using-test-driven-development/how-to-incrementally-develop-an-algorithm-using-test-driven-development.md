@@ -10,6 +10,7 @@ tags:
         "Prime Factors Kata",
     ]
 featuredImage: bahador-1400x840.jpg
+color: rgb(113, 113, 113)
 ---
 
 <figcaption>

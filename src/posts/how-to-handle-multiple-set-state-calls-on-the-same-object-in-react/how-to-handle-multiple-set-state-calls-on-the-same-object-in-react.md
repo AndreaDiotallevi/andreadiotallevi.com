@@ -4,8 +4,7 @@ description: "A common pitfall and solution when calling React setState multiple
 date: "2021-03-30"
 tags: ["React", "React State Management", "React Hooks", "React Documentation"]
 featuredImage: chris-lawton-1400x840.jpg
-# color: "rgb(196, 34, 73)"
-color: "rgb(180, 160, 149)"
+color: "rgb(125, 111, 100)"
 ---
 
 <figcaption>

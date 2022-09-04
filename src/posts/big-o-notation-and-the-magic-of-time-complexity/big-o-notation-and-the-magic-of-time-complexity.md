@@ -4,6 +4,7 @@ description: "The fundamental components of algorithm complexity analysis, how t
 date: "2020-04-15"
 tags: ["Algorithms", "Big O Notation", "Scalability", "Complexity"]
 featuredImage: darwin-vegher-1400x840.jpg
+color: rgb(113, 113, 113)
 ---
 
 <figcaption>

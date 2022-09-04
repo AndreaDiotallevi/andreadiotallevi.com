@@ -4,7 +4,7 @@ description: "Why you should take the time to thoroughly refactor your code, bef
 date: "2022-09-02"
 tags: ["Personal Development", "Code Quality", "Best Practices"]
 featuredImage: boris-smokrovic-1400x840.jpg
-color: "rgb(152, 149, 34)"
+color: "rgb(110, 120, 22)"
 ---
 
 <figcaption>
