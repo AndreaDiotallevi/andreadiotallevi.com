@@ -10,7 +10,7 @@ type DataProps = {
     href: string
 }
 
-const ButtonMain = (props: DataProps) => {
+const ButtonMainExternal = (props: DataProps) => {
     const { additionalStyles, children, color, href, primary } = props
     const [isHover, setIsHover] = useState(false)
 
@@ -35,4 +35,4 @@ const ButtonMain = (props: DataProps) => {
     )
 }
 
-export default ButtonMain
+export default ButtonMainExternal
