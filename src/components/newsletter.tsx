@@ -49,33 +49,31 @@ const Newsletter = (props: DataProps) => {
                 >
                     <h2>Get my new blog posts to your inbox</h2>
                     <p>
-                        Every few weeks I write a new blog post about software
-                        development here, on my blog. It might be on{" "}
-                        <b>
-                            JavaScript, TypeScript, React, GraphQL, Python,
-                            Django or personal development topics.
-                        </b>
-                    </p>
-                    <p>
-                        My goal is to share my daily learnings as a software
-                        developer, with the hope this will also help some of
-                        you.
+                        At the end of the month I send an email about what I
+                        have learned during that month (JavaScript, TypeScript,
+                        React, GraphQL, Python, Django or Personal Development).
                     </p>
                     <form onSubmit={handleSubmit} noValidate>
-                        <label>First name</label>
-                        <input
-                            type="text"
-                            name="firstName"
-                            value={firstName}
-                            onChange={e => setFirstName(e.target.value)}
-                        />
-                        <label>Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                        />
+                        <div>
+                            <div>
+                                <label>First name</label>
+                                <input
+                                    type="text"
+                                    name="firstName"
+                                    value={firstName}
+                                    onChange={e => setFirstName(e.target.value)}
+                                />
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                />
+                            </div>
+                        </div>
                         <button
                             type="submit"
                             style={{ backgroundColor: props.color }}
