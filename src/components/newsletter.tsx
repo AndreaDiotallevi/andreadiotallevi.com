@@ -4,7 +4,11 @@ import { useLocation } from "@reach/router"
 
 import * as newsletterStyles from "./newsletter.module.scss"
 
-const Newsletter = () => {
+type DataProps = {
+    color: string
+}
+
+const Newsletter = (props: DataProps) => {
     const { pathname } = useLocation()
     const [firstName, setFirstName] = useState("")
     const [email, setEmail] = useState("")
@@ -72,7 +76,12 @@ const Newsletter = () => {
                             value={email}
                             onChange={e => setEmail(e.target.value)}
                         />
-                        <button type="submit">Subscribe</button>
+                        <button
+                            type="submit"
+                            style={{ backgroundColor: props.color }}
+                        >
+                            Subscribe
+                        </button>
                         {result?.result === "error" ? (
                             <p className={newsletterStyles.error}>
                                 {result.msg.includes("already subscribed")
