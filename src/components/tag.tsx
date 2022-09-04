@@ -16,6 +16,7 @@ const Tag = (props: Props) => {
                 marginRight: "8px",
                 marginBottom: "8px",
                 whiteSpace: "nowrap",
+                width: "fit-content",
             }}
         >
             {props.name}
