@@ -55,7 +55,7 @@ const Newsletter = (props: DataProps) => {
                     }}
                 >
                     <h2>Stay up to date</h2>
-                    <div style={{ display: "flex", marginBottom: "40px" }}>
+                    <div className={newsletterStyles.newsletterTextContainer}>
                         <Link
                             className={newsletterStyles.profileImageLink}
                             to="/about"
@@ -71,9 +71,10 @@ const Newsletter = (props: DataProps) => {
                                     props.file.childImageSharp.gatsbyImageData
                                 }
                                 alt="profile image"
-                                style={{ borderRadius: "var(--border-radius)" }}
+                                // style={{ borderRadius: "var(--border-radius)" }}
+                                style={{ borderRadius: "100px" }}
                             />
-                            <div
+                            {/* <div
                                 style={{
                                     display: "flex",
                                     justifyContent: "center",
@@ -89,7 +90,7 @@ const Newsletter = (props: DataProps) => {
                                 >
                                     Andrea Diotallevi
                                 </p>
-                            </div>
+                            </div> */}
                         </Link>
                         <p style={{ marginBottom: 0 }}>
                             Once a month I send an email about what I learn on
