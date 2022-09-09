@@ -49,7 +49,7 @@
     label {
         font-size: 18px;
         margin-bottom: 8px;
-        font-weight: 700;
+        font-weight: 600;
     }
 
     input:-webkit-autofill {
@@ -70,7 +70,7 @@
         width: 220px;
         border: none;
         margin-top: 15px;
-        font-weight: bold;
+        font-weight: 600;
         border-radius: var(--border-radius);
 
         &:hover {
@@ -84,7 +84,7 @@
         margin-top: 10px;
         margin-bottom: 0;
         color: rgb(136, 63, 52);
-        font-weight: bold;
+        font-weight: 600;
         font-size: 15px;
     }
 

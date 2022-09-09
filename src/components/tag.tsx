@@ -12,7 +12,7 @@ const Tag = (props: Props) => {
                 backgroundColor: "var(--border)",
                 padding: "4px 8px",
                 fontSize: "14px",
-                fontWeight: 700,
+                fontWeight: 600,
                 marginRight: "8px",
                 marginBottom: "8px",
                 whiteSpace: "nowrap",
