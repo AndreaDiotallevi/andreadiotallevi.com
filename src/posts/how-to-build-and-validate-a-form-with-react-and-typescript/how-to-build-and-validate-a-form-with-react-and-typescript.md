@@ -2,7 +2,7 @@
 title: "How To Build And Validate A Form With React And TypeScript"
 description: "The state management fundamentals for building and validating a form with React and TypeScript to create the best user experience."
 date: "2022-09-09"
-tags: ["React", "TypeScript", "Forms", "Error Handling"]
+tags: ["React", "TypeScript", "Forms"]
 featuredImage: linus-nylund2-1400x840.jpg
 color: "rgb(48, 121, 107)"
 ---
@@ -37,7 +37,7 @@ When you want to quickly access the same data type and _don’t_ care about orde
 // TypeScript object type definition
 type Inputs = { email: string }
 
-// Initialisation of the inputs object using TypeScript
+// Initialisation of the inputs object using the Inputs type
 const [inputs, setInputs] = useState<Inputs>({ email: "" })
 ```
 
@@ -73,7 +73,7 @@ const [errors, setErrors] = useState<Errors>({})
 
 > The `touched` object is in charge of remembering whether the user has completed filling a certain input or not.
 
-As opposed to the `inputs` and `errors` objects, having string values, the `touched` object has boolean values, to represent whether a certain input has been completed by the user or not. This object is usually updated when the user _leaves_ the field, using the [onBlur](https://www.w3schools.com/jsref/event_onblur.asp) event. This piece of state allows you to display the error only when `touched.email` is `true`.
+As opposed to the `inputs` and `errors` objects, allowing string values, the `touched` object allows boolean values (`true` if completed, `false` if not). This object is usually updated when the user _leaves_ the field, listening to the [onBlur](https://www.w3schools.com/jsref/event_onblur.asp) event. This piece of state allows you to display the error only when `touched.email` is `true`.
 
 Display any potential errors to the user only when they have completed filling it and clicked outside the field.
 
@@ -97,9 +97,9 @@ const [touched, setTouched] = useState<Touched>({})
 
 > A function should either change something (have side effects) and return nothing, or change nothing (no side effects) and return something.
 
-To separate concerns, the validate function should only care about validating the form. It takes the new inputs and returns the new errors, without changing any state. The function is called every time there is a change ([onChange](https://www.w3schools.com/jsref/event_onchange.asp) event), to make sure the `errors` object is always in sync with the `inputs` object.
+To separate concerns, the validate function should only care about validating the form. It takes the new inputs and returns the new errors, without changing any state. The function is called every time there is a change (listening to the [onChange](https://www.w3schools.com/jsref/event_onchange.asp) event), to make sure the `errors` object is always in sync with the `inputs` object.
 
-Event handlers like the one handling `onChange` are, on the other hand, functions that change state and return nothing.
+Event handlers are, on the other hand, functions that change state and return nothing.
 
 ```jsx
 // A function that returns something and changes nothing
@@ -115,16 +115,16 @@ const validate = (newInputs: Inputs): Errors => {
 ```
 
 ```tsx
-// Initialise errors on first render
-const [errors, setErrors] = useState<Errors>(validate(inputs))
-```
-
-```tsx
 // A function that returns nothing and changes something
 onChange={(event) => {
     setInputs({ ...inputs, email: event.target.value })
     setErrors(validate({ ...inputs, email: event.target.value }))
 }}
+```
+
+```tsx
+// Initialise errors on first render
+const [errors, setErrors] = useState<Errors>(validate(inputs))
 ```
 
 ## Submit the form to the server when there are no errors
@@ -136,7 +136,7 @@ onChange={(event) => {
 Tell the user they are on the right track as often as possible to increase the chances they will complete the form.
 
 ```tsx
-// Simplified final version of a React + TypeScript form
+// Final version of a simple form with React and TypeScript
 import { useState } from "react"
 
 function App() {
