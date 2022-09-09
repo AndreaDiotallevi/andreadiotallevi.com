@@ -127,13 +127,13 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.keyword {
     color: #07a;
-    /* font-weight: 700; */
+    /* font-weight: 600; */
 }
 
 .token.function,
 .token.class-name {
     color: #dd4a68;
-    /* font-weight: 700; */
+    /* font-weight: 600; */
 }
 
 .token.regex,
@@ -144,7 +144,7 @@ pre[class*="language-"] {
 
 .token.important,
 .token.bold {
-    font-weight: bold;
+    font-weight: 600;
 }
 .token.italic {
     font-style: italic;
