@@ -2,7 +2,7 @@
 title: "The 3 Types Of Errors You Need To Handle To Help Your Users Submit A Web Form"
 description: "A summary of the 3 most important types of errors you should validate for when a user submits a form."
 date: "2022-08-26"
-tags: ["Error Handling", "Form Validation", "User Experience"]
+tags: ["Forms", "Error Handling", "User Experience"]
 featuredImage: j-lee-1400x840.jpg
 color: "rgb(89, 124, 98)"
 ---
