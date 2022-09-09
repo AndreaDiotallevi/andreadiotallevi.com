@@ -89,7 +89,7 @@ const IndexPage = ({
                             Follow me on Twitter
                         </ButtonMainExternal>
                     </div>
-                    <h1 style={{ marginTop: "4rem" }}>Writing</h1>
+                    <h1 style={{ marginTop: "4rem" }}>Blog</h1>
                     <Link
                         className={indexStyles.blogLink}
                         to={`/blog/${node.fields.slug}`}
