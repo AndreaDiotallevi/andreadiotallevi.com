@@ -105,7 +105,9 @@ const Blog = (props: PageProps<DataProps>) => {
                     }}
                 >
                     {props.data.markdownRemark.frontmatter.tags.map(tag => (
-                        <Tag key={tag} name={tag} />
+                        <li key={tag} style={{ listStyle: "none" }}>
+                            <Tag name={tag} />
+                        </li>
                     ))}
                 </ul>
                 <GatsbyImage image={gatsbyImageData} alt={title} />
