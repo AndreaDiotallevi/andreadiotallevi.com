@@ -52,13 +52,6 @@ const config: GatsbyConfig = {
             },
         },
         {
-            resolve: `gatsby-plugin-google-fonts`,
-            options: {
-                fonts: ["Inter:400,600"],
-                display: "swap",
-            },
-        },
-        {
             resolve: `gatsby-plugin-google-gtag`,
             options: {
                 trackingIds: [

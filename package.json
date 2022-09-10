@@ -15,9 +15,9 @@
     "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.12",
     "dotenv": "^10.0.0",
     "gatsby": "^4.11.1",
-    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-gtag": "^4.9.0",
     "gatsby-plugin-image": "^2.9.0",
     "gatsby-plugin-mailchimp": "^5.2.2",

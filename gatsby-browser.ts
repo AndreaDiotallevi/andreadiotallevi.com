@@ -2,3 +2,6 @@
 // require("prismjs/themes/prism.css")
 // require("prismjs/themes/prism-coy.css")
 // require("prismjs/themes/prism-twilight.css")
+
+import "@fontsource/inter/400.css"
+import "@fontsource/inter/600.css"
