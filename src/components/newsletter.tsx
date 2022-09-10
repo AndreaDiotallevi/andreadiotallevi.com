@@ -102,8 +102,9 @@ const Newsletter = (props: DataProps) => {
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
                             <div>
-                                <label>First name</label>
+                                <label htmlFor="firstName">First name</label>
                                 <input
+                                    id="firstName"
                                     type="text"
                                     name="firstName"
                                     value={firstName}
@@ -111,8 +112,9 @@ const Newsletter = (props: DataProps) => {
                                 />
                             </div>
                             <div>
-                                <label>Email</label>
+                                <label htmlFor="email">Email</label>
                                 <input
+                                    id="email"
                                     type="email"
                                     name="email"
                                     value={email}
