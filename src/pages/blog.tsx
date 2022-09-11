@@ -69,6 +69,7 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                                         .gatsbyImageData
                                                 }
                                                 alt={frontmatter.title}
+                                                loading="eager"
                                             />
                                         </div>
                                         <div>
