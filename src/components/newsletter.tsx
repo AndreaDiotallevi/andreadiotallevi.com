@@ -102,29 +102,31 @@ const Newsletter = (props: DataProps) => {
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
                             <div>
-                                <label htmlFor="firstName">First name</label>
+                                {/* <label htmlFor="firstName">First name</label> */}
                                 <input
                                     id="firstName"
                                     type="text"
                                     name="firstName"
                                     value={firstName}
                                     onChange={e => setFirstName(e.target.value)}
+                                    placeholder="First name"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="email">Email</label>
+                                {/* <label htmlFor="email">Email</label> */}
                                 <input
                                     id="email"
                                     type="email"
                                     name="email"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
+                                    placeholder="Email"
                                 />
                             </div>
                         </div>
                         <button
                             type="submit"
-                            style={{ backgroundColor: props.color }}
+                            // style={{ backgroundColor: props.color }}
                         >
                             Sign me up
                         </button>
