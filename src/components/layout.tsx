@@ -26,7 +26,7 @@ const Layout = (props: DataProps) => {
                     <Navbar
                         open={isMenuOpen}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        color={props.color}
+                        // color={props.color}
                     />
                     <Menu
                         open={isMenuOpen}

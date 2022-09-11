@@ -122,7 +122,11 @@ const IndexPage = ({
                         </p>
                     </Link>
                     <div style={{ display: "flex" }}>
-                        <ButtonMain color={node.frontmatter.color} to="/blog">
+                        <ButtonMain
+                            color={node.frontmatter.color}
+                            to="/blog"
+                            primary
+                        >
                             Read all posts
                         </ButtonMain>
                     </div>

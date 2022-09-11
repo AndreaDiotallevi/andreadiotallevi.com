@@ -12,11 +12,12 @@ type DataProps = {
 }
 
 const ButtonMain = (props: DataProps) => {
-    const { additionalStyles, children, color, primary, to } = props
+    const { additionalStyles, children, primary, to } = props
     const [isHover, setIsHover] = useState(false)
+    const color = "var(--primary-color)"
 
     const varyingStyles: React.CSSProperties = {
-        color: primary ? "white" : isHover ? "white" : "var(--text-primary)",
+        color: primary ? "white" : isHover ? "white" : color,
         backgroundColor: primary ? color : isHover ? color : "white",
         border: `1px solid ${color}`,
     }

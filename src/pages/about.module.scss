@@ -43,28 +43,33 @@ code {
     }
 
     a {
-        color: var(--button-background);
+        color: var(--link-color);
         font-weight: 600;
-        padding: 3px 5px;
-        text-decoration: none;
-        background-image: linear-gradient(
-            transparent 0%,
-            transparent calc(50% - 2px),
-            rgb(75, 110, 153) calc(50% - 2px),
-            rgb(75, 110, 153) 100%
-        );
-        background-size: 100% 200%;
     }
 
-    a:hover {
-        color: white;
-        background-image: linear-gradient(
-            transparent 0%,
-            transparent calc(50% - 2px),
-            rgb(75, 110, 153) calc(50% - 2px),
-            rgb(75, 110, 153) 100%
-        );
-        background-position: 0px 100%;
-        transition: 0.3s;
-    }
+    // a {
+    //     color: var(--button-background);
+    //     font-weight: 600;
+    //     padding: 3px 5px;
+    //     text-decoration: none;
+    //     background-image: linear-gradient(
+    //         transparent 0%,
+    //         transparent calc(50% - 2px),
+    //         rgb(75, 110, 153) calc(50% - 2px),
+    //         rgb(75, 110, 153) 100%
+    //     );
+    //     background-size: 100% 200%;
+    // }
+
+    // a:hover {
+    //     color: white;
+    //     background-image: linear-gradient(
+    //         transparent 0%,
+    //         transparent calc(50% - 2px),
+    //         rgb(75, 110, 153) calc(50% - 2px),
+    //         rgb(75, 110, 153) 100%
+    //     );
+    //     background-position: 0px 100%;
+    //     transition: 0.3s;
+    // }
 }

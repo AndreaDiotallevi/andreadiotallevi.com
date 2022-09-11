@@ -628,8 +628,10 @@ td:last-child {
 }
 tt,
 code {
-    background: #f0f0f0;
-    color: rgb(75, 110, 153);
+    background: var(--code-background);
+    border: 1px solid var(--code-border-color);
+    // color: rgb(75, 110, 153);
+    color: #c20202;
     border-radius: var(--border-radius);
     // border: 1px solid rgba(0, 0, 0, 0.05);
     font-family: "SFMono-Regular", Consolas, "Inter Mono", "Droid Sans Mono",
@@ -638,8 +640,8 @@ code {
     // padding: 0;
     // padding-top: 0.2em;
     // padding-bottom: 0.2em;
-    padding: 3px 8px;
-    font-weight: 600;
+    padding: 3px 6px;
+    // font-weight: 600;
 }
 pre code {
     background: none;

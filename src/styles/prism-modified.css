@@ -61,7 +61,8 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
     /* background: #f5f2f0; */
-    background: #f0f0f0;
+    background: var(--code-background);
+    border: 1px solid var(--code-border-color);
     /* border-radius: 20px; */
     border-radius: var(--border-radius);
     /* border: 1px solid rgba(0, 0, 0, 0.05); */
@@ -85,10 +86,12 @@ pre[class*="language-"] {
 .token.doctype,
 .token.cdata {
     color: slategray;
+    color: rgb(97, 111, 125);
 }
 
 .token.punctuation {
     color: #999;
+    color: rgb(105, 104, 104);
 }
 
 .namespace {
@@ -112,6 +115,7 @@ pre[class*="language-"] {
 .token.builtin,
 .token.inserted {
     color: #690;
+    color: rgb(81, 121, 1);
 }
 
 .token.operator,
@@ -120,6 +124,7 @@ pre[class*="language-"] {
 .language-css .token.string,
 .style .token.string {
     color: #a67f59;
+    color: #846547;
     /* background: hsla(0, 0%, 100%, .5); */
 }
 
@@ -133,6 +138,7 @@ pre[class*="language-"] {
 .token.function,
 .token.class-name {
     color: #dd4a68;
+    color: #c20202;
     /* font-weight: 600; */
 }
 
