@@ -110,7 +110,11 @@ const Blog = (props: PageProps<DataProps>) => {
                         </li>
                     ))}
                 </ul>
-                <GatsbyImage image={gatsbyImageData} alt={title} />
+                <GatsbyImage
+                    image={gatsbyImageData}
+                    alt={title}
+                    loading="eager"
+                />
                 <div
                     dangerouslySetInnerHTML={{ __html: html }}
                     className={blogStyles.blog}

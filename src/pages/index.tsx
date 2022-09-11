@@ -102,6 +102,7 @@ const IndexPage = ({
                                 }
                                 alt={node.frontmatter.title}
                                 style={{ borderRadius: "var(--border-radius)" }}
+                                loading="eager"
                             />
                         </div>
                         <h2
