@@ -55,40 +55,42 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                     <div>
                         {allMarkdownRemark.edges.map(
                             ({ node: { fields, frontmatter } }) => (
-                                <Link
-                                    to={`/blog/${fields.slug}`}
+                                <li
                                     key={frontmatter.title}
+                                    style={{ listStyle: "none" }}
                                 >
-                                    <div>
-                                        {/* <p>{frontmatter.date}</p> */}
-                                        <GatsbyImage
-                                            image={
-                                                frontmatter.featuredImage
-                                                    .childImageSharp
-                                                    .gatsbyImageData
-                                            }
-                                            alt={frontmatter.title}
-                                        />
-                                    </div>
-                                    <div>
-                                        <p>{frontmatter.date}</p>
-                                        <h2>{frontmatter.title}</h2>
-                                        {/* <p>{frontmatter.description}</p> */}
-                                        <ul
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                flexWrap: "wrap",
-                                                margin: 0,
-                                                marginBottom: "1.45rem",
-                                            }}
-                                        >
-                                            {frontmatter.tags.map(tag => (
-                                                <Tag key={tag} name={tag} />
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </Link>
+                                    <Link to={`/blog/${fields.slug}`}>
+                                        <div>
+                                            {/* <p>{frontmatter.date}</p> */}
+                                            <GatsbyImage
+                                                image={
+                                                    frontmatter.featuredImage
+                                                        .childImageSharp
+                                                        .gatsbyImageData
+                                                }
+                                                alt={frontmatter.title}
+                                            />
+                                        </div>
+                                        <div>
+                                            <p>{frontmatter.date}</p>
+                                            <h2>{frontmatter.title}</h2>
+                                            {/* <p>{frontmatter.description}</p> */}
+                                            <ul
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    flexWrap: "wrap",
+                                                    margin: 0,
+                                                    marginBottom: "1.45rem",
+                                                }}
+                                            >
+                                                {frontmatter.tags.map(tag => (
+                                                    <Tag key={tag} name={tag} />
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </Link>
+                                </li>
                             )
                         )}
                     </div>
