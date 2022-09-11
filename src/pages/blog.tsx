@@ -52,7 +52,7 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                 />
                 <div className={blogStyles.container}>
                     <h1>Blog</h1>
-                    <div>
+                    <ol>
                         {allMarkdownRemark.edges.map(
                             ({ node: { fields, frontmatter } }) => (
                                 <li
@@ -93,7 +93,7 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                 </li>
                             )
                         )}
-                    </div>
+                    </ol>
                 </div>
             </React.Fragment>
         </Layout>
