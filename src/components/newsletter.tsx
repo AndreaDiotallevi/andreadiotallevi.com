@@ -83,7 +83,7 @@ const Newsletter = (props: DataProps) => {
                                 <p
                                     style={{
                                         fontSize: "15px",
-                                        fontWeight: 600,
+                                        fontWeight: 700,
                                         marginTop: "4px",
                                         marginBottom: 0,
                                     }}

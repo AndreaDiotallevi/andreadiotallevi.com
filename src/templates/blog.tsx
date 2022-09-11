@@ -89,7 +89,7 @@ const Blog = (props: PageProps<DataProps>) => {
                         style={{
                             marginBottom: 0,
                             marginLeft: "8px",
-                            fontWeight: 600,
+                            fontWeight: 700,
                         }}
                     >
                         {date}
