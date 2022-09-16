@@ -53,7 +53,7 @@ Play the long game to get unexpected benefits in the future.
 
 > When you are learning something new, repetition is key.
 
-If, for instance, you need to refactor a function in 5 different files, type it out 5 times. The first time will be hard as you won’t recall every detail. But, by the time you do it for the fifth time, you will have a much better grasp of that particular concept.
+If you need to refactor a function in 5 different files, type it out 5 times. The first time will be hard as you won’t recall every detail. But, by the time you do it for the fifth time, you will have a much better grasp of that particular concept.
 
 Practice repetition on new concepts to let your brain do the hard work for you.
 
