@@ -57,6 +57,6 @@ If you need to refactor a function in 5 different files, type it out 5 times. Th
 
 Practice repetition on new concepts to let your brain do the hard work for you.
 
-**The way you approach work reflects the way you approach anything in life. From preparing a meal to listening to your friends.**
+**The way you approach work reflects the way you approach anything in life. From preparing a meal to listening to friends.**
 
 Turn your daily actions into opportunities for becoming a more well-rounded individual.
