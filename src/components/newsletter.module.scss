@@ -43,7 +43,7 @@
         border: 1px solid var(--code-border-color);
         margin-bottom: 16px;
         height: 75px;
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         padding: 16px;
         font-size: 18px;
     }
@@ -73,7 +73,7 @@
         width: 220px;
         border: none;
         margin-top: 15px;
-        font-weight: 700;
+        // font-weight: 700;
         border-radius: var(--border-radius);
 
         // &:hover {

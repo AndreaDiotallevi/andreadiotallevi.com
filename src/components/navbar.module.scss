@@ -4,17 +4,17 @@
     align-items: center;
     width: 100%;
     font-size: 18px;
-    font-weight: 700;
+    // font-weight: 700;
     max-width: 718px; // 750 - 16 - 16
 
     div {
         a {
             text-decoration: none;
             color: var(--text-primary);
-            font-weight: 700;
+            // font-weight: 700;
 
             @media (max-width: 750px) {
-                font-weight: 700;
+                // font-weight: 700;
             }
         }
     }

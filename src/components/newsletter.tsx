@@ -71,8 +71,8 @@ const Newsletter = (props: DataProps) => {
                                     props.file.childImageSharp.gatsbyImageData
                                 }
                                 alt="profile image"
-                                // style={{ borderRadius: "var(--border-radius)" }}
-                                style={{ borderRadius: "100px" }}
+                                style={{ borderRadius: "var(--border-radius)" }}
+                                // style={{ borderRadius: "100px" }}
                             />
                             {/* <div
                                 style={{

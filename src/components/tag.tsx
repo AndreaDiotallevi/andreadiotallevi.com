@@ -8,11 +8,11 @@ const Tag = (props: Props) => {
     return (
         <div
             style={{
-                borderRadius: "8px",
+                borderRadius: "var(--border-radius)",
                 backgroundColor: "var(--border)",
                 padding: "4px 8px",
                 fontSize: "14px",
-                fontWeight: 700,
+                fontWeight: 500,
                 marginRight: "8px",
                 marginBottom: "8px",
                 whiteSpace: "nowrap",

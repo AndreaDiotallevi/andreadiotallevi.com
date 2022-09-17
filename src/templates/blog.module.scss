@@ -50,6 +50,12 @@
     a {
         color: var(--link-color);
         font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+            transition: 0.3s;
+            text-decoration: underline;
+        }
     }
 
     // a {
