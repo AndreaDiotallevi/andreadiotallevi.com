@@ -132,7 +132,7 @@ const Blog = (props: PageProps<DataProps>) => {
                     <ButtonMainExternal
                         additionalStyles={{ marginRight: "20px" }}
                         color={color}
-                        href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by ${twitterUsername}`}
+                        href={`https://twitter.com/intent/tweet?url=https://www.andreadiotallevi.com/blog/${slug}&text=I+just+read "${title}" by @${twitterUsername}`}
                         primary
                     >
                         Tweet this article

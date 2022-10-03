@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
         description: `Andrea Diotallevi's personal website`,
         siteUrl: `https://www.andreadiotallevi.com`,
         image: `/andrea-diotallevi.jpg`,
-        twitterUsername: `@a_diotallevi_`,
+        twitterUsername: `a_diotallevi_`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
