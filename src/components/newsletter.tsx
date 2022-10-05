@@ -95,8 +95,8 @@ const Newsletter = (props: DataProps) => {
                         <p style={{ marginBottom: 0 }}>
                             Once a month I send an email about what I learn on
                             my daily job as a fullstack software developer -
-                            about TypeScript, React, GraphQL, Python, Django or
-                            Personal Development.
+                            about TypeScript, React, GraphQL, Python, Django,
+                            Docker or Personal Development.
                         </p>
                     </div>
                     <form onSubmit={handleSubmit} noValidate>
