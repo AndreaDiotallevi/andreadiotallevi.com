@@ -88,7 +88,7 @@ server.listen().then(({ url }) => {
 
 Install all dependencies and test you can start the server locally:
 
-```node
+```shell
 yarn install && yarn dev
 ```
 
@@ -102,7 +102,7 @@ Close the local server with `Ctrl+C`.
 
 Before moving straight to the `Dockerfile`, test the `build` script locally:
 
-```node
+```shell
 yarn build
 ```
 
@@ -130,7 +130,7 @@ The configuration options for `tsc` are set in the [tsconfig.json](https://www.t
 
 Now that the `dist` folder has been populated, run `index.js` with `node`:
 
-```node
+```shell
 yarn start
 ```
 
