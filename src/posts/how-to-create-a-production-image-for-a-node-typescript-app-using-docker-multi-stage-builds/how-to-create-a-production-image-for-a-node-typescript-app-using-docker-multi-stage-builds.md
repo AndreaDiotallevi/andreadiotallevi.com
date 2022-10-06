@@ -13,7 +13,7 @@ color: "rgb(113, 111, 106)"
 
 This article is a step by step guide on how to use Docker multi-stage builds to create a production image that is small, readable and maintainable.
 
-As as example, you will build an [Apollo Server](https://www.apollographql.com/docs/apollo-server/) application in Node.js and TypeScript.
+As an example, you will build an [Apollo Server](https://www.apollographql.com/docs/apollo-server/) application in Node.js and TypeScript.
 
 ## Table of contents
 
@@ -146,7 +146,7 @@ Start from a base image with [node and alpine](https://hub.docker.com/_/node):
 FROM node:16-alpine
 ```
 
-Define a working directory to avoid overwriting the container file system:
+Define a working directory to avoid unintended operations in unknown directories:
 
 ```docker
 WORKDIR /app
@@ -352,7 +352,7 @@ docker ps
    5221f7343a0c   version4    "docker-entrypoint.s…"   43 seconds ago   Up 42 seconds   0.0.0.0:4000->4000/tcp   eager_napier
 ```
 
-To stop the container, type `docker stop` followed by the container id:
+To stop the container, use the container id:
 
 ```shell
 docker stop 5221f7343a0c
