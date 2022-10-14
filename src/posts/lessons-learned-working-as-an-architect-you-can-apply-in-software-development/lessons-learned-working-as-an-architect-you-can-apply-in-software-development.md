@@ -117,4 +117,4 @@ Become proficient in the basics of the [tools](https://git-scm.com/docs) you use
 
 **The internet has become a parallel world to the one we live in.**
 
-Make it a quality place to hang out in.
+Make it a quality place.
