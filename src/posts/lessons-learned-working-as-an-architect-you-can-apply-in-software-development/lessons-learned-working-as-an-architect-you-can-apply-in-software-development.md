@@ -1,7 +1,6 @@
 ---
 title: "12 Lessons I Learned Working As An Architect You Can Also Apply In Software Development"
-description: "People often use building architecture as a metaphor for describing software, but what are the similarities between building a physical construction and building a web application?
-"
+description: "People often use building architecture as a metaphor for describing software, but what are the similarities between building a physical construction and building a web application?"
 date: "2022-10-14"
 tags: ["Personal Development", "Architecture"]
 featuredImage: henry-co-1400x840.jpg
