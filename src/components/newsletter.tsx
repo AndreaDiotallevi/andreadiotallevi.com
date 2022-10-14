@@ -93,16 +93,15 @@ const Newsletter = (props: DataProps) => {
                             </div> */}
                         </Link>
                         <p style={{ marginBottom: 0 }}>
-                            Once a month I send an email about what I learn on
-                            my daily job as a fullstack software developer -
-                            about TypeScript, React, GraphQL, Python, Django,
-                            Docker or Personal Development.
+                            Once a month I send an email about what I learn as a
+                            software developer - about TypeScript, React,
+                            GraphQL, Python, Django, Docker or Personal
+                            Development.
                         </p>
                     </div>
                     <form onSubmit={handleSubmit} noValidate>
                         <div>
                             <div>
-                                {/* <label htmlFor="firstName">First name</label> */}
                                 <input
                                     id="firstName"
                                     type="text"
@@ -113,7 +112,6 @@ const Newsletter = (props: DataProps) => {
                                 />
                             </div>
                             <div>
-                                {/* <label htmlFor="email">Email</label> */}
                                 <input
                                     id="email"
                                     type="email"
@@ -124,12 +122,7 @@ const Newsletter = (props: DataProps) => {
                                 />
                             </div>
                         </div>
-                        <button
-                            type="submit"
-                            // style={{ backgroundColor: props.color }}
-                        >
-                            Sign me up
-                        </button>
+                        <button type="submit">Sign me up</button>
                         {result?.result === "error" ? (
                             <p className={newsletterStyles.error}>
                                 {result.msg.includes("already subscribed")
