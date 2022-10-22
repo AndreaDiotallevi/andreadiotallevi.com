@@ -1,6 +1,8 @@
 import type { GatsbyConfig } from "gatsby"
 import path from "path"
 
+// import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `Andrea Diotallevi | Software Developer`,
@@ -31,7 +33,8 @@ const config: GatsbyConfig = {
                     {
                         resolve: `gatsby-remark-prismjs`,
                         options: {
-                            noInlineHighlight: true,
+                            // showLineNumbers: true,
+                            noInlineHighlight: false,
                         },
                     },
                     {
