@@ -48,7 +48,7 @@ The [router object](https://nextjs.org/docs/api-reference/next/router#router-obj
 
 While vanilla React redirects by rendering a component (`<Redirect />`), Next.js can change the page only by calling a function like `router.push()`.
 
-The best place to call this function is inside a `useEffect()` that listens for changes to the `loggedIn` variable.
+The best place to call this function is inside a `useEffect()`.
 
 ```jsx
 import { useEffect } from "react"
@@ -64,7 +64,7 @@ function App({ loggedIn }) {
         }
 
         router.push("/)
-    }, [loggedIn])
+    }, [])
 
     return "Loading..."
 }
@@ -108,7 +108,7 @@ function App({ loggedIn }) {
         }
 
         router.replace("/)
-    }, [loggedIn])
+    }, [])
 
     return "Loading..."
 }

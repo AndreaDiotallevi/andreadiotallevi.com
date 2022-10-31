@@ -1,0 +1,99 @@
+---
+title: Why passing down setState as prop in React is considered an anti-pattern?
+description: "Three design reasons why you should not pass down setState as prop to child components."
+date: "2022-06-17"
+tags: ["React", "React State Management", "React Hooks", "Best Practices"]
+featuredImage: panos-teloniatis-1400-840.jpg
+color: "rgb(231, 137, 73)"
+---
+
+<figcaption>
+   <p>Photo by <a href="https://unsplash.com/photos/cDvFqyqH7b4" target="_blank">Panos Teloniatis</a></p>
+</figcaption>
+
+Passing callbacks down to child components for local state management is something React developers do every day. But what is it the best way to approach this common requirement?
+
+In this article I will show why passing down `setState` directly to child components breaks design architecture principles like **Single Responsibility** and **Behavior-Driven Development**.
+
+## The piece of code under scrutiny
+
+Let's imagine we have two components - a parent initialising some state (`count`) and a child displaying that state while listening for user events.
+
+This is the code we would write if we were to pass `setCount` directly as prop:
+
+```tsx
+// ParentComponent.tsx
+import React, { useState } from "react"
+
+const ParentComponent = () => {
+    const [count, setCount] = useState(0)
+
+    return <ChildComponent count={count} setCount={setCount} />
+}
+
+export default ParentComponent
+```
+
+```tsx
+// ChildComponent.tsx
+import React, { Dispatch, SetStateAction } from "react"
+
+type Props = {
+    count: number
+    setCount: Dispatch<SetStateAction<number>>
+}
+
+const ChildComponent = (props: Props) => {
+    const { count, setCount } = props
+
+    return <button onClick={e => setCount(e.target.value)}>{count}</button>
+}
+
+export default ChildComponent
+```
+
+## It breaks the Single Responsibility Principle (SRC)
+
+As a reminder, the **Single Responsibility Principle (SRP)** states that:
+
+> Each software module should have one and only one reason to change.
+
+If we think about which responsibilities the two components have, we can break them down like this:
+
+-   The `<ParentComponent />` is responsible for **state management** - the role of a **container** component.
+-   The `<ChildComponent />` is responsible for **UI display** and **user event listening** - the role of a **presentational** component.
+
+Now, let's imagine that, for state management reasons, we need to change the way we store the state inside our container component to allow for more fields. We can refactor the `<ParentComponent />` using an object (`inputs`):
+
+```tsx
+// ParentComponent.tsx
+import React, { useState } from "react"
+
+const ParentComponent = () => {
+    const [inputs, setInputs] = useState({
+        count: 0,
+        newValue: "new value",
+    })
+
+    return (
+        <ChildComponent
+            count={inputs.count}
+            setCount={count =>
+                setInputs(prevInputs => ({ ...prevInputs, count }))
+            }
+        />
+    )
+}
+
+export default ParentComponent
+```
+
+Since the `<ChildComponent />` is not responsible for state management, it _shouldn't_ need to be changed. However, as it does expect the old `setCount` prop, it would need to be refactored, breaking the **CRP** principle at its core.
+
+<!-- More on this, the `<ChildComponent />` shouldn't have any knowledge about its parent internal implementation details. -->
+
+## It breaks the Separation of Concerns Principle (SoC)
+
+As a reminder, the **Separation of Concerns Principle (SoC)** is:
+
+> a principle used in programming to separate an application into units, with minimal overlapping between the functions of the individual units.
