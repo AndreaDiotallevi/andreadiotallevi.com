@@ -4,12 +4,10 @@ description: "The state management fundamentals for building and validating a fo
 date: "2022-09-09"
 tags: ["React", "TypeScript", "Forms"]
 featuredImage: linus-nylund2-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/UCIZh0-OYPw"
+featuredImageAuthor: "Linus Nylund"
 color: "rgb(48, 121, 107)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/UCIZh0-OYPw" target="_blank">Linus Nylund</a></p>
-</figcaption>
 
 There are many libraries out there you can use to build forms in React.
 

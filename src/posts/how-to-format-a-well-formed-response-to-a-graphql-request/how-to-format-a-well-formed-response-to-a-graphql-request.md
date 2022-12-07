@@ -4,12 +4,10 @@ description: "The convention for designing a well-formed GraphQL response in lin
 date: "2021-02-28"
 tags: ["GraphQL", "GraphQL Documentation", "GraphQL Specification", "APIs"]
 featuredImage: zdenek-machacek-1400x840-mod2.jpg
+featuredImageUrl: "https://unsplash.com/photos/EtxsgEcHnZg"
+featuredImageAuthor: "Zdeněk Macháček"
 color: "rgb(133, 118, 2)"
 ---
-
-<figcaption>
-   <p>Photo by <a href="https://unsplash.com/photos/EtxsgEcHnZg" target="_blank">Zdeněk Macháček</a></p>
-</figcaption>
 
 I have been recently refactoring a big chunk of my company's codebase with the goal of replacing the [Django REST Framework](https://www.django-rest-framework.org/) with [GraphQL](https://graphql.org/) and [Graphene](https://graphene-python.org/).
 

@@ -4,12 +4,10 @@ description: "An overview of how the @property decorator works in Python and whe
 date: "2021-01-31"
 tags: ["Python", "Django", "Decorators", "Property Decorator"]
 featuredImage: sarah-dorweiler-1400x840-b-w.jpg
+featuredImageUrl: "https://unsplash.com/photos/x2Tmfd1-SgA"
+featuredImageAuthor: "Sarah Dorweiler"
 color: "rgb(93, 120, 77)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/x2Tmfd1-SgA" target="_blank">Sarah Dorweiler</a></p>
-</figcaption>
 
 In Python, the `@property` decorator allows you to call custom model methods as if they were normal model attributes.
 

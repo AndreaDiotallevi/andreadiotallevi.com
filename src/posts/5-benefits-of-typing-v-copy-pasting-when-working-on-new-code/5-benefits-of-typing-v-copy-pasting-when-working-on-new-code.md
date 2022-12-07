@@ -4,12 +4,10 @@ description: "Why you should put the effort in typing out new code and how this 
 date: "2022-09-16"
 tags: ["Personal Development", "Code Quality", "Best Practices"]
 featuredImage: florian-klauer-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/mk7D-4UCfmg"
+featuredImageAuthor: "Florian Klauer"
 color: "rgb(94, 93, 100)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/mk7D-4UCfmg" target="_blank">Florian Klauer</a></p>
-</figcaption>
 
 Typing in a code editor is the most common activity you do every day as a software developer.
 

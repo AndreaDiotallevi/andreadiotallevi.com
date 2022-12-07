@@ -4,6 +4,8 @@ description: "A summary of the 3 most important types of errors you should valid
 date: "2022-08-26"
 tags: ["Forms", "Error Handling", "User Experience"]
 featuredImage: j-lee-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/T1n_a_ToBEw"
+featuredImageAuthor: "J Lee"
 color: "rgb(89, 124, 98)"
 ---
 
@@ -14,10 +16,6 @@ color: "rgb(89, 124, 98)"
         }
 }
 </style>
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/T1n_a_ToBEw" target="_blank">J Lee</a></p>
-</figcaption>
 
 It’s hard to recall an online business that never asked me to fill a web form.
 

@@ -23,6 +23,8 @@ type DataProps = {
                     gatsbyImageData: IGatsbyImageData
                 }
             }
+            featuredImageUrl: string
+            featuredImageAuthor: string
             color: string
         }
         html: string
@@ -54,6 +56,8 @@ const Blog = (props: PageProps<DataProps>) => {
                     featuredImage: {
                         childImageSharp: { gatsbyImageData },
                     },
+                    featuredImageUrl,
+                    featuredImageAuthor,
                     color,
                 },
                 html,
@@ -118,6 +122,20 @@ const Blog = (props: PageProps<DataProps>) => {
                     alt={title}
                     loading="eager"
                 />
+                <figcaption
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginTop: "0.3rem",
+                    }}
+                >
+                    <p>
+                        Photo by{" "}
+                        <a href={featuredImageUrl} target="_blank">
+                            {featuredImageAuthor}
+                        </a>
+                    </p>
+                </figcaption>
                 <div
                     dangerouslySetInnerHTML={{ __html: html }}
                     className={blogStyles.blog}
@@ -170,6 +188,8 @@ export const query = graphql`
                         )
                     }
                 }
+                featuredImageUrl
+                featuredImageAuthor
                 color
             }
             html

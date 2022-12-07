@@ -4,12 +4,10 @@ description: "Why you should take the time to thoroughly refactor your code, bef
 date: "2022-09-02"
 tags: ["Personal Development", "Code Quality", "Best Practices"]
 featuredImage: boris-smokrovic-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/HWwF4OnXAdM"
+featuredImageAuthor: "Boris Smokrovic"
 color: "rgb(110, 120, 22)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/HWwF4OnXAdM" target="_blank">Boris Smokrovic</a></p>
-</figcaption>
 
 A consistent refactoring habit, before asking a colleague to review your code, is **the most powerful step to improve your awareness as a software developer**.
 

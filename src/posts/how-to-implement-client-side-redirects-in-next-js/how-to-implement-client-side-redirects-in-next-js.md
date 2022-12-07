@@ -4,12 +4,10 @@ description: "Steps to implement client side redirects in Next.js, using as exam
 date: "2022-10-31"
 tags: ["React", "Next.js", "Redirects"]
 featuredImage: marcel-strauss-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/G30jlFPt-wg"
+featuredImageAuthor: "Marcel Strauß"
 color: "rgb(108, 102, 93)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/G30jlFPt-wg" target="_blank">Marcel Strauß</a></p>
-</figcaption>
 
 In vanilla React, you can perform redirects by rendering the [Redirect](https://v5.reactrouter.com/web/api/Redirect) component from the `react-router-dom` library.
 

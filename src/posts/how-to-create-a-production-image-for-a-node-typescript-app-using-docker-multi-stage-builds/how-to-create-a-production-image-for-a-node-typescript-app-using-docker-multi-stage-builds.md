@@ -4,12 +4,10 @@ description: "A step by step guide on how to leverage Docker multi-stage builds 
 date: "2022-10-06"
 tags: ["Docker", "Node.js", "TypeScript"]
 featuredImage: filip-kominik-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/IHtVbLRjTZU"
+featuredImageAuthor: "Filip Kominik"
 color: "rgb(113, 111, 106)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/IHtVbLRjTZU" target="_blank">Filip Kominik</a></p>
-</figcaption>
 
 This article is a step by step guide on how to use Docker multi-stage builds to create a production image that is small, readable and maintainable.
 

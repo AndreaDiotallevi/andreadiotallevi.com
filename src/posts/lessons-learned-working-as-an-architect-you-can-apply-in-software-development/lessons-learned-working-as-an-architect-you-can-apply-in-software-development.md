@@ -4,12 +4,10 @@ description: "People often use building architecture as a metaphor for describin
 date: "2022-10-14"
 tags: ["Personal Development", "Architecture"]
 featuredImage: henry-co-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/tax7ZBqi3ak"
+featuredImageAuthor: "Henry & Co."
 color: "rgb(56, 62, 72)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/tax7ZBqi3ak" target="_blank">Henry & Co.</a></p>
-</figcaption>
 
 People often use building architecture as a metaphor for describing software.
 

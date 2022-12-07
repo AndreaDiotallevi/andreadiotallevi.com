@@ -4,12 +4,10 @@ description: "The fundamental components of algorithm complexity analysis, how t
 date: "2020-04-15"
 tags: ["Algorithms", "Big O Notation", "Scalability", "Complexity"]
 featuredImage: darwin-vegher-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/i1yY82_sOLo"
+featuredImageAuthor: "Darwin Vegher"
 color: rgb(113, 113, 113)
 ---
-
-<figcaption>
-   <p>Photo by <a href="https://unsplash.com/photos/i1yY82_sOLo" target="_blank">Darwin Vegher</a></p>
-</figcaption>
 
 Have you ever wondered how your algorithm would perform if you _drastically increase_ the input data set? The concept programmers use to **compare algorithms’ behaviours** is the [big-O mathematical notation](https://en.wikipedia.org/wiki/Big_O_notation).
 

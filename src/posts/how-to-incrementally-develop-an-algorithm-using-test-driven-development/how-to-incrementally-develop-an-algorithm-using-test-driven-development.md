@@ -10,12 +10,10 @@ tags:
         "Prime Factors Kata",
     ]
 featuredImage: bahador-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/z6qLnIF1zl8"
+featuredImageAuthor: "Bahador"
 color: rgb(113, 113, 113)
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/z6qLnIF1zl8" target="_blank">Bahador</a></p>
-</figcaption>
 
 In the world of software development, test-driven development (TDD) is a discipline where failing tests are written first, and _only then_ is the actual software code created, aiming to pass the newly-generated tests.
 

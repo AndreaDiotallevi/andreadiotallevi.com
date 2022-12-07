@@ -4,12 +4,10 @@ description: "A common pitfall and solution when calling React setState multiple
 date: "2021-03-30"
 tags: ["React", "React State Management", "React Hooks", "React Documentation"]
 featuredImage: chris-lawton-1400x840.jpg
+featuredImageUrl: "https://unsplash.com/photos/5IHz5WhosQE"
+featuredImageAuthor: "Chris Lawton"
 color: "rgb(125, 111, 100)"
 ---
-
-<figcaption>
-    <p>Photo by <a href="https://unsplash.com/photos/5IHz5WhosQE" target="_blank">Chris Lawton</a></p>
-</figcaption>
 
 In this article I will describe a common pitfall and solution I have been experiencing when calling React `setState` multiple times on the same object. In line with the latest React practices, I will create examples with the `useState` hook.
 
