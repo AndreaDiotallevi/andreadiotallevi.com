@@ -17,7 +17,7 @@ In this article, I describe 4 reasons why you should start testing and deploying
 
 I know - it’s frustrating. You can’t test a scenario with [Docker Compose](https://docs.docker.com/compose/gettingstarted/) in development if you use [Kubernetes](https://kubernetes.io/) in production. With SAM, on the other hand, you can describe the [resources](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html) you need (queues, lambdas, policies, databases, etc.) in a readable [template](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy.html) you can use for all deployment stages.
 
-Develop against real cloud resources to minimise discrepancies between environments and make deployments feel routines.
+Develop against real cloud resources to minimise discrepancies between environments and make deployments feel routine.
 
 ```yaml
 # AWS SAM template for an Amazon S3 application
