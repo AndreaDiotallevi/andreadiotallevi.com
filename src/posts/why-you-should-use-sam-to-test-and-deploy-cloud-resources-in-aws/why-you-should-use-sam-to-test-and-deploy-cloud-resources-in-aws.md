@@ -1,7 +1,7 @@
 ---
 title: "Why You Should Use The Serverless Application Model (SAM) To Test And Deploy Cloud Resources In AWS"
 description: "Four reasons why you should start testing and deploying cloud resources using the Serverless Application Model to help your company become more scalable and productive."
-date: "2022-12-07"
+date: "2022-12-08"
 tags: ["Serverless", "AWS", "SAM"]
 featuredImage: redd-f-1400x840.jpg
 featuredImageUrl: "https://unsplash.com/photos/vUwJ8uu_C1M"
