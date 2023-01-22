@@ -1,0 +1,172 @@
+---
+title: "How to build a form with instant validation in React"
+description: "A step by step guide to how to build a form with instant validation in React."
+date: "2022-08-15"
+tags: ["React", "Error Handling", "User Experience"]
+featuredImage: j-lee-1400x840.jpg
+color: "rgb(89, 124, 98)"
+---
+
+<figcaption>
+    <p>Photo by <a href="https://unsplash.com/photos/T1n_a_ToBEw" target="_blank">J Lee</a></p>
+</figcaption>
+
+Nobody has ever signed up for an online business without **submitting a digital form**.
+
+In the internet world, every action we want our users to take involves some sort of form completion. When a user is filling a form, we want them to have **clarity** over where they are in the process. And in order for them to be certain they have done it correctly, we need to properly **guide** them with useful visuals, messages or animations.
+
+So, if you are working on building the **best user experience**, here is a step by step guide to how to build a form with **instant validation in React**.
+
+## Handle user input and validate it at every keystroke
+
+Every time the user types something is an opportunity to capture data.
+
+When a user is filling an input field, you should store the data and instantly validate it - **on every keystroke**. It is usually done by running the validation directly in the `onChange` event handler. This allows you to know the current state of the form every time the user makes a change.
+
+```tsx
+import { useState } from "react"
+
+type Inputs = { username: string }
+type Errors = Partial<Record<keyof Inputs, string | null>>
+
+function App() {
+    const [inputs, setInputs] = useState<Inputs>({ username: "" })
+    const [errors, setErrors] = useState<Errors>({})
+
+    const validate = (newInputs: Inputs): Errors => {
+        const newErrors: Errors = {}
+
+        if (!newInputs.username) {
+            newErrors.username = "Please enter your username"
+        }
+
+        return newErrors
+    }
+
+    return (
+        <form noValidate>
+            <label>
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    onChange={event => {
+                        setInputs({ ...inputs, username: event.target.value })
+                        setErrors(
+                            validate({
+                                ...inputs,
+                                username: event.target.value,
+                            })
+                        )
+                    }}
+                    value={inputs.username}
+                />
+                {errors.username ? <p>{errors.username}</p> : null}
+            </label>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    // Server call
+                }}
+            >
+                Submit
+            </button>
+        </form>
+    )
+}
+
+export default App
+```
+
+Instant validation is **more flexible** than validation at submit time.
+
+## Display feedback when the user has completed editing the field
+
+Show useful feedback to the user **at the right time**.
+
+While the `errors` object is responsible for keeping track of errors content, you need another piece of state for knowing when to display them: the `touched` object. The native event used for this case is the `onBlur` event, which is triggered when the user clicks outside of a previously focused field. Now, we can display either a **positive feedback** (like a green tick) or a **negative feedback** (error message), based on the content of the errors object.
+
+**Quick feedback** to the user helps them feel they are on the right track.
+
+<!--
+## The React.js implementation
+
+In this demo we'll build a simple sign in form (username & password) in 3 simple steps:
+
+-   Handling user inputs
+-   Validating user inputs
+-   Displaying potential errors to the user for the best user experience
+
+### Handling user inputs
+
+This step includes two parts: choosing the right data structure for storing the inputs and handling the change events.
+
+Since the form is made of two inputs, we can use an object to store both values:
+
+```tsx
+type LogInInput = {
+    username: string
+    email: string
+}
+
+const [inputs, setInputs] = useState<LogInInput>({
+    username: "",
+    email: "",
+})
+```
+
+```tsx
+import { useState } from "react"
+
+type LogInInput = {
+    username: string
+    email: string
+}
+
+function App() {
+    const [inputs, setInputs] = useState<LogInInput>({
+        username: "",
+        email: "",
+    })
+
+    return (
+        <form
+            style={{ display: "flex", flexDirection: "column", width: "400px" }}
+            noValidate
+        >
+            <label>
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    onChange={event =>
+                        setInputs({ ...inputs, username: event.target.value })
+                    }
+                    value={inputs.username}
+                />
+            </label>
+            <label>
+                Email
+                <input
+                    type="email"
+                    name="email"
+                    onChange={event =>
+                        setInputs({ ...inputs, email: event.target.value })
+                    }
+                    value={inputs.email}
+                />
+            </label>
+            <button
+                onClick={event => {
+                    event.preventDefault()
+                    // Server call
+                }}
+            >
+                Submit
+            </button>
+        </form>
+    )
+}
+
+export default App
+``` -->

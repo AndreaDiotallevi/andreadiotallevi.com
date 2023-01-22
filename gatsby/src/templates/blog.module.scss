@@ -1,0 +1,60 @@
+.container {
+    max-width: 750px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 16px;
+
+    @media only screen and (max-width: 750px) {
+        max-width: 100%;
+    }
+
+    h1 {
+        margin-bottom: 0.8rem;
+        line-height: 42px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        color: var(--text-primary);
+    }
+
+    img {
+        border-radius: var(--border-radius);
+    }
+
+    a {
+        color: var(--link-color);
+        font-weight: 700;
+        text-decoration: none;
+
+        &:hover {
+            transition: 0.3s;
+            text-decoration: underline;
+        }
+    }
+}
+
+.blog {
+    p,
+    li,
+    ul,
+    ol,
+    code {
+        font-size: 18px;
+        line-height: 1.7em;
+    }
+
+    figcaption {
+        text-align: center;
+        font-style: normal;
+        font-size: 0.8em;
+        width: 100%;
+        margin-top: 0.3rem;
+        margin-bottom: 1.5rem;
+    }
+}
