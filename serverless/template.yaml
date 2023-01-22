@@ -1,0 +1,132 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SAM Template for andreadiotallevi.com
+
+Globals:
+    Function:
+        CodeUri: ./
+        Timeout: 30
+        Runtime: nodejs16.x
+        MemorySize: 1024
+        Tracing: Active
+        Architectures:
+            - x86_64
+        Environment:
+            Variables:
+                TABLE_NAME: !Ref DynamoDBTable
+
+Resources:
+    GetBlogsFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-GetBlogs
+            Handler: src/handlers/getBlogs.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /blogs
+                        Method: get
+            Policies:
+                - DynamoDBReadPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/getBlogs.ts
+
+    CreateBlogFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-CreateBlog
+            Handler: src/handlers/createBlog.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /blogs
+                        Method: post
+            Policies:
+                - DynamoDBWritePolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/createBlog.ts
+
+    AddCommentToBlogFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-AddCommentToBlog
+            Handler: src/handlers/addCommentToBlog.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /blogs/{blogId}/comments
+                        Method: post
+            Policies:
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/addCommentToBlog.ts
+
+    DynamoDBTable:
+        Type: AWS::DynamoDB::Table
+        Properties:
+            AttributeDefinitions:
+                - AttributeName: PK
+                  AttributeType: S
+                - AttributeName: SK
+                  AttributeType: S
+                - AttributeName: GSI1PK
+                  AttributeType: S
+                - AttributeName: GSI1SK
+                  AttributeType: S
+            KeySchema:
+                - AttributeName: PK
+                  KeyType: HASH
+                - AttributeName: SK
+                  KeyType: RANGE
+            GlobalSecondaryIndexes:
+                - IndexName: GSI1
+                  KeySchema:
+                      - AttributeName: GSI1PK
+                        KeyType: HASH
+                      - AttributeName: GSI1SK
+                        KeyType: RANGE
+                  Projection:
+                      ProjectionType: ALL
+                  ProvisionedThroughput:
+                      ReadCapacityUnits: 1
+                      WriteCapacityUnits: 1
+            ProvisionedThroughput:
+                ReadCapacityUnits: 5
+                WriteCapacityUnits: 5
+            StreamSpecification:
+                StreamViewType: NEW_AND_OLD_IMAGES
+
+Outputs:
+    GetBlogsFunctionArn:
+        Description: "Get blogs lambda funcion ARN"
+        Value: !GetAtt GetBlogsFunction.Arn
+    CreateBlogFunctionArn:
+        Description: "Create blog lambda funcion ARN"
+        Value: !GetAtt CreateBlogFunction.Arn
+    AddCommentToBlogFunctionArn:
+        Description: "Add comment to blog lambda funcion ARN"
+        Value: !GetAtt AddCommentToBlogFunction.Arn
+    TableName:
+        Description: "Name of the DynamoDB table"
+        Value: !Ref DynamoDBTable

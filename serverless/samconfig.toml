@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+
+[default.global.parameters]
+stack_name = "andreadiotallevi"
+
+[default.sync.parameters]
+profile = "default"
+
+[default.logs.parameters]
+profile = "default"
