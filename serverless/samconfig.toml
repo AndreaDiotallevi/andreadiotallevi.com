@@ -3,9 +3,10 @@ version = 0.1
 
 [default.global.parameters]
 stack_name = "andreadiotallevi"
+region = "eu-west-2"
 
 [default.sync.parameters]
-profile = "default"
+profile = "blog_sandbox"
 
 [default.logs.parameters]
-profile = "default"
+profile = "blog_sandbox"
