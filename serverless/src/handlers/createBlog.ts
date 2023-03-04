@@ -1,8 +1,8 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda"
+import { APIGatewayProxyResult } from "aws-lambda"
 import { createBlog } from "../data"
 import { Blog } from "../entities/blogs"
 
-export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const handler = async (): Promise<APIGatewayProxyResult> => {
     const blogObj = new Blog({})
 
     const { blog, error } = await createBlog({ blog: blogObj })
