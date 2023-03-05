@@ -144,7 +144,8 @@ jobs:
                   use-installer: true
             - uses: actions/download-artifact@v2
               with:
-                  name: serverless/packaged-testing.yaml
+                  name: packaged-testing.yaml
+                  path: serverless/packaged-testing.yaml
 
             - name: Assume the testing pipeline user role
               uses: aws-actions/configure-aws-credentials@v1-node16
