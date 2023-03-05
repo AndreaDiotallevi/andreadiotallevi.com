@@ -131,7 +131,7 @@ jobs:
             - uses: actions/upload-artifact@v2
               with:
                   name: packaged-prod.yaml
-                  path: packaged-prod.yaml
+                  path: serverless/packaged-prod.yaml
 
     deploy-testing:
         if: github.ref == 'refs/heads/main'
@@ -145,7 +145,7 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: packaged-testing.yaml
-                  path: serverless/packaged-testing.yaml
+                  # path: serverless/packaged-testing.yaml
 
             - name: Assume the testing pipeline user role
               uses: aws-actions/configure-aws-credentials@v1-node16
