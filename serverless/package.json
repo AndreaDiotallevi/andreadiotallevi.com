@@ -8,6 +8,7 @@
     "license": "MIT",
     "dependencies": {
         "@aws-sdk/client-dynamodb": "^3.241.0",
+        "@google-analytics/data": "^3.2.1",
         "crypto": "^1.0.1",
         "esbuild": "^0.16.12",
         "ksuid": "^3.0.0",
