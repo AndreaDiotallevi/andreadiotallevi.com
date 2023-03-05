@@ -1,29 +1,29 @@
 import { generateKSUID } from "./utils"
 
 export class Comment {
-    blogId: string
+    blogSlug: string
     commentId: string
     likesCount: number
     createdAt: Date
     updatedAt: Date
 
     constructor({
-        blogId,
+        blogSlug,
         commentId,
         likesCount = 0,
         createdAt = new Date(),
         updatedAt = new Date(),
     }: {
-        blogId: string
+        blogSlug: string
         commentId?: string
         likesCount?: number
         createdAt?: Date
         updatedAt?: Date
     }) {
-        if (!blogId) {
+        if (!blogSlug) {
             throw new Error("Comment requires blog id.")
         }
-        this.blogId = blogId
+        this.blogSlug = blogSlug
         this.commentId = commentId || generateKSUID(createdAt)
         this.likesCount = likesCount
         this.createdAt = createdAt
@@ -32,7 +32,7 @@ export class Comment {
 
     key() {
         return {
-            PK: { S: `BLOG#${this.blogId}` },
+            PK: { S: `BLOG#${this.blogSlug}` },
             SK: { S: `COMMENT#${this.commentId}` },
         }
     }
@@ -41,7 +41,7 @@ export class Comment {
         return {
             ...this.key(),
             Type: { S: "Comment" },
-            BlogId: { S: this.blogId },
+            BlogId: { S: this.blogSlug },
             CommentId: { S: this.commentId },
             LikesCount: { N: this.likesCount.toString() },
             CreatedAt: { S: this.createdAt.toISOString() },
@@ -54,6 +54,6 @@ export type CommentItem = ReturnType<Comment["toItem"]>
 
 export const commentFromItem = (item: CommentItem) => {
     return new Comment({
-        blogId: item.BlogId.S,
+        blogSlug: item.BlogId.S,
     })
 }
