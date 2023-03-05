@@ -1,5 +1,9 @@
 name: Pipeline
 
+defaults:
+    run:
+        working-directory: serverless
+
 on:
     push:
         branches:
