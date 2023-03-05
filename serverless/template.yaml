@@ -82,6 +82,33 @@ Resources:
                 EntryPoints:
                     - src/handlers/addCommentToBlog.ts
 
+    UpdateBlogsViewsCountFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-UpdateBlogsViewsCount
+            Handler: src/handlers/updateBlogsViewsCount.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /google-analytics
+                        Method: post
+            Policies:
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref DynamoDBTable
+            Environment:
+                Variables:
+                    GA4_PROPERTY_ID: "306947936"
+                    GOOGLE_CLIENT_EMAIL: "aws-lambda@blog-website-378310.iam.gserviceaccount.com"
+                    GOOGLE_PRIVATE_KEY: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCYhqs6aijd8oPy\nPsziBe/Jto9F/Ab/pYLI9RKcCkY6oZe4QdzEOgsRXIIe/0ngs+BSDQXl8XzL652G\naVeQhDLvDly2TBThoF7kSXGYRTVm8bV+PN7LLeMM35rEkeRU7NJV1nOEXx9cBsb5\nVrkvUH0jZ9Gxh61yEOz8+PZf+WCX2xHZCUWEAxW2uXVilhm9YRbqzglXw9Pu8IYu\n3IZBUxSzcQlfyZE6nwWaNp/qsYvsxx/z3X/5ryAhXSmmG1sQEXXWNjtXeks+TAK6\nD59BEqLXZnav2H1uAwd4YTFjgZ06xwWgtWtc1PO9AXshzqk+yzOr9YNdzU7D4xV3\nr6vJpF9bAgMBAAECggEANsntOQsISg3C6uI3K5uxUnaDCcMp6mwUSkaKXEXui0If\no175Q/2Lmz1tOmA+s/o5QpAOBdbUmtW0nKM7gpySRUAV+p/iwleerodZSDbYI3YA\n2WtZJogBrs6lpCW57O2y8oWZsjuPIroGgGtwEvhpMy4oa4qOudItpwNxUPFeCr3n\nIg07Je3CDxcntCobOqaRogu5Kx9+OkELZx4s2v5LhjzCtP2/33RPVKRMdT42RlAy\ntXqLnisbhSSfUv0csgT7J+NVTE0n4TeUKKudXspHeNeB2IAuIFOJTy+ALGOOTSPl\nh9DTt2xsW0eFT6+ZfZ8EezQuK1/yFOH/Fk3CYPPsTQKBgQDMyi0v4AHX/BgRknk0\nXoa0qJgCkjtgpZkLjOrmooW5iUBwKURklXkyeteJYo/5qvm7333yiFGFzzXqVcyJ\niJv27rspW3MVX6X75PGpmtcCxCseeVec4Sm8h7u29WIC0ymsCkwZ72a9IorKVHQx\npogyk1yPraUJvFF5959trhHjxwKBgQC+qsdNJbinkN7Pkchlww1WltIreXQv/5VC\no3L4Mi50HEBNPzyNFSb4BoAQR00tcg1oiqbHY+f2G+6TXyhXwYrwKwhgM+KVW/zL\ng+oxBOz5Jszwp+E5GxyOELvBigZS0PxNsEninrIOQzVr4iFCqUIjfrCtAl8+51jX\n41ZvWaU/zQKBgDNGV8QJ6UxD0V7s9q33EPFA2TajmHxdWhF7SgFPJf5LcDflDTvF\n9R9/hGHgrL3NYlP45FcKbKb9N7mhm+G/s5VDNtdnD0yFs1B7hUp6+2S06zrpFNex\nxLpwnb50eALPDjsGJQHFYErw0CFSvfkEgktvfBh5WL40SY4pQuC6Wb5XAoGBAJso\nts9dJwuVpPwdkordU/lm+tlOGPMGdhyojmLT02HBq8Iw98GHuRKVl5mnrHKTIb41\nNsuDzbxFtrxO77GaWspe+o3vKzCIjwu+6dHCRGXs4VHmDC5Aldg2XdR90e+LCgbe\nswGsSxG4N7z3ZEGvI5dm/beM+p1h/raQ1kH/Ha7xAoGBALlqMiyPICEwa+i+d3ST\nGq/hKBLpawQqJP5L4vblWQxv8sb4AMCHPNsDDS5uGVtY+3bTzOK4CLlkCFoDyNJp\nREoi5JgdMMt83IEgFP+BGX1Yppm2vgXW6x8EiTQFFk0AChi7fZU/iAC4TaNhYcgV\nZ3AfOme+/EjY/4quZVAZTfEK\n-----END PRIVATE KEY-----\n"
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/updateBlogsViewsCount.ts
+
     DynamoDBTable:
         Type: AWS::DynamoDB::Table
         Properties:
@@ -127,6 +154,9 @@ Outputs:
     AddCommentToBlogFunctionArn:
         Description: "Add comment to blog lambda funcion ARN"
         Value: !GetAtt AddCommentToBlogFunction.Arn
+    UpdateBlogsViewsCountArn:
+        Description: "Update blogs views count lambda funcion ARN"
+        Value: !GetAtt UpdateBlogsViewsCountFunction.Arn
     TableName:
         Description: "Name of the DynamoDB table"
         Value: !Ref DynamoDBTable
