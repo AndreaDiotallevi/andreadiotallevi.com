@@ -6,6 +6,7 @@ export const handler = async (): Promise<APIGatewayProxyResult> => {
 
     const statusCode = error ? 500 : 200
     const body = error ? JSON.stringify({ error }) : JSON.stringify({ blogs })
+    console.log("test")
 
     return {
         statusCode,
