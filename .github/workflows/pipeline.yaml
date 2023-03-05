@@ -11,8 +11,10 @@ on:
             - "staging"
 
 env:
-    PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AKIAQ56UW3BP27HS4Q7G }}
-    PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.XnYO5mMow+CpJqlO7KN3ro5yvafoM8IL2UNfStUJ }}
+    # PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.AKIAQ56UW3BP27HS4Q7G }}
+    PIPELINE_USER_ACCESS_KEY_ID: test
+    # PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.XnYO5mMow+CpJqlO7KN3ro5yvafoM8IL2UNfStUJ }}
+    PIPELINE_USER_SECRET_ACCESS_KEY: test
     SAM_TEMPLATE: template.yaml
     TESTING_STACK_NAME: andreadiotallevi
     TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-staging-PipelineExecutionRole-1T30QS0V6MT6U
