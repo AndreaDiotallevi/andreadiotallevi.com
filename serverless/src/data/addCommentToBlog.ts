@@ -5,7 +5,7 @@ import { Comment } from "../entities/comments"
 const dynamodb = new DynamoDBClient({ region: process.env.AWS_REGION })
 
 export const addCommentToBlog = async ({ blogComment }: { blogComment: Comment }) => {
-    const blog = new Blog({ blogId: blogComment.blogId })
+    const blog = new Blog({ slug: blogComment.blogSlug })
 
     try {
         const command = new TransactWriteItemsCommand({
