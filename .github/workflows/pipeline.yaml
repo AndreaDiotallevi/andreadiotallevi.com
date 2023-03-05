@@ -1,8 +1,8 @@
 name: Pipeline
 
-defaults:
-    run:
-        working-directory: serverless
+# defaults:
+#     run:
+#         working-directory: serverless
 
 on:
     push:
@@ -143,8 +143,8 @@ jobs:
               with:
                   use-installer: true
             - uses: actions/download-artifact@v2
-            #   with:
-            #       name: packaged-testing.yaml
+              with:
+                  name: packaged-testing.yaml
 
             - name: Assume the testing pipeline user role
               uses: aws-actions/configure-aws-credentials@v1-node16
