@@ -145,7 +145,7 @@ jobs:
             - uses: actions/download-artifact@v2
               with:
                   name: packaged-testing.yaml
-                  # path: serverless/packaged-testing.yaml
+                  path: serverless/packaged-testing.yaml
 
             - name: Assume the testing pipeline user role
               uses: aws-actions/configure-aws-credentials@v1-node16
@@ -161,7 +161,7 @@ jobs:
             - name: Deploy to testing account
               run: |
                   sam deploy --stack-name ${TESTING_STACK_NAME} \
-                    --template packaged-testing.yaml \
+                    --template serverless/packaged-testing.yaml \
                     --capabilities CAPABILITY_IAM \
                     --region ${TESTING_REGION} \
                     --s3-bucket ${TESTING_ARTIFACTS_BUCKET} \
