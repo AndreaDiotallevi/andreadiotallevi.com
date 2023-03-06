@@ -8,25 +8,25 @@ on:
     push:
         branches:
             - "main"
-            - "staging"
+            - "feature**"
 
 env:
     PIPELINE_USER_ACCESS_KEY_ID: ${{ secrets.PIPELINE_USER_ACCESS_KEY_ID }}
     PIPELINE_USER_SECRET_ACCESS_KEY: ${{ secrets.PIPELINE_USER_SECRET_ACCESS_KEY }}
     SAM_TEMPLATE: template.yaml
     TESTING_STACK_NAME: andreadiotallevi
-    TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-staging-PipelineExecutionRole-1T30QS0V6MT6U
-    TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-stagi-CloudFormationExecutionR-GNUA78B5RWZ8
-    TESTING_ARTIFACTS_BUCKET: aws-sam-cli-managed-staging-pipel-artifactsbucket-1shk08jf3ql0y
+    TESTING_PIPELINE_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-staging-PipelineExecutionRole-1W1TPFLBMMU3
+    TESTING_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-stagi-CloudFormationExecutionR-1SYTPNO18CA10
+    TESTING_ARTIFACTS_BUCKET: aws-sam-cli-managed-staging-pipel-artifactsbucket-1571mu0d2n3o
     # If there are functions with "Image" PackageType in your template,
     # uncomment the line below and add "--image-repository ${TESTING_IMAGE_REPOSITORY}" to
     # testing "sam package" and "sam deploy" commands.
     # TESTING_IMAGE_REPOSITORY = '0123456789.dkr.ecr.region.amazonaws.com/repository-name'
     TESTING_REGION: eu-west-2
     PROD_STACK_NAME: andreadiotallevi
-    PROD_PIPELINE_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-producti-PipelineExecutionRole-15M2SA073X1CX
-    PROD_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::064333731935:role/aws-sam-cli-managed-produ-CloudFormationExecutionR-1VACUI9MB6DJC
-    PROD_ARTIFACTS_BUCKET: aws-sam-cli-managed-production-pi-artifactsbucket-11ct0etv7u037
+    PROD_PIPELINE_EXECUTION_ROLE: arn:aws:iam::562413347228:role/aws-sam-cli-managed-producti-PipelineExecutionRole-VKLQ0FRWJPF3
+    PROD_CLOUDFORMATION_EXECUTION_ROLE: arn:aws:iam::562413347228:role/aws-sam-cli-managed-produ-CloudFormationExecutionR-RYK43HSG313I
+    PROD_ARTIFACTS_BUCKET: aws-sam-cli-managed-production-pi-artifactsbucket-3vlqavdhqvej
     # If there are functions with "Image" PackageType in your template,
     # uncomment the line below and add "--image-repository ${PROD_IMAGE_REPOSITORY}" to
     # prod "sam package" and "sam deploy" commands.
@@ -43,6 +43,10 @@ jobs:
                   # trigger the tests here
 
     build-and-deploy-staging:
+        # this stage is triggered only for feature branches (feature*),
+        # which will build the stack and deploy to a stack named with branch name.
+        # https://github.com/actions/setup-python
+        # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
         if: github.ref == 'refs/heads/staging'
         needs: [test]
         runs-on: ubuntu-latest
@@ -60,11 +64,11 @@ jobs:
                   aws-secret-access-key: ${{ env.PIPELINE_USER_SECRET_ACCESS_KEY }}
                   aws-region: ${{ env.TESTING_REGION }}
                   role-to-assume: ${{ env.TESTING_PIPELINE_EXECUTION_ROLE }}
-                  role-session-name: staging-deployment
+                  role-session-name: feature-deployment
                   role-duration-seconds: 3600
                   role-skip-session-tagging: true
 
-            - name: Deploy to staging stack in the testing account
+            - name: Deploy to feature stack in the testing account
               shell: bash
               run: |
                   sam deploy --stack-name $(echo ${GITHUB_REF##*/} | tr -cd '[a-zA-Z0-9-]') \
