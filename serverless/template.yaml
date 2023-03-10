@@ -101,9 +101,16 @@ Resources:
             Policies:
                 - DynamoDBCrudPolicy:
                       TableName: !Ref DynamoDBTable
+                - Statement:
+                      - Sid: readParameterStore
+                        Effect: Allow
+                        Action:
+                            - ssm:GetParameter
+                        Resource: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/GOOGLE_CREDENTIALS
             Environment:
                 Variables:
                     GA4_PROPERTY_ID: "306947936"
+
         Metadata:
             BuildMethod: esbuild
             BuildProperties:
