@@ -1,20 +1,19 @@
-import { BetaAnalyticsDataClient } from "@google-analytics/data"
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"
+import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"
+import { BetaAnalyticsDataClient } from "@google-analytics/data"
 import { Blog, blogFromItem, BlogItem } from "../entities/blogs"
 
-// Using a default constructor instructs the client to use the credentials
-// specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
-const analyticsDataClient = new BetaAnalyticsDataClient({
-    credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
-    },
-})
-
+const ssmClient = new SSMClient({ region: process.env.AWS_REGION })
 const dynamodb = new DynamoDBClient({ region: process.env.AWS_REGION })
 
 export const updateBlogsViewsCount = async () => {
     try {
+        const getParameter = new GetParameterCommand({ Name: "GOOGLE_CREDENTIALS" })
+        const { Parameter } = await ssmClient.send(getParameter)
+        const credentialsString = Parameter?.Value as string
+        const credentials = JSON.parse(credentialsString)
+        const analyticsDataClient = new BetaAnalyticsDataClient({ credentials })
+
         const blogs: Blog[] = []
 
         const [response] = await analyticsDataClient.runReport({
