@@ -1,5 +1,5 @@
 import { APIGatewayProxyResult } from "aws-lambda"
-import { updateBlogsViewsCount } from "../data/updateBlogsViewsCount"
+import { updateBlogsViewsCount } from "../data"
 
 export const handler = async (): Promise<APIGatewayProxyResult> => {
     const { blogs, error } = await updateBlogsViewsCount()
