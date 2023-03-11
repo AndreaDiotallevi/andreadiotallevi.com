@@ -37,7 +37,6 @@ type DataProps = {
 const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
     type Edge = typeof allMarkdownRemark.edges[0]
     type ExtendedEdge = Edge & { dynamicData?: { viewsCount: number } }
-
     const [edges, setEdges] = useState<ExtendedEdge[]>(allMarkdownRemark.edges)
 
     useEffect(() => {
