@@ -31,7 +31,7 @@ export const updateBlogsViewsCount = async () => {
             ],
             metrics: [
                 {
-                    name: "screenPageViews",
+                    name: "sessions",
                 },
             ],
             dimensionFilter: {
