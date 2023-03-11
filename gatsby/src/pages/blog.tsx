@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import Tag from "../components/tag"
 
 import * as blogStyles from "./blog.module.scss"
+import { Blog, getBlogs } from "../api-gateway"
 
 type DataProps = {
     allMarkdownRemark: {
@@ -34,6 +35,33 @@ type DataProps = {
 }
 
 const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
+    type Edge = typeof allMarkdownRemark.edges[0]
+    type ExtendedEdge = Edge & { dynamicData?: { viewsCount: number } }
+    const [edges, setEdges] = useState<ExtendedEdge[]>(allMarkdownRemark.edges)
+
+    useEffect(() => {
+        const fetchBlogsDynamicData = async () => {
+            const data = await getBlogs()
+
+            const extendedEdges: ExtendedEdge[] = allMarkdownRemark.edges.map(
+                edge => {
+                    const blog = data.find(
+                        blog => blog.slug === edge.node.fields.slug
+                    )
+
+                    return {
+                        ...edge,
+                        dynamicData: { viewsCount: blog?.viewsCount || 0 },
+                    }
+                }
+            )
+
+            setEdges(extendedEdges)
+        }
+
+        fetchBlogsDynamicData()
+    }, [])
+
     return (
         <Layout>
             <React.Fragment>
@@ -53,8 +81,11 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                 <div className={blogStyles.container}>
                     <h1>Blog</h1>
                     <ol>
-                        {allMarkdownRemark.edges.map(
-                            ({ node: { fields, frontmatter } }) => (
+                        {edges.map(
+                            (
+                                { node: { fields, frontmatter }, dynamicData },
+                                index
+                            ) => (
                                 <li
                                     key={frontmatter.title}
                                     style={{ listStyle: "none" }}
@@ -73,7 +104,22 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                             />
                                         </div>
                                         <div>
-                                            <p>{frontmatter.date}</p>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    justifyContent:
+                                                        "space-between",
+                                                }}
+                                            >
+                                                <p style={{ fontSize: "14px" }}>
+                                                    {frontmatter.date}
+                                                </p>
+                                                <p style={{ fontSize: "14px" }}>
+                                                    {dynamicData?.viewsCount ||
+                                                        0}{" "}
+                                                    Views
+                                                </p>
+                                            </div>
                                             <h2>{frontmatter.title}</h2>
                                             {/* <p>{frontmatter.description}</p> */}
                                             <ul
@@ -120,7 +166,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         description
-                        date(formatString: "MMMM Do, YYYY")
+                        date(formatString: "MMM Do, YYYY")
                         tags
                         featuredImage {
                             childImageSharp {
