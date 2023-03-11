@@ -37,7 +37,7 @@ export class Blog {
     gsi1() {
         return {
             GSI1PK: { S: `BLOGS` },
-            GSI1SK: { S: `BLOG#${this.slug}` },
+            GSI1SK: { S: `BLOG#${this.createdAt.toISOString()}` },
         }
     }
 

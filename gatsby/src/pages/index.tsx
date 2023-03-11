@@ -1,7 +1,6 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-import axios from "axios"
 
 import ButtonMain from "../components/buttonMain"
 import ButtonMainExternal from "../components/buttonMainExternal"
@@ -45,19 +44,6 @@ const IndexPage = ({
     data: { allMarkdownRemark, site },
 }: PageProps<DataProps>) => {
     const { node } = allMarkdownRemark.edges[0]
-
-    useEffect(() => {
-        const testCall = async () => {
-            const res = await axios({
-                method: "GET",
-                url:
-                    "https://sdrbdbz3zh.execute-api.eu-west-2.amazonaws.com/Prod/blogs",
-            })
-            console.log(res.data)
-        }
-
-        testCall()
-    }, [])
 
     return (
         <Layout>

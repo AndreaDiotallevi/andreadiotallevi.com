@@ -1,3 +1,5 @@
 export * from "./getBlogs"
 export * from "./createBlog"
+export * from "./initialiseBlogs"
 export * from "./addCommentToBlog"
+export * from "./updateBlogsViewsCount"

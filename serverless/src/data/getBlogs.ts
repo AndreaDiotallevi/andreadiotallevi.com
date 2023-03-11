@@ -15,6 +15,7 @@ export const getBlogs = async () => {
             ExpressionAttributeValues: {
                 ":gsi1pk": { S: `BLOGS` },
             },
+            ScanIndexForward: false,
         })
 
         const response = await dynamodb.send(command)

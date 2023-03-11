@@ -87,6 +87,28 @@ Resources:
                 EntryPoints:
                     - src/handlers/addCommentToBlog.ts
 
+    InitialiseBlogsFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-InitialiseBlogs
+            Handler: src/handlers/initialiseBlogs.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /initialise-blogs
+                        Method: post
+            Policies:
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/initialiseBlogs.ts
+
     UpdateBlogsViewsCountFunction:
         Type: AWS::Serverless::Function
         Properties:
