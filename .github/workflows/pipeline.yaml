@@ -67,7 +67,7 @@ jobs:
             - name: Deploy to staging stack in the staging account
               shell: bash
               run: |
-                  sam deploy --stack-name $(echo ${GITHUB_REF##*/} | tr -cd '[a-zA-Z0-9-]') \
+                  sam deploy --stack-name ${STAGING_STACK_NAME} \
                     --capabilities CAPABILITY_IAM \
                     --region ${STAGING_REGION} \
                     --s3-bucket ${STAGING_ARTIFACTS_BUCKET} \
