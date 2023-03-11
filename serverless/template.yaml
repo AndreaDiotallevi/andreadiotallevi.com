@@ -120,6 +120,11 @@ Resources:
                     Properties:
                         Path: /google-analytics
                         Method: post
+                ScheduledEvent:
+                    Type: Schedule
+                    Properties:
+                        Schedule: rate(1 day)
+                        Enabled: True
             Policies:
                 - DynamoDBCrudPolicy:
                       TableName: !Ref DynamoDBTable
