@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { FormattedNumber } from "react-intl"
 
+import { getBlogs } from "../api-gateway"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Tag from "../components/tag"
 
 import * as blogStyles from "./blog.module.scss"
-import { Blog, getBlogs } from "../api-gateway"
 
 type DataProps = {
     allMarkdownRemark: {
@@ -35,7 +36,7 @@ type DataProps = {
 }
 
 const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
-    type Edge = typeof allMarkdownRemark.edges[0]
+    type Edge = (typeof allMarkdownRemark.edges)[0]
     type ExtendedEdge = Edge & { dynamicData?: { viewsCount: number } }
     const [edges, setEdges] = useState<ExtendedEdge[]>(allMarkdownRemark.edges)
 
@@ -114,11 +115,20 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                                 <p style={{ fontSize: "14px" }}>
                                                     {frontmatter.date}
                                                 </p>
-                                                <p style={{ fontSize: "14px" }}>
-                                                    {dynamicData?.viewsCount ||
-                                                        0}{" "}
-                                                    Views
-                                                </p>
+                                                {dynamicData?.viewsCount ? (
+                                                    <p
+                                                        style={{
+                                                            fontSize: "14px",
+                                                        }}
+                                                    >
+                                                        <FormattedNumber
+                                                            value={
+                                                                dynamicData.viewsCount
+                                                            }
+                                                        />{" "}
+                                                        Views
+                                                    </p>
+                                                ) : null}
                                             </div>
                                             <h2>{frontmatter.title}</h2>
                                             {/* <p>{frontmatter.description}</p> */}

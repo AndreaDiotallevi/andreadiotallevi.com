@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 
+import { IntlProvider } from "react-intl"
+
 import Navbar from "./navbar"
 import Menu from "./menu"
 
@@ -16,28 +18,30 @@ const Layout = (props: DataProps) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return (
-        <div className={layoutStyles.container}>
-            <div
-                className={`${layoutStyles.headerContainer} ${
-                    isMenuOpen ? layoutStyles.isOpen : ""
-                }`}
-            >
-                <header className={layoutStyles.header}>
-                    <Navbar
-                        open={isMenuOpen}
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        // color={props.color}
-                    />
-                    <Menu
-                        open={isMenuOpen}
-                        onClick={() => setIsMenuOpen(false)}
-                    />
-                </header>
+        <IntlProvider locale="en-GB">
+            <div className={layoutStyles.container}>
+                <div
+                    className={`${layoutStyles.headerContainer} ${
+                        isMenuOpen ? layoutStyles.isOpen : ""
+                    }`}
+                >
+                    <header className={layoutStyles.header}>
+                        <Navbar
+                            open={isMenuOpen}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            // color={props.color}
+                        />
+                        <Menu
+                            open={isMenuOpen}
+                            onClick={() => setIsMenuOpen(false)}
+                        />
+                    </header>
+                </div>
+                <div className={layoutStyles.childrenContainer}>
+                    {!isMenuOpen && props.children}
+                </div>
             </div>
-            <div className={layoutStyles.childrenContainer}>
-                {!isMenuOpen && props.children}
-            </div>
-        </div>
+        </IntlProvider>
     )
 }
 
