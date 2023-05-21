@@ -176,7 +176,7 @@ export const query = graphql`
                     frontmatter {
                         title
                         description
-                        date(formatString: "MMM Do, YYYY")
+                        date(formatString: "Do MMM YYYY")
                         tags
                         featuredImage {
                             childImageSharp {
