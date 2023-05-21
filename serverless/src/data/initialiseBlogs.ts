@@ -1,4 +1,4 @@
-import { Blog } from "../entities/blogs"
+import { Blog } from "../entities"
 import { createBlog } from "./createBlog"
 
 const blogObjects = [

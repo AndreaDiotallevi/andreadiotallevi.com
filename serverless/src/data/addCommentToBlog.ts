@@ -1,6 +1,5 @@
 import { DynamoDBClient, TransactWriteItemsCommand } from "@aws-sdk/client-dynamodb"
-import { Blog } from "../entities/blogs"
-import { Comment } from "../entities/comments"
+import { Blog, Comment } from "../entities"
 
 const dynamodb = new DynamoDBClient({ region: process.env.AWS_REGION })
 

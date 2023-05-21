@@ -1,7 +1,7 @@
 import { DynamoDBClient, UpdateItemCommand } from "@aws-sdk/client-dynamodb"
 import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm"
 import { BetaAnalyticsDataClient } from "@google-analytics/data"
-import { Blog, blogFromItem, BlogItem } from "../entities/blogs"
+import { Blog, blogFromItem, BlogItem } from "../entities"
 
 const ssmClient = new SSMClient({ region: process.env.AWS_REGION })
 const dynamodb = new DynamoDBClient({ region: process.env.AWS_REGION })
