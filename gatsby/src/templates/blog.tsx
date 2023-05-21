@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData, getSrc } from "gatsby-plugin-image"
 import { FormattedNumber } from "react-intl"
