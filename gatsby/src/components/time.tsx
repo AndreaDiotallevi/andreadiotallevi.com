@@ -9,8 +9,8 @@ type Props = {
 const Time = (props: Props) => {
     return (
         <svg
-            width="20px"
-            height="20px"
+            width="18px"
+            height="18px"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
             className={styles.svg}
