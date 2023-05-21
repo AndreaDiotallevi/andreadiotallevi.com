@@ -43,6 +43,28 @@ Resources:
                 EntryPoints:
                     - src/handlers/getBlogs.ts
 
+    GetBlogBySlugFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-GetBlogBySlug
+            Handler: src/handlers/getBlogBySlug.handler
+            Events:
+                HttpPost:
+                    Type: Api
+                    Properties:
+                        Path: /blogs/{blogSlug}
+                        Method: get
+            Policies:
+                - DynamoDBReadPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/getBlogBySlug.ts
+
     CreateBlogFunction:
         Type: AWS::Serverless::Function
         Properties:
@@ -65,27 +87,27 @@ Resources:
                 EntryPoints:
                     - src/handlers/createBlog.ts
 
-    AddCommentToBlogFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-AddCommentToBlog
-            Handler: src/handlers/addCommentToBlog.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /blogs/{blogId}/comments
-                        Method: post
-            Policies:
-                - DynamoDBCrudPolicy:
-                      TableName: !Ref DynamoDBTable
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/addCommentToBlog.ts
+    # AddCommentToBlogFunction:
+    #     Type: AWS::Serverless::Function
+    #     Properties:
+    #         FunctionName: !Sub ${AWS::StackName}-AddCommentToBlog
+    #         Handler: src/handlers/addCommentToBlog.handler
+    #         Events:
+    #             HttpPost:
+    #                 Type: Api
+    #                 Properties:
+    #                     Path: /blogs/{blogId}/comments
+    #                     Method: post
+    #         Policies:
+    #             - DynamoDBCrudPolicy:
+    #                   TableName: !Ref DynamoDBTable
+    #     Metadata:
+    #         BuildMethod: esbuild
+    #         BuildProperties:
+    #             Minify: true
+    #             Target: "es2020"
+    #             EntryPoints:
+    #                 - src/handlers/addCommentToBlog.ts
 
     InitialiseBlogsFunction:
         Type: AWS::Serverless::Function
@@ -185,12 +207,12 @@ Outputs:
     GetBlogsFunctionArn:
         Description: "Get blogs lambda funcion ARN"
         Value: !GetAtt GetBlogsFunction.Arn
+    GetBlogBySlugFunctionArn:
+        Description: "Get blog by slug lambda funcion ARN"
+        Value: !GetAtt GetBlogBySlugFunction.Arn
     CreateBlogFunctionArn:
         Description: "Create blog lambda funcion ARN"
         Value: !GetAtt CreateBlogFunction.Arn
-    AddCommentToBlogFunctionArn:
-        Description: "Add comment to blog lambda funcion ARN"
-        Value: !GetAtt AddCommentToBlogFunction.Arn
     UpdateBlogsViewsCountArn:
         Description: "Update blogs views count lambda funcion ARN"
         Value: !GetAtt UpdateBlogsViewsCountFunction.Arn
