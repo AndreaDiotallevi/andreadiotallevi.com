@@ -1,5 +1,5 @@
 import { DynamoDBClient, QueryCommand } from "@aws-sdk/client-dynamodb"
-import { blogFromItem, BlogItem } from "../entities/blogs"
+import { blogFromItem, BlogItem } from "../entities"
 
 const dynamodb = new DynamoDBClient({ region: process.env.AWS_REGION })
 

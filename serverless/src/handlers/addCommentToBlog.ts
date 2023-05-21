@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda"
 import { addCommentToBlog } from "../data"
-import { Comment } from "../entities/comments"
+import { Comment } from "../entities"
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     // const { blogId }: { blogId: string } = JSON.parse(event.body as string)

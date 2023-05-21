@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData, getSrc } from "gatsby-plugin-image"
+import { FormattedNumber } from "react-intl"
 
+import { getBlogBySlug } from "../api-gateway"
 import ButtonMainExternal from "../components/buttonMainExternal"
 import Layout from "../components/layout"
 import Newsletter from "../components/newsletter"
@@ -44,31 +46,49 @@ type DataProps = {
     }
 }
 
-const Blog = (props: PageProps<DataProps>) => {
-    const {
-        data: {
-            markdownRemark: {
-                frontmatter: {
-                    title,
-                    description,
-                    date,
-                    tags,
-                    featuredImage: {
-                        childImageSharp: { gatsbyImageData },
-                    },
-                    featuredImageUrl,
-                    featuredImageAuthor,
-                    color,
-                },
-                html,
-                fields: { slug },
-            },
-            site: {
-                siteMetadata: { twitterUsername },
-            },
-            file: profileImageFile,
+const Blog = ({
+    data: {
+        markdownRemark,
+        site: {
+            siteMetadata: { twitterUsername },
         },
-    } = props
+        file: profileImageFile,
+    },
+}: PageProps<DataProps>) => {
+    type BlogData = typeof markdownRemark
+    type ExtendedBlogData = BlogData & { dynamicData?: { viewsCount: number } }
+    const [blogData, setBlogData] = useState<ExtendedBlogData>(markdownRemark)
+
+    const {
+        frontmatter: {
+            title,
+            description,
+            date,
+            tags,
+            featuredImage: {
+                childImageSharp: { gatsbyImageData },
+            },
+            featuredImageUrl,
+            featuredImageAuthor,
+            color,
+        },
+        html,
+        fields: { slug },
+        dynamicData,
+    } = blogData
+
+    useEffect(() => {
+        const fetchBlogDynamicData = async () => {
+            const data = await getBlogBySlug(slug)
+
+            setBlogData({
+                ...markdownRemark,
+                dynamicData: { viewsCount: data.viewsCount },
+            })
+        }
+
+        fetchBlogDynamicData()
+    }, [])
 
     return (
         <Layout color={color}>
@@ -85,7 +105,8 @@ const Blog = (props: PageProps<DataProps>) => {
                     style={{
                         display: "flex",
                         alignItems: "center",
-                        marginBottom: "1.45rem",
+                        fontSize: "18px",
+                        marginBottom: "1rem",
                     }}
                 >
                     <Time color={color} />
@@ -93,11 +114,28 @@ const Blog = (props: PageProps<DataProps>) => {
                         style={{
                             marginBottom: 0,
                             marginLeft: "8px",
-                            fontWeight: 500,
+                            fontSize: "18px",
                         }}
                     >
                         {date}
                     </p>
+                    {dynamicData?.viewsCount ? (
+                        <React.Fragment>
+                            <div
+                                style={{
+                                    width: "5px",
+                                    height: "5px",
+                                    backgroundColor: color,
+                                    borderRadius: "5px",
+                                    margin: "0 8px",
+                                }}
+                            />
+                            <FormattedNumber
+                                value={dynamicData?.viewsCount || 0}
+                            />{" "}
+                            Views
+                        </React.Fragment>
+                    ) : null}
                 </div>
                 <ul
                     style={{
@@ -108,7 +146,7 @@ const Blog = (props: PageProps<DataProps>) => {
                         marginBottom: "1.45rem",
                     }}
                 >
-                    {props.data.markdownRemark.frontmatter.tags.map(tag => (
+                    {tags.map(tag => (
                         <li
                             key={tag}
                             style={{ listStyle: "none", margin: 0, padding: 0 }}
@@ -171,12 +209,12 @@ const Blog = (props: PageProps<DataProps>) => {
 export default Blog
 
 export const query = graphql`
-    query($slug: String!) {
+    query ($slug: String!) {
         markdownRemark(fields: { slug: { eq: $slug } }) {
             frontmatter {
                 title
                 description
-                date(formatString: "MMMM Do, YYYY")
+                date(formatString: "Do MMM YYYY")
                 tags
                 featuredImage {
                     childImageSharp {
