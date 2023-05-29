@@ -5,6 +5,7 @@ import { FormattedNumber } from "react-intl"
 
 import { getBlogs } from "../api-gateway"
 import Layout from "../components/layout"
+import LoadingSpinner from "../components/loadingSpinner"
 import Seo from "../components/seo"
 import Tag from "../components/tag"
 
@@ -110,15 +111,24 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                                     display: "flex",
                                                     justifyContent:
                                                         "space-between",
+                                                    marginBottom: "0.85rem",
+                                                    height: "24px",
+                                                    alignItems: "center",
                                                 }}
                                             >
-                                                <p style={{ fontSize: "14px" }}>
+                                                <p
+                                                    style={{
+                                                        fontSize: "14px",
+                                                        marginBottom: 0,
+                                                    }}
+                                                >
                                                     {frontmatter.date}
                                                 </p>
                                                 {dynamicData?.viewsCount ? (
                                                     <p
                                                         style={{
                                                             fontSize: "14px",
+                                                            marginBottom: 0,
                                                         }}
                                                     >
                                                         <FormattedNumber
@@ -128,7 +138,9 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                                         />{" "}
                                                         Views
                                                     </p>
-                                                ) : null}
+                                                ) : (
+                                                    <LoadingSpinner />
+                                                )}
                                             </div>
                                             <h2>{frontmatter.title}</h2>
                                             {/* <p>{frontmatter.description}</p> */}
