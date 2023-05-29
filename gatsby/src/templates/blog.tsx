@@ -7,6 +7,7 @@ import { FormattedNumber } from "react-intl"
 import { getBlogBySlug } from "../api-gateway"
 import ButtonMainExternal from "../components/buttonMainExternal"
 import Layout from "../components/layout"
+import LoadingSpinner from "../components/loadingSpinner"
 import Newsletter from "../components/newsletter"
 import Seo from "../components/seo"
 import Tag from "../components/tag"
@@ -120,23 +121,23 @@ const Blog = ({
                     >
                         {date}
                     </p>
+                    <div
+                        style={{
+                            width: "5px",
+                            height: "5px",
+                            backgroundColor: color,
+                            borderRadius: "5px",
+                            margin: "0 8px",
+                        }}
+                    />
                     {dynamicData?.viewsCount ? (
                         <React.Fragment>
-                            <div
-                                style={{
-                                    width: "5px",
-                                    height: "5px",
-                                    backgroundColor: color,
-                                    borderRadius: "5px",
-                                    margin: "0 8px",
-                                }}
-                            />
-                            <FormattedNumber
-                                value={dynamicData?.viewsCount || 0}
-                            />{" "}
+                            <FormattedNumber value={dynamicData.viewsCount} />{" "}
                             Views
                         </React.Fragment>
-                    ) : null}
+                    ) : (
+                        <LoadingSpinner />
+                    )}
                 </div>
                 <ul
                     style={{

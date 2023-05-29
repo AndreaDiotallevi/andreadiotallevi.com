@@ -2,6 +2,7 @@ import React, { useState } from "react"
 
 import { IntlProvider } from "react-intl"
 
+import Footer from "./footer"
 import Navbar from "./navbar"
 import Menu from "./menu"
 
@@ -40,6 +41,7 @@ const Layout = (props: DataProps) => {
                 <div className={layoutStyles.childrenContainer}>
                     {!isMenuOpen && props.children}
                 </div>
+                <Footer />
             </div>
         </IntlProvider>
     )
