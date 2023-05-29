@@ -1,3 +1,43 @@
 .footer {
-    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 750px;
+    padding: 0 16px;
+    margin-bottom: 16px;
+    p {
+        margin-bottom: 0;
+        margin-right: 8px;
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        li {
+            list-style: none;
+            margin: 0;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: end;
+                text-decoration: none;
+                width: 48px;
+                height: 48px;
+            }
+            svg {
+                display: block;
+                fill: var(--text-primary);
+                height: 28px;
+                &:hover {
+                    transition: 0.3s;
+                    fill: var(--text-secondary);
+                }
+            }
+            span {
+                visibility: hidden;
+                font-size: 1px;
+            }
+        }
+    }
 }
