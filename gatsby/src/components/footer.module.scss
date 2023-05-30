@@ -6,6 +6,7 @@
     max-width: 750px;
     padding: 0 16px;
     margin-bottom: 16px;
+    margin-top: 5rem;
     p {
         margin-bottom: 0;
         margin-right: 8px;
@@ -45,6 +46,7 @@
 @media only screen and (max-width: 480px) {
     .footer {
         flex-direction: column-reverse;
+        align-items: start;
         p {
             margin-right: 0;
             margin-top: 8px;
