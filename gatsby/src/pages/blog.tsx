@@ -94,7 +94,6 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                 >
                                     <Link to={`/blog/${fields.slug}`}>
                                         <div>
-                                            {/* <p>{frontmatter.date}</p> */}
                                             <GatsbyImage
                                                 image={
                                                     frontmatter.featuredImage
@@ -143,14 +142,12 @@ const BlogPage = ({ data: { allMarkdownRemark } }: PageProps<DataProps>) => {
                                                 )}
                                             </div>
                                             <h2>{frontmatter.title}</h2>
-                                            {/* <p>{frontmatter.description}</p> */}
                                             <ul
                                                 style={{
                                                     display: "flex",
                                                     alignItems: "center",
                                                     flexWrap: "wrap",
                                                     margin: 0,
-                                                    marginBottom: "1.45rem",
                                                 }}
                                             >
                                                 {frontmatter.tags.map(tag => (

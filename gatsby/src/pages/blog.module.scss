@@ -2,7 +2,6 @@
     max-width: 750px;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-bottom: 80px;
 
     h1,
     h2,
@@ -17,6 +16,13 @@
         width: 100%;
         margin: 0;
         padding: 0;
+
+        li:last-child {
+            margin-bottom: 0;
+            a {
+                padding-bottom: 0;
+            }
+        }
 
         a {
             display: flex;
@@ -49,7 +55,6 @@
                 p {
                     margin-bottom: 0.85rem;
                     font-size: 18px;
-                    // color: var(--text-secondary);
                     line-height: 1.7em;
                     font-weight: 500;
                 }
@@ -69,4 +74,8 @@
             }
         }
     }
+
+    // a:last-of-type {
+    //     padding-bottom: 0;
+    // }
 }
