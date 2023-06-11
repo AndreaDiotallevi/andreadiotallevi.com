@@ -25,11 +25,11 @@ Resources:
                 AllowMethods: "'GET,POST,OPTIONS'"
                 AllowHeaders: "'content-type'"
                 AllowOrigin: "'*'"
-            Auth:
-                DefaultAuthorizer: CognitoAuthorizer
-                Authorizers:
-                    CognitoAuthorizer:
-                        UserPoolArn: !GetAtt CognitoUserPool.Arn
+            # Auth:
+            #     DefaultAuthorizer: CognitoAuthorizer
+            #     Authorizers:
+            #         CognitoAuthorizer:
+            #             UserPoolArn: !GetAtt CognitoUserPool.Arn
 
     GetBlogsFunction:
         Type: AWS::Serverless::Function
