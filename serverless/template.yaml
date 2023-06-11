@@ -33,7 +33,7 @@ Resources:
                     CognitoAuthorizer:
                         UserPoolArn: !GetAtt CognitoUserPool.Arn
 
-    GetBlogsFunction2:
+    GetBlogsFunction:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: !Sub ${AWS::StackName}-GetBlogs
@@ -56,7 +56,7 @@ Resources:
                 EntryPoints:
                     - src/handlers/getBlogs.ts
 
-    GetBlogBySlugFunction2:
+    GetBlogBySlugFunction:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: !Sub ${AWS::StackName}-GetBlogBySlug
@@ -79,7 +79,7 @@ Resources:
                 EntryPoints:
                     - src/handlers/getBlogBySlug.ts
 
-    CreateBlogFunction2:
+    CreateBlogFunction:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: !Sub ${AWS::StackName}-CreateBlog
@@ -102,7 +102,7 @@ Resources:
                 EntryPoints:
                     - src/handlers/createBlog.ts
 
-    InitialiseBlogsFunction2:
+    InitialiseBlogsFunction:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: !Sub ${AWS::StackName}-InitialiseBlogs
@@ -125,7 +125,7 @@ Resources:
                 EntryPoints:
                     - src/handlers/initialiseBlogs.ts
 
-    UpdateBlogsViewsCountFunction2:
+    UpdateBlogsViewsCountFunction:
         Type: AWS::Serverless::Function
         Properties:
             FunctionName: !Sub ${AWS::StackName}-UpdateBlogsViewsCount
@@ -244,6 +244,60 @@ Resources:
                 EntryPoints:
                     - src/handlers/resendConfirmationCode.ts
 
+    ForgotPasswordFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-ForgotPassword
+            Handler: src/handlers/forgotPassword.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /forgot-password
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:ForgotPassword
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/forgotPassword.ts
+
+    ConfirmForgotPasswordFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-ConfirmForgotPassword
+            Handler: src/handlers/confirmForgotPassword.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /confirm-forgot-password
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:ConfirmForgotPassword
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/confirmForgotPassword.ts
+
     InitiateAuthFunction:
         Type: AWS::Serverless::Function
         Properties:
@@ -337,132 +391,6 @@ Resources:
                 - ADMIN_NO_SRP_AUTH
                 - USER_PASSWORD_AUTH
 
-    # Old functions
-    GetBlogsFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-GetBlogs
-            Handler: src/handlers/getBlogs.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /blogs
-                        Method: get
-            Policies:
-                - DynamoDBReadPolicy:
-                      TableName: !Ref DynamoDBTable
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/getBlogs.ts
-
-    GetBlogBySlugFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-GetBlogBySlug
-            Handler: src/handlers/getBlogBySlug.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /blogs/{blogSlug}
-                        Method: get
-            Policies:
-                - DynamoDBReadPolicy:
-                      TableName: !Ref DynamoDBTable
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/getBlogBySlug.ts
-
-    CreateBlogFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-CreateBlog
-            Handler: src/handlers/createBlog.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /blogs
-                        Method: post
-            Policies:
-                - DynamoDBWritePolicy:
-                      TableName: !Ref DynamoDBTable
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/createBlog.ts
-
-    InitialiseBlogsFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-InitialiseBlogs
-            Handler: src/handlers/initialiseBlogs.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /initialise-blogs
-                        Method: post
-            Policies:
-                - DynamoDBCrudPolicy:
-                      TableName: !Ref DynamoDBTable
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/initialiseBlogs.ts
-
-    UpdateBlogsViewsCountFunction:
-        Type: AWS::Serverless::Function
-        Properties:
-            FunctionName: !Sub ${AWS::StackName}-UpdateBlogsViewsCount
-            Handler: src/handlers/updateBlogsViewsCount.handler
-            Events:
-                HttpPost:
-                    Type: Api
-                    Properties:
-                        Path: /google-analytics
-                        Method: post
-                ScheduledEvent:
-                    Type: Schedule
-                    Properties:
-                        Schedule: rate(1 day)
-                        Enabled: True
-            Policies:
-                - DynamoDBCrudPolicy:
-                      TableName: !Ref DynamoDBTable
-                - Statement:
-                      - Sid: readParameterStore
-                        Effect: Allow
-                        Action:
-                            - ssm:GetParameter
-                        Resource: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/GOOGLE_CREDENTIALS
-            Environment:
-                Variables:
-                    GA4_PROPERTY_ID: "306947936"
-
-        Metadata:
-            BuildMethod: esbuild
-            BuildProperties:
-                Minify: true
-                Target: "es2020"
-                EntryPoints:
-                    - src/handlers/updateBlogsViewsCount.ts
-
     DynamoDBTable:
         Type: AWS::DynamoDB::Table
         Properties:
@@ -533,6 +461,12 @@ Outputs:
     ResendConfirmationCodeFunctionArn:
         Description: Resend confirmation code lambda function ARN
         Value: !GetAtt ResendConfirmationCodeFunction.Arn
+    ForgotPasswordFunctionArn:
+        Description: Forgot password lambda function ARN
+        Value: !GetAtt ForgotPasswordFunction.Arn
+    ConfirmForgotPasswordFunctionArn:
+        Description: Confirm forgot password lambda function ARN
+        Value: !GetAtt ConfirmForgotPasswordFunction.Arn
     InitiateAuthFunctionArn:
         Description: Initiate auth lambda funcion ARN
         Value: !GetAtt InitiateAuthFunction.Arn
