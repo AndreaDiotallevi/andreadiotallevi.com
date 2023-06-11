@@ -14,6 +14,7 @@ Globals:
         Environment:
             Variables:
                 TABLE_NAME: !Ref DynamoDBTable
+                USER_POOL_CLIENT_ID: !Ref CognitoUserPoolClient
     Api:
         Cors:
             AllowMethods: "'GET,POST,OPTIONS'"
@@ -21,6 +22,322 @@ Globals:
             AllowOrigin: "'*'"
 
 Resources:
+    ApiGateway:
+        Type: AWS::Serverless::Api
+        Properties:
+            StageName: Prod
+            Cors: "'*'"
+            Auth:
+                DefaultAuthorizer: CognitoAuthorizer
+                Authorizers:
+                    CognitoAuthorizer:
+                        UserPoolArn: !GetAtt CognitoUserPool.Arn
+
+    GetBlogsFunction2:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-GetBlogs
+            Handler: src/handlers/getBlogs.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /blogs
+                        Method: GET
+            Policies:
+                - DynamoDBReadPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/getBlogs.ts
+
+    GetBlogBySlugFunction2:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-GetBlogBySlug
+            Handler: src/handlers/getBlogBySlug.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /blogs/{blogSlug}
+                        Method: GET
+            Policies:
+                - DynamoDBReadPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/getBlogBySlug.ts
+
+    CreateBlogFunction2:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-CreateBlog
+            Handler: src/handlers/createBlog.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /blogs
+                        Method: POST
+            Policies:
+                - DynamoDBWritePolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/createBlog.ts
+
+    InitialiseBlogsFunction2:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-InitialiseBlogs
+            Handler: src/handlers/initialiseBlogs.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /initialise-blogs
+                        Method: POST
+            Policies:
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref DynamoDBTable
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/initialiseBlogs.ts
+
+    UpdateBlogsViewsCountFunction2:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-UpdateBlogsViewsCount
+            Handler: src/handlers/updateBlogsViewsCount.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /google-analytics
+                        Method: POST
+                ScheduledEvent:
+                    Type: Schedule
+                    Properties:
+                        Schedule: rate(1 day)
+                        Enabled: True
+            Policies:
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref DynamoDBTable
+                - Statement:
+                      - Sid: readParameterStore
+                        Effect: Allow
+                        Action:
+                            - ssm:GetParameter
+                        Resource: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/GOOGLE_CREDENTIALS
+            Environment:
+                Variables:
+                    GA4_PROPERTY_ID: "306947936"
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/updateBlogsViewsCount.ts
+
+    SignUpFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-SignUp
+            Handler: src/handlers/signUp.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /sign-up
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:SignUp
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/signUp.ts
+
+    ConfirmSignUpFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-ConfirmSignUp
+            Handler: src/handlers/confirmSignUp.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /confirm-sign-up
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:ConfirmSignUp
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/confirmSignUp.ts
+
+    ResendConfirmationCodeFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-ResendConfirmationCode
+            Handler: src/handlers/resendConfirmationCode.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /resend-confirmation-code
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:ResendConfirmationCode
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/resendConfirmationCode.ts
+
+    InitiateAuthFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-InitiateAuth
+            Handler: src/handlers/initiateAuth.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /initiate-auth
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:InitiateAuth
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/initiateAuth.ts
+
+    GetUserFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: !Sub ${AWS::StackName}-GetUser
+            Handler: src/handlers/getUser.handler
+            Events:
+                Root:
+                    Type: Api
+                    Properties:
+                        RestApiId: !Ref ApiGateway
+                        Path: /get-user
+                        Method: POST
+            Policies:
+                - Statement:
+                      Effect: Allow
+                      Action:
+                          - cognito-idp:GetUser
+                      Resource: !GetAtt CognitoUserPool.Arn
+
+        Metadata:
+            BuildMethod: esbuild
+            BuildProperties:
+                Minify: true
+                Target: "es2020"
+                EntryPoints:
+                    - src/handlers/getUser.ts
+
+    CognitoUserPool:
+        Type: AWS::Cognito::UserPool
+        Properties:
+            UserPoolName: !Sub ${AWS::StackName}-UserPool
+            Policies:
+                PasswordPolicy:
+                    MinimumLength: 8
+            AutoVerifiedAttributes:
+                - email
+            UsernameAttributes:
+                - email
+            Schema:
+                - AttributeDataType: String
+                  Name: email
+                  Required: false
+
+    CognitoUserPoolClient:
+        Type: AWS::Cognito::UserPoolClient
+        Properties:
+            UserPoolId: !Ref CognitoUserPool
+            ClientName: !Sub ${AWS::StackName}-UserPoolClient
+            GenerateSecret: false
+            SupportedIdentityProviders:
+                - COGNITO
+            CallbackURLs:
+                - https://example.com/callback
+                - http://localhost:3000/callback
+            AllowedOAuthFlowsUserPoolClient: true
+            AllowedOAuthFlows:
+                - code
+                - implicit
+            AllowedOAuthScopes:
+                - email
+                - openid
+                - profile
+            ExplicitAuthFlows:
+                - ADMIN_NO_SRP_AUTH
+                - USER_PASSWORD_AUTH
+
+    # Old functions
     GetBlogsFunction:
         Type: AWS::Serverless::Function
         Properties:
@@ -86,28 +403,6 @@ Resources:
                 Target: "es2020"
                 EntryPoints:
                     - src/handlers/createBlog.ts
-
-    # AddCommentToBlogFunction:
-    #     Type: AWS::Serverless::Function
-    #     Properties:
-    #         FunctionName: !Sub ${AWS::StackName}-AddCommentToBlog
-    #         Handler: src/handlers/addCommentToBlog.handler
-    #         Events:
-    #             HttpPost:
-    #                 Type: Api
-    #                 Properties:
-    #                     Path: /blogs/{blogId}/comments
-    #                     Method: post
-    #         Policies:
-    #             - DynamoDBCrudPolicy:
-    #                   TableName: !Ref DynamoDBTable
-    #     Metadata:
-    #         BuildMethod: esbuild
-    #         BuildProperties:
-    #             Minify: true
-    #             Target: "es2020"
-    #             EntryPoints:
-    #                 - src/handlers/addCommentToBlog.ts
 
     InitialiseBlogsFunction:
         Type: AWS::Serverless::Function
@@ -204,18 +499,43 @@ Resources:
                 StreamViewType: NEW_AND_OLD_IMAGES
 
 Outputs:
+    # DYNAMODB
+    TableName:
+        Description: Name of the DynamoDB table
+        Value: !Ref DynamoDBTable
+    # COGNITO
+    CognitoUserPoolArn:
+        Description: Cognito user pool ARN
+        Value: !GetAtt CognitoUserPool.Arn
+    CognitoUserPoolClientId:
+        Description: Cognito user pool client ID
+        Value: !Ref CognitoUserPoolClient
+    # BLOGS
     GetBlogsFunctionArn:
-        Description: "Get blogs lambda funcion ARN"
+        Description: Get blogs lambda funcion ARN
         Value: !GetAtt GetBlogsFunction.Arn
     GetBlogBySlugFunctionArn:
-        Description: "Get blog by slug lambda funcion ARN"
+        Description: Get blog by slug lambda funcion ARN
         Value: !GetAtt GetBlogBySlugFunction.Arn
     CreateBlogFunctionArn:
-        Description: "Create blog lambda funcion ARN"
+        Description: Create blog lambda funcion ARN
         Value: !GetAtt CreateBlogFunction.Arn
     UpdateBlogsViewsCountArn:
-        Description: "Update blogs views count lambda funcion ARN"
+        Description: Update blogs views count lambda funcion ARN
         Value: !GetAtt UpdateBlogsViewsCountFunction.Arn
-    TableName:
-        Description: "Name of the DynamoDB table"
-        Value: !Ref DynamoDBTable
+    # AUTH
+    SignUpFunctionArn:
+        Description: Sign up lambda funcion ARN
+        Value: !GetAtt SignUpFunction.Arn
+    ConfirmSignUpFunctionArn:
+        Description: Confirm sign up lambda funcion ARN
+        Value: !GetAtt ConfirmSignUpFunction.Arn
+    ResendConfirmationCodeFunctionArn:
+        Description: Resend confirmation code lambda function ARN
+        Value: !GetAtt ResendConfirmationCodeFunction.Arn
+    InitiateAuthFunctionArn:
+        Description: Initiate auth lambda funcion ARN
+        Value: !GetAtt InitiateAuthFunction.Arn
+    GetUserFunctionArn:
+        Description: Get user lambda funcion ARN
+        Value: !GetAtt GetUserFunction.Arn
