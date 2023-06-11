@@ -7,6 +7,7 @@
     "author": "SAM CLI",
     "license": "MIT",
     "dependencies": {
+        "@aws-sdk/client-cognito-identity-provider": "^3.348.0",
         "@aws-sdk/client-dynamodb": "^3.241.0",
         "@aws-sdk/client-ssm": "^3.288.0",
         "@google-analytics/data": "^3.2.1",
