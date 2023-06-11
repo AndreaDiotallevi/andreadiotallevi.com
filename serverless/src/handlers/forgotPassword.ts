@@ -12,5 +12,10 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
     return {
         statusCode,
         body,
+        headers: {
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+        },
     }
 }

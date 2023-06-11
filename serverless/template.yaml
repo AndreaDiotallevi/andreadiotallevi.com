@@ -15,18 +15,16 @@ Globals:
             Variables:
                 TABLE_NAME: !Ref DynamoDBTable
                 USER_POOL_CLIENT_ID: !Ref CognitoUserPoolClient
-    Api:
-        Cors:
-            AllowMethods: "'GET,POST,OPTIONS'"
-            AllowHeaders: "'content-type'"
-            AllowOrigin: "'*'"
 
 Resources:
     ApiGateway:
         Type: AWS::Serverless::Api
         Properties:
             StageName: Prod
-            Cors: "'*'"
+            Cors:
+                AllowMethods: "'GET,POST,OPTIONS'"
+                AllowHeaders: "'content-type'"
+                AllowOrigin: "'*'"
             Auth:
                 DefaultAuthorizer: CognitoAuthorizer
                 Authorizers:
@@ -336,7 +334,7 @@ Resources:
                     Properties:
                         RestApiId: !Ref ApiGateway
                         Path: /get-user
-                        Method: POST
+                        Method: GET
             Policies:
                 - Statement:
                       Effect: Allow
