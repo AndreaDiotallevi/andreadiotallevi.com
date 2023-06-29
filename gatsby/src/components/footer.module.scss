@@ -21,7 +21,7 @@
             a {
                 display: flex;
                 align-items: center;
-                justify-content: end;
+                justify-content: flex-end;
                 text-decoration: none;
                 width: 48px;
                 height: 48px;
@@ -46,7 +46,7 @@
 @media only screen and (max-width: 480px) {
     .footer {
         flex-direction: column-reverse;
-        align-items: start;
+        align-items: flex-start;
         p {
             margin-right: 0;
             margin-top: 8px;
@@ -54,7 +54,7 @@
         ul {
             li {
                 a {
-                    justify-content: start;
+                    justify-content: flex-start;
                 }
             }
         }

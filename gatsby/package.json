@@ -23,6 +23,7 @@
         "gatsby-plugin-google-gtag": "^4.9.0",
         "gatsby-plugin-image": "^2.9.0",
         "gatsby-plugin-mailchimp": "^5.2.2",
+        "gatsby-plugin-portal": "^1.0.7",
         "gatsby-plugin-react-helmet": "^5.0.0",
         "gatsby-plugin-sass": "^5.0.0",
         "gatsby-plugin-sharp": "^4.9.0",

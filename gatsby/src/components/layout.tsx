@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
 import { IntlProvider } from "react-intl"
+import { AuthProvider } from "../contexts/authContext"
 
 import Footer from "./footer"
 import Navbar from "./navbar"
@@ -20,29 +21,31 @@ const Layout = (props: DataProps) => {
 
     return (
         <IntlProvider locale="en-GB">
-            <div className={layoutStyles.container}>
-                <div
-                    className={`${layoutStyles.headerContainer} ${
-                        isMenuOpen ? layoutStyles.isOpen : ""
-                    }`}
-                >
-                    <header className={layoutStyles.header}>
-                        <Navbar
-                            open={isMenuOpen}
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            // color={props.color}
-                        />
-                        <Menu
-                            open={isMenuOpen}
-                            onClick={() => setIsMenuOpen(false)}
-                        />
-                    </header>
+            <AuthProvider>
+                <div className={layoutStyles.container}>
+                    <div
+                        className={`${layoutStyles.headerContainer} ${
+                            isMenuOpen ? layoutStyles.isOpen : ""
+                        }`}
+                    >
+                        <header className={layoutStyles.header}>
+                            <Navbar
+                                open={isMenuOpen}
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                // color={props.color}
+                            />
+                            <Menu
+                                open={isMenuOpen}
+                                onClick={() => setIsMenuOpen(false)}
+                            />
+                        </header>
+                    </div>
+                    <div className={layoutStyles.childrenContainer}>
+                        {!isMenuOpen && props.children}
+                    </div>
+                    <Footer />
                 </div>
-                <div className={layoutStyles.childrenContainer}>
-                    {!isMenuOpen && props.children}
-                </div>
-                <Footer />
-            </div>
+            </AuthProvider>
         </IntlProvider>
     )
 }
