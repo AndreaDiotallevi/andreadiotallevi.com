@@ -19,3 +19,4 @@
 ## Architecture
 
 ![architecture diagram](./docs/architecture-diagram-2023-03-12.png "Architecture diagram")
+
