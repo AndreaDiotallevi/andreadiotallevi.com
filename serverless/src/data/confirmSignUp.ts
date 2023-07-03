@@ -26,7 +26,8 @@ export const confirmSignUp = async ({
     } catch (error) {
         console.log("Error confirming sign up")
         console.log(error)
-        const errorMessage = "Could not confirm sign up"
+
+        const errorMessage = error instanceof Error ? error.message : "Could not confirm sign up"
 
         return {
             error: errorMessage,

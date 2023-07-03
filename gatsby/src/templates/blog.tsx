@@ -83,10 +83,12 @@ const Blog = ({
         const fetchBlogDynamicData = async () => {
             const data = await getBlogBySlug(slug)
 
-            setBlogData({
-                ...markdownRemark,
-                dynamicData: { viewsCount: data.viewsCount },
-            })
+            if (data.blog) {
+                setBlogData({
+                    ...markdownRemark,
+                    dynamicData: { viewsCount: data.blog.viewsCount },
+                })
+            }
         }
 
         fetchBlogDynamicData()

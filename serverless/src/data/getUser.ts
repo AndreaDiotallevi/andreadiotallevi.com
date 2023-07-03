@@ -22,10 +22,7 @@ export const getUser = async ({ accessToken }: { accessToken: string }) => {
 
         const user = new User({ id: username, email })
 
-        const command = new GetItemCommand({
-            TableName: process.env.TABLE_NAME,
-            Key: user.key(),
-        })
+        const command = new GetItemCommand({ TableName: process.env.TABLE_NAME, Key: user.key() })
 
         const response2 = await dynamodb.send(command)
 
@@ -36,14 +33,7 @@ export const getUser = async ({ accessToken }: { accessToken: string }) => {
         console.log("Error getting user")
         console.log(error)
 
-        let errorMessage
-
-        if (error instanceof Error) {
-            errorMessage = error.message
-            console.log(errorMessage)
-        } else {
-            errorMessage = "Could not get user"
-        }
+        const errorMessage = error instanceof Error ? error.message : "Could not get user"
 
         return {
             error: errorMessage,

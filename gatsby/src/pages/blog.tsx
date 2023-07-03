@@ -58,20 +58,21 @@ const BlogComponent = ({
         const fetchBlogsDynamicData = async () => {
             const data = await getBlogs()
 
-            const extendedEdges: ExtendedEdge[] = allMarkdownRemark.edges.map(
-                edge => {
-                    const blog = data.find(
-                        blog => blog.slug === edge.node.fields.slug
-                    )
+            if (data.blogs) {
+                const extendedEdges: ExtendedEdge[] =
+                    allMarkdownRemark.edges.map(edge => {
+                        const blog = data.blogs.find(
+                            blog => blog.slug === edge.node.fields.slug
+                        )
 
-                    return {
-                        ...edge,
-                        dynamicData: { viewsCount: blog?.viewsCount || 0 },
-                    }
-                }
-            )
+                        return {
+                            ...edge,
+                            dynamicData: { viewsCount: blog?.viewsCount || 0 },
+                        }
+                    })
 
-            setEdges(extendedEdges)
+                setEdges(extendedEdges)
+            }
         }
 
         fetchBlogsDynamicData()

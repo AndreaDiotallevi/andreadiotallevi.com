@@ -14,11 +14,14 @@ export const signUp = async ({ email, password }: { email: string; password: str
         const response = await client.send(signUpCommand)
         console.log(response)
 
-        return {}
+        return {
+            userConfirmed: response.UserConfirmed,
+        }
     } catch (error) {
         console.log("Error signing up user")
         console.log(error)
-        const errorMessage = "Could not sign up user"
+
+        const errorMessage = error instanceof Error ? error.message : "Could not sign up user"
 
         return {
             error: errorMessage,

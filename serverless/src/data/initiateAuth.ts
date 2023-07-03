@@ -8,7 +8,6 @@ const client = new CognitoIdentityProviderClient({ region: process.env.AWS_REGIO
 export const initiateAuth = async ({ email, password }: { email: string; password: string }) => {
     try {
         const initiateAuthCommand = new InitiateAuthCommand({
-            // AuthFlow: "U",
             AuthFlow: "USER_PASSWORD_AUTH",
             ClientId: process.env.USER_POOL_CLIENT_ID,
             AuthParameters: {
@@ -20,11 +19,14 @@ export const initiateAuth = async ({ email, password }: { email: string; passwor
         const response = await client.send(initiateAuthCommand)
         console.log(response)
 
-        return {}
+        return {
+            authenticationResult: response.AuthenticationResult,
+        }
     } catch (error) {
         console.log("Error initiating auth")
         console.log(error)
-        const errorMessage = "Could not initiate auth"
+
+        const errorMessage = error instanceof Error ? error.message : "Could not initiate auth"
 
         return {
             error: errorMessage,
