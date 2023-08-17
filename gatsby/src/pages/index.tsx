@@ -50,9 +50,10 @@ const IndexPage = ({
             <React.Fragment>
                 <Seo
                     title="Andrea Diotallevi | Software Developer"
-                    description="I am a full-stack software engineer, generative artist and pianist,
-        living in London. I am currently working with Ripple Energy enabling
-        people to part-own a wind farm for the first time."
+                    description="I am a Full Stack Developer, generative artist and
+                    pianist, living in London. I am currently working at The
+                    Guardian, where I contribute to shaping the future of
+                    digital journalism."
                     tags={[
                         "Learn JavaScript",
                         "Learn React",
@@ -66,10 +67,10 @@ const IndexPage = ({
                 <div className={indexStyles.container}>
                     <h1>Hi, I'm Andrea Diotallevi</h1>
                     <p style={{ lineHeight: "1.7em" }}>
-                        I am a full-stack software engineer, generative artist
-                        and pianist, living in London. I am currently working
-                        with Ripple Energy enabling people to part-own a wind
-                        farm for the first time.
+                        I am a Full Stack Developer, generative artist and
+                        pianist, living in London. I am currently working at The
+                        Guardian, where I contribute to shaping the future of
+                        digital journalism.
                     </p>
                     <div style={{ display: "flex", flexWrap: "wrap" }}>
                         <ButtonMain

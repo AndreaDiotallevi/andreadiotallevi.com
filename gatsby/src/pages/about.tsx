@@ -36,18 +36,16 @@ const AboutPage = ({ data: { file } }: PageProps<DataProps>) => {
                         </div>
                         <div className={aboutStyles.aboutTextDiv}>
                             <p>
-                                I am a full-stack software developer at{" "}
+                                I am a Full Stack Developer at{" "}
                                 <a
-                                    href="https://rippleenergy.com/"
+                                    href="https://www.theguardian.com"
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    Ripple Energy
+                                    The Guardian
                                 </a>
-                                , where I contribute to the renewable energy
-                                transformation allowing people to part-own a new
-                                wind farm to power their homes with clean
-                                electricity.
+                                , where I contribute to shaping the future of
+                                digital journalism.
                             </p>
                             <p>
                                 To improve my skills, I enjoy writing{" "}
