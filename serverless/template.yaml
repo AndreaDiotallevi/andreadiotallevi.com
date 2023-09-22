@@ -71,8 +71,6 @@ Resources:
             UserPoolId: !Ref CognitoUserPool
             ProviderName: "Google"
             ProviderDetails:
-                client_id: "242260039632-ao8vp32d8su6c2n041jdacd6cpdkvcm8.apps.googleusercontent.com"
-                client_secret: "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"
                 authorize_scopes: "profile email openid"
             ProviderType: "Google"
             AttributeMapping:
