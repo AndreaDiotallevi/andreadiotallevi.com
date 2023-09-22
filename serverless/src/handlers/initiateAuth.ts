@@ -2,9 +2,12 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda"
 import { initiateAuth } from "../data"
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-    const { email, password } = JSON.parse(event.body as string)
+    console.log("BEFORE", event.body)
+    const { clientId, username } = JSON.parse(event.body as string)
+    console.log("LOGGGG")
+    console.log("handler", clientId)
 
-    const { error, authenticationResult } = await initiateAuth({ email, password })
+    const { error, authenticationResult } = await initiateAuth({ clientId, username })
 
     const statusCode = error ? 500 : 200
     const body = error ? JSON.stringify({ error }) : JSON.stringify({ authenticationResult })

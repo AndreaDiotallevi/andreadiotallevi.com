@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GoogleLogin } from "@react-oauth/google"
 
 import ButtonMain from "../components/buttonMain"
 import ButtonMainExternal from "../components/buttonMainExternal"
@@ -62,6 +63,14 @@ const IndexPage = ({
                         "Software Development",
                         "Andrea Diotallevi's Website",
                     ]}
+                />
+                <GoogleLogin
+                    onSuccess={credentialResponse => {
+                        console.log(credentialResponse)
+                    }}
+                    onError={() => {
+                        console.log("Login Failed")
+                    }}
                 />
                 <div className={indexStyles.container}>
                     <h1>Hi, I'm Andrea Diotallevi</h1>

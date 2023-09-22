@@ -40,9 +40,13 @@ Resources:
             GenerateSecret: false
             SupportedIdentityProviders:
                 - COGNITO
+                - Google
             CallbackURLs:
                 - https://example.com/callback
                 - http://localhost:3000/callback
+                - http://localhost:8000
+                - http://localhost:8000/callback
+                - http://localhost
             AllowedOAuthFlowsUserPoolClient: true
             AllowedOAuthFlows:
                 - code
@@ -51,9 +55,28 @@ Resources:
                 - email
                 - openid
                 - profile
-            ExplicitAuthFlows:
-                - ADMIN_NO_SRP_AUTH
-                - USER_PASSWORD_AUTH
+            # ExplicitAuthFlows:
+            #     - ADMIN_NO_SRP_AUTH
+            #     - USER_PASSWORD_AUTH
+
+    UserPoolDomain:
+        Type: AWS::Cognito::UserPoolDomain
+        Properties:
+            Domain: !Sub ${AWS::StackName}-${AWS::AccountId}
+            UserPoolId: !Ref CognitoUserPool
+
+    UserPoolIdentityProvider:
+        Type: AWS::Cognito::UserPoolIdentityProvider
+        Properties:
+            UserPoolId: !Ref CognitoUserPool
+            ProviderName: "Google"
+            ProviderDetails:
+                client_id: "242260039632-ao8vp32d8su6c2n041jdacd6cpdkvcm8.apps.googleusercontent.com"
+                client_secret: "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"
+                authorize_scopes: "profile email openid"
+            ProviderType: "Google"
+            AttributeMapping:
+                email: "email"
 
     DynamoDBTable:
         Type: AWS::DynamoDB::Table
