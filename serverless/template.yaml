@@ -31,15 +31,17 @@ Resources:
                 - AttributeDataType: String
                   Name: email
                   Required: false
+                  Mutable: true
 
     CognitoUserPoolClient:
         Type: AWS::Cognito::UserPoolClient
+        DependsOn:
+            - CognitoUserPoolGoogleIdentityProvider
         Properties:
             UserPoolId: !Ref CognitoUserPool
             ClientName: !Sub ${AWS::StackName}-UserPoolClient
             GenerateSecret: false
             SupportedIdentityProviders:
-                - COGNITO
                 - Google
             CallbackURLs:
                 - https://example.com/callback
@@ -55,22 +57,25 @@ Resources:
                 - email
                 - openid
                 - profile
+                - aws.cognito.signin.user.admin
             # ExplicitAuthFlows:
             #     - ADMIN_NO_SRP_AUTH
             #     - USER_PASSWORD_AUTH
 
-    UserPoolDomain:
+    CognitoUserPoolDomain:
         Type: AWS::Cognito::UserPoolDomain
         Properties:
             Domain: !Sub ${AWS::StackName}-${AWS::AccountId}
             UserPoolId: !Ref CognitoUserPool
 
-    UserPoolIdentityProvider:
+    CognitoUserPoolGoogleIdentityProvider:
         Type: AWS::Cognito::UserPoolIdentityProvider
         Properties:
             UserPoolId: !Ref CognitoUserPool
             ProviderName: "Google"
             ProviderDetails:
+                client_id: "{{resolve:ssm:GOOGLE_IDENTITY_PROVIDER_CLIENT_ID}}"
+                client_secret: "{{resolve:ssm:GOOGLE_IDENTITY_PROVIDER_CLIENT_SECRET}}"
                 authorize_scopes: "profile email openid"
             ProviderType: "Google"
             AttributeMapping:
@@ -502,6 +507,12 @@ Outputs:
     CognitoUserPoolClientId:
         Description: Cognito user pool client ID
         Value: !Ref CognitoUserPoolClient
+    CognitoUserPoolDomain:
+        Description: Cognito user pool domain
+        Value: !Ref CognitoUserPoolDomain
+    CognitoUserPoolGoogleIdentityProvider:
+        Description: Cognito user pool Google identity provider
+        Value: !Ref CognitoUserPoolGoogleIdentityProvider
     # BLOGS
     GetBlogsFunctionArn:
         Description: Get blogs lambda funcion ARN
