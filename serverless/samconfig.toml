@@ -6,7 +6,7 @@ stack_name = "andreadiotallevi"
 region = "eu-west-2"
 
 [default.sync.parameters]
-profile = "blog_sandbox"
+profile = "default"
 
 [default.logs.parameters]
-profile = "blog_sandbox"
+profile = "default"
