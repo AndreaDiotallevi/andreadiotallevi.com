@@ -197,7 +197,7 @@ const Blog = ({
                     </ButtonMainExternal>
                     <ButtonMainExternal
                         color={color}
-                        href={`https://github.com/AndreaDiotallevi/andreadiotallevi.com/edit/main/src/posts/${slug}/${slug}.md`}
+                        href={`https://github.com/AndreaDiotallevi/andreadiotallevi.com/edit/main/gatsby/src/posts/${slug}/${slug}.md`}
                     >
                         Edit on GitHub
                     </ButtonMainExternal>
