@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import { Link, graphql, PageProps, navigate } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { GoogleLogin } from "@react-oauth/google"
 
@@ -64,8 +64,27 @@ const IndexPage = ({
                         "Andrea Diotallevi's Website",
                     ]}
                 />
+                <button
+                    onClick={() => {
+                        navigate(
+                            `${process.env.GATSBY_COGNITO_DOMAIN}/oauth2/authorize?identity_provider=Google&response_type=code&client_id=${process.env.GATSBY_USER_POOL_CLIENT_ID}&redirect_uri=http://localhost:8000`
+                        )
+                    }}
+                >
+                    Login
+                </button>
+                <button
+                    onClick={() => {
+                        navigate(
+                            `${process.env.GATSBY_COGNITO_DOMAIN}/logout?response_type=code&client_id=${process.env.GATSBY_USER_POOL_CLIENT_ID}&redirect_uri=http://localhost:8000`
+                        )
+                    }}
+                >
+                    Logout
+                </button>
                 <GoogleLogin
                     onSuccess={credentialResponse => {
+                        console.log("111")
                         console.log(credentialResponse)
                     }}
                     onError={() => {
