@@ -3,6 +3,7 @@ import { getUser } from "../data"
 
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const accessToken = (event.headers.Authorization ?? "").split(" ")[1]
+    console.log(accessToken)
 
     const { user, error } = await getUser({ accessToken })
 
